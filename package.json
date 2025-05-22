@@ -30,6 +30,7 @@
   },
   "scripts": {
     "eslint": "./node_modules/.bin/eslint ./src/",
+    "start": "node index.js",
     "test:unit": "./node_modules/.bin/_mocha './test/unit/**/*.test.mjs' --recursive"
   },
   "dependencies": {
