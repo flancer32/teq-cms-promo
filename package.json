@@ -34,7 +34,8 @@
     "test:unit": "./node_modules/.bin/_mocha './test/unit/**/*.test.mjs' --recursive"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "git+ssh://git@github.com:flancer32/teq-cms.git"
+    "@flancer32/teq-cms": "git+ssh://git@github.com:flancer32/teq-cms.git",
+    "dotenv": "^16.4.7"
   },
   "devDependencies": {
     "@eslint/js": "^9.25.0",

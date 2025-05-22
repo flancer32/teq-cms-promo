@@ -6,6 +6,7 @@
  */
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
+import 'dotenv/config';
 import Container from '@teqfw/di';
 
 // VARS
@@ -30,4 +31,4 @@ resolver.addNamespaceRoot('Fl32_Web_', join(node, '@flancer32', 'teq-web', 'src'
 // create the application, init and start
 /** @type {Fl32_Cms_Demo_Back_App} */
 const app = await container.get('Fl32_Cms_Demo_Back_App$');
-await app.start();
+await app.start({root});
