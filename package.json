@@ -1,0 +1,51 @@
+{
+  "name": "@flancer32/teq-cms-demo",
+  "version": "0.1.0",
+  "description": "Demo plugin for Tequila Framework showing how to build a static SSR website using teq-cms and Mustache templates.",
+  "type": "module",
+  "main": "index.js",
+  "keywords": [
+    "teqfw",
+    "tequila framework",
+    "cms demo",
+    "mustache",
+    "ssr",
+    "static site",
+    "localization",
+    "web"
+  ],
+  "homepage": "https://github.com/flancer32/teq-cms-demo#readme",
+  "bugs": {
+    "url": "https://github.com/flancer32/teq-cms-demo/issues"
+  },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "Alex Gusev",
+    "email": "alex@flancer64.com",
+    "url": "https://github.com/flancer64"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/flancer32/teq-cms-demo.git"
+  },
+  "scripts": {
+    "eslint": "./node_modules/.bin/eslint ./src/",
+    "test:unit": "./node_modules/.bin/_mocha './test/unit/**/*.test.mjs' --recursive"
+  },
+  "dependencies": {
+    "@flancer32/teq-cms": "git+ssh://git@github.com:flancer32/teq-cms.git"
+  },
+  "devDependencies": {
+    "@eslint/js": "^9.25.0",
+    "eslint": "^9.25.0",
+    "eslint-plugin-jsdoc": "^50.6.8",
+    "mocha": "^11.3.0"
+  },
+  "engines": {
+    "node": ">=22"
+  },
+  "funding": {
+    "type": "individual",
+    "url": "https://github.com/sponsors/teqfw"
+  }
+}
