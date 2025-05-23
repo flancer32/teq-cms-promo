@@ -8,6 +8,7 @@ import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import 'dotenv/config';
 import Container from '@teqfw/di';
+import Replace from '@teqfw/di/src/Pre/Replace.js';
 
 // VARS
 /* Resolve a path to the root folder. */
@@ -27,6 +28,11 @@ resolver.addNamespaceRoot('Fl32_Cms_Demo_', join(root, 'src'));
 resolver.addNamespaceRoot('Fl32_Cms_', join(node, '@flancer32', 'teq-cms', 'src'));
 resolver.addNamespaceRoot('Fl32_Tmpl_', join(node, '@flancer32', 'teq-tmpl', 'src'));
 resolver.addNamespaceRoot('Fl32_Web_', join(node, '@flancer32', 'teq-web', 'src'));
+
+// set up replacements for interfaces
+const replace = new Replace();
+replace.add('Fl32_Cms_Back_Api_Adapter', 'Fl32_Cms_Demo_Back_Di_Replace_Cms');
+container.getPreProcessor().addChunk(replace);
 
 // create the application, init and start
 /** @type {Fl32_Cms_Demo_Back_App} */
