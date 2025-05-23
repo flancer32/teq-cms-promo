@@ -6,8 +6,10 @@ export default class Fl32_Cms_Demo_Back_App {
      * @param {Fl32_Cms_Demo_Back_Logger} logger
      * @param {Fl32_Web_Back_Server_Config} dtoWebCfg
      * @param {Fl32_Web_Back_Dispatcher} dispatcher
+     * @param {Fl32_Web_Back_Handler_Pre_Log} hndlRequestLog
      * @param {Fl32_Web_Back_Handler_Static} hndlStatic
      * @param {Fl32_Web_Back_Server} server
+     * @param {Fl32_Cms_Back_Web_Handler_Template} hndlCmsTmpl
      */
     constructor(
         {
@@ -16,8 +18,10 @@ export default class Fl32_Cms_Demo_Back_App {
             Fl32_Cms_Demo_Back_Logger$: logger,
             Fl32_Web_Back_Server_Config$: dtoWebCfg,
             Fl32_Web_Back_Dispatcher$: dispatcher,
+            Fl32_Web_Back_Handler_Pre_Log$: hndlRequestLog,
             Fl32_Web_Back_Handler_Static$: hndlStatic,
             Fl32_Web_Back_Server$: server,
+            Fl32_Cms_Back_Web_Handler_Template$: hndlCmsTmpl,
         }
     ) {
         /* eslint-enable jsdoc/require-param-description,jsdoc/check-param-names */
@@ -33,9 +37,18 @@ export default class Fl32_Cms_Demo_Back_App {
         this.start = async function ({root}) {
             logger.info('The application is starting...');
             try {
-                // configure the static files handler
+                // configure all the handlers
                 const rootPath = join(root, DEF.DIR_WEB);
                 await hndlStatic.init({rootPath});
+                await hndlCmsTmpl.init({
+                    allowedLocales: ['en', 'ru'],
+                    defaultLocale: 'en',
+                    localeInUrl: true,
+                    rootPath: root,
+                });
+                // add handlers to the dispatcher
+                dispatcher.addHandler(hndlCmsTmpl);
+                dispatcher.addHandler(hndlRequestLog);
                 dispatcher.addHandler(hndlStatic);
                 // configure the web server
                 const cfg = dtoWebCfg.create();
