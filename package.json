@@ -35,6 +35,7 @@
   },
   "dependencies": {
     "@flancer32/teq-cms": "git+ssh://git@github.com:flancer32/teq-cms.git",
+    "nunjucks": "^3.2.4",
     "dotenv": "^16.4.7"
   },
   "devDependencies": {
