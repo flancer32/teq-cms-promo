@@ -45,6 +45,7 @@ export default class Fl32_Cms_Demo_Back_App {
                     defaultLocale: 'en',
                     localeInUrl: true,
                     rootPath: root,
+                    tmplEngine: process.env.TMPL_ENGINE,
                 });
                 // add handlers to the dispatcher
                 dispatcher.addHandler(hndlCmsTmpl);
@@ -52,7 +53,7 @@ export default class Fl32_Cms_Demo_Back_App {
                 dispatcher.addHandler(hndlStatic);
                 // configure the web server
                 const cfg = dtoWebCfg.create();
-                cfg.port = process.env.PORT || DEF.PORT;
+                cfg.port = process.env.SERVER_PORT || DEF.PORT;
                 await server.start(cfg);
                 logger.info('The application is ready.');
             } catch (e) {
