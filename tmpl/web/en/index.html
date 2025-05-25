@@ -1,9 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>TeqFW CMS Demo</title>
-</head>
-<body>
-This is an English demo page.
-</body>
-</html>
+{% extends "inc/layout.html" %}
+
+{% block title %}Welcome to My Nunjucks Site{% endblock %}
+
+{% block content %}
+<h1>Hello!</h1>
+<p>This is the home page of your new site built with Nunjucks.</p>
+<p>Use the navigation menu to explore other pages.</p>
+{% endblock %}
