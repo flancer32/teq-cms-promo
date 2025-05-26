@@ -52,8 +52,8 @@ export default class Fl32_Cms_Demo_Back_Di_Replace_Cms {
             }
 
             // MAIN
-            const allowedLocales = configCms.getAllowedLocales();
-            const defaultLocale = configCms.getDefaultLocale();
+            const allowedLocales = configCms.getLocaleAllowed();
+            const defaultLocale = configCms.getLocaleBaseWeb();
             const rawPath = decodeURIComponent(req.url?.split('?')[0] || '');
             const {cleanPath} = extractLocaleFromUrl(rawPath, allowedLocales, defaultLocale);
             const locale = helpCmsWeb.extractLocale({req});

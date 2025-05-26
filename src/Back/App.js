@@ -45,10 +45,15 @@ export default class Fl32_Cms_Demo_Back_App {
             try {
                 // configure the plugins
                 configCms.init({
-                    allowedLocales: ['en', 'ru'],
-                    defaultLocale: 'en',
+                    aiApiBaseUrl: process.env.TEQ_CMS_AI_API_BASE_URL,
+                    aiApiKey: process.env.TEQ_CMS_AI_API_KEY,
+                    aiApiModel: process.env.TEQ_CMS_AI_API_MODEL,
+                    aiApiOrg: process.env.TEQ_CMS_AI_API_ORG,
+                    localeAllowed: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
+                    localeBaseTranslate: process.env.TEQ_CMS_LOCALE_BASE_TRANSLATE,
+                    localeBaseWeb: process.env.TEQ_CMS_LOCALE_BASE_DISPLAY,
                     rootPath: root,
-                    tmplEngine: process.env.TMPL_ENGINE,
+                    tmplEngine: process.env.TEQ_CMS_TMPL_ENGINE,
                 });
                 // configure all the handlers
                 const rootPath = join(root, DEF.DIR_WEB);
