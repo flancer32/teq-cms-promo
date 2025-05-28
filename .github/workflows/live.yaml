@@ -1,4 +1,4 @@
-name: LIVE - Update and Restart the TeqCMS
+name: LIVE - Redeploy the TeqCMS
 
 # Trigger action manually
 on: workflow_dispatch
