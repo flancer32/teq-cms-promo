@@ -1,8 +1,35 @@
 <nav>
     <ul class="main-menu">
-        <li><a href="/">Home</a></li>
-        <li><a href="/about">About</a></li>
-        <li><a href="/contact">Contacts</a></li>
+        <li><a href="/{{ locale }}/">Home</a></li>
+        <li><a href="/{{ locale }}/about.html">About</a></li>
+        <li>
+            <span>Services</span>
+            <ul>
+                <li><a href="/{{ locale }}/services/setup.html">Setup</a></li>
+                <li><a href="/{{ locale }}/services/customization.html">Customization</a></li>
+                <li><a href="/{{ locale }}/services/consulting.html">Consulting</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Features</span>
+            <ul>
+                <li><a href="/{{ locale }}/features/content-as-code.html">Content as Code</a></li>
+                <li><a href="/{{ locale }}/features/ai-localization.html">AI Localization</a></li>
+                <li><a href="/{{ locale }}/features/file-based.html">File-based CMS</a></li>
+                <li><a href="/{{ locale }}/features/ssr.html">SSR</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Documentation</span>
+            <ul>
+                <li><a href="/{{ locale }}/docs/install.html">Installation</a></li>
+                <li><a href="/{{ locale }}/docs/config.html">Configuration</a></li>
+                <li><a href="/{{ locale }}/docs/locales.html">Locales</a></li>
+                <li><a href="/{{ locale }}/docs/translate.html">Translations</a></li>
+            </ul>
+        </li>
+        <li><a href="/{{ locale }}/faq.html">FAQ</a></li>
+        <li><a href="/{{ locale }}/contact.html">Contact</a></li>
     </ul>
     {% include "inc/locales.html" %}
 </nav>

@@ -1,7 +1,7 @@
 <div class="locale-switcher-inline">
-    {% for loc in locale.allowed %}
+    {% for loc in localeAllowed %}
     {% if not loop.first %}|{% endif %}
-    {% if loc == locale.current %}
+    {% if loc == locale %}
     <span>{{ loc | upper }}</span>
     {% else %}
     <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
@@ -12,7 +12,7 @@
 <script>
     // @formatter:off
     function switchLocale(targetLocale) {
-        const allowed = {{ locale.allowed | dump | safe }};
+        const allowed = {{ localeAllowed | dump | safe }};
         const path = window.location.pathname;
         const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
         let basePath = path;

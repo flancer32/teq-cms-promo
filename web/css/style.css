@@ -1,3 +1,4 @@
+/* === Layout & Typography === */
 body {
     margin: 2rem auto;
     max-width: 700px;
@@ -9,6 +10,13 @@ body {
     padding: 0 1rem;
 }
 
+h1 {
+    font-size: 2rem;
+    margin-top: 0;
+    color: #111;
+}
+
+/* === Navigation === */
 nav {
     display: flex;
     justify-content: space-between;
@@ -16,14 +24,19 @@ nav {
     margin-bottom: 2rem;
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.5rem;
+    position: relative;
 }
 
 nav ul {
     list-style: none;
-    padding-left: 0;
+    padding: 0;
+    margin: 0;
     display: flex;
     gap: 1rem;
-    margin: 0;
+}
+
+nav li {
+    position: relative;
 }
 
 nav a {
@@ -35,12 +48,35 @@ nav a:hover {
     text-decoration: underline;
 }
 
-h1 {
-    font-size: 2rem;
-    margin-top: 0;
-    color: #111;
+/* === Submenu === */
+nav ul ul {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    min-width: 12rem;
+    background: #fff;
+    border: 1px solid #ccc;
+    padding: 0.5rem 0;
+    list-style: none;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 100;
 }
 
+nav ul li:hover > ul {
+    display: block;
+}
+
+nav ul ul li {
+    padding: 0.25rem 1rem;
+    white-space: nowrap;
+}
+
+nav ul ul a {
+    color: #007acc;
+}
+
+/* === Locale Switcher === */
 .locale-switcher-inline {
     display: flex;
     gap: 0.5rem;

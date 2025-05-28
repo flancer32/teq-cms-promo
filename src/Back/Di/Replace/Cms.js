@@ -46,10 +46,10 @@ export default class Fl32_Cms_Demo_Back_Di_Replace_Cms {
             }
 
             // MAIN
-            const allowedLocales = configCms.getLocaleAllowed();
-            const defaultLocale = configCms.getLocaleBaseWeb();
+            const localeAllowed = configCms.getLocaleAllowed();
+            const localeBaseWeb = configCms.getLocaleBaseWeb();
             const rawPath = decodeURIComponent(req.url?.split('?')[0] || '');
-            const {cleanPath} = extractLocaleFromUrl(rawPath, allowedLocales, defaultLocale);
+            const {cleanPath} = extractLocaleFromUrl(rawPath, localeAllowed, localeBaseWeb);
             const locale = helpCmsWeb.extractLocale({req});
             const tmplPath = buildTemplatePath(cleanPath);
 
@@ -58,15 +58,13 @@ export default class Fl32_Cms_Demo_Back_Di_Replace_Cms {
                 name: tmplPath,
                 locales: {
                     user: locale,
-                    app: defaultLocale,
+                    app: localeBaseWeb,
                 },
             });
             const data = {
                 ...extractVisitorInfo(req),
-                locale: {
-                    allowed: allowedLocales,
-                    current: locale,
-                },
+                locale,
+                localeAllowed,
             };
             return {target, data, options: {}};
         };

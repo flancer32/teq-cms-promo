@@ -1,8 +1,35 @@
 <nav>
     <ul class="main-menu">
-        <li><a href="/">Начало</a></li>
-        <li><a href="/about">Инфо</a></li>
-        <li><a href="/contact">Контакты</a></li>
+        <li><a href="/{{ locale }}/">Главная</a></li>
+        <li><a href="/{{ locale }}/about.html">Информация</a></li>
+        <li>
+            <span>Услуги</span>
+            <ul>
+                <li><a href="/{{ locale }}/services/setup.html">Настройка</a></li>
+                <li><a href="/{{ locale }}/services/customization.html">Кастомизация</a></li>
+                <li><a href="/{{ locale }}/services/consulting.html">Консалтинг</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Возможности</span>
+            <ul>
+                <li><a href="/{{ locale }}/features/content-as-code.html">Контент как код</a></li>
+                <li><a href="/{{ locale }}/features/ai-localization.html">AI Локализация</a></li>
+                <li><a href="/{{ locale }}/features/file-based.html">Файловая CMS</a></li>
+                <li><a href="/{{ locale }}/features/ssr.html">SSR</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Документация</span>
+            <ul>
+                <li><a href="/{{ locale }}/docs/install.html">Установка</a></li>
+                <li><a href="/{{ locale }}/docs/config.html">Конфигурация</a></li>
+                <li><a href="/{{ locale }}/docs/locales.html">Локали</a></li>
+                <li><a href="/{{ locale }}/docs/translate.html">Переводы</a></li>
+            </ul>
+        </li>
+        <li><a href="/{{ locale }}/faq.html">FAQ</a></li>
+        <li><a href="/{{ locale }}/contact.html">Контакты</a></li>
     </ul>
     {% include "inc/locales.html" %}
 </nav>
