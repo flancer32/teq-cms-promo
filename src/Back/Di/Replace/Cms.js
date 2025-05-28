@@ -6,18 +6,12 @@
 export default class Fl32_Cms_Demo_Back_Di_Replace_Cms {
     /* eslint-disable jsdoc/require-param-description,jsdoc/check-param-names */
     /**
-     * @param {typeof import('node:path')} path
-     * @param {Fl32_Cms_Demo_Back_Defaults} DEF
-     * @param {Fl32_Cms_Demo_Back_Logger} logger
      * @param {Fl32_Cms_Back_Config} configCms
      * @param {Fl32_Cms_Back_Helper_Web} helpCmsWeb
      * @param {Fl32_Tmpl_Back_Dto_Target} dtoTmplTarget
      */
     constructor(
         {
-            'node:path': path,
-            Fl32_Cms_Demo_Back_Defaults$: DEF,
-            Fl32_Cms_Demo_Back_Logger$: logger,
             Fl32_Cms_Back_Config$: configCms,
             Fl32_Cms_Back_Helper_Web$: helpCmsWeb,
             Fl32_Tmpl_Back_Dto_Target$: dtoTmplTarget,

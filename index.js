@@ -1,40 +1,40 @@
 #!/usr/bin/env node
 'use strict';
 /**
- * Entry point for teq-cms-demo app.
- * Starts the Object Container and launches the web server.
+ * Entry point for the Demo CMS application.
+ * Configures the DI container and launches the web server.
  */
 import {dirname, join} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import 'dotenv/config';
+
 import Container from '@teqfw/di';
 import Replace from '@teqfw/di/src/Pre/Replace.js';
 
-// VARS
-/* Resolve a path to the root folder. */
-const url = new URL(import.meta.url);
-const script = fileURLToPath(url);
-const root = dirname(script);
+// Paths
+const root = dirname(fileURLToPath(import.meta.url));
 const node = join(root, 'node_modules');
 
-// Create a new instance of the container
+// Create a DI container
 const container = new Container();
 
-// Get the resolver from the container
+/** Namespace resolver for locating modules. */
 const resolver = container.getResolver();
-// set up this app namespace
 resolver.addNamespaceRoot('Fl32_Cms_Demo_', join(root, 'src'));
-// set up the namespaces for the deps
 resolver.addNamespaceRoot('Fl32_Cms_', join(node, '@flancer32', 'teq-cms', 'src'));
 resolver.addNamespaceRoot('Fl32_Tmpl_', join(node, '@flancer32', 'teq-tmpl', 'src'));
 resolver.addNamespaceRoot('Fl32_Web_', join(node, '@flancer32', 'teq-web', 'src'));
 
-// set up replacements for interfaces
+// Add interface replacements
+/** Replaces CMS adapter interface with app-specific implementation. */
 const replace = new Replace();
 replace.add('Fl32_Cms_Back_Api_Adapter', 'Fl32_Cms_Demo_Back_Di_Replace_Cms');
 container.getPreProcessor().addChunk(replace);
 
-// create the application, init and start
-/** @type {Fl32_Cms_Demo_Back_App} */
+// Launch app
+/**
+ * Application entry point object.
+ * @type {Fl32_Cms_Demo_Back_App}
+ */
 const app = await container.get('Fl32_Cms_Demo_Back_App$');
 await app.start({root});
