@@ -10,6 +10,9 @@ body {
 }
 
 nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     margin-bottom: 2rem;
     border-bottom: 1px solid #ccc;
     padding-bottom: 0.5rem;
@@ -20,6 +23,7 @@ nav ul {
     padding-left: 0;
     display: flex;
     gap: 1rem;
+    margin: 0;
 }
 
 nav a {
@@ -35,4 +39,19 @@ h1 {
     font-size: 2rem;
     margin-top: 0;
     color: #111;
+}
+
+.locale-switcher-inline {
+    display: flex;
+    gap: 0.5rem;
+    font-size: 0.95rem;
+}
+
+.locale-switcher-inline a {
+    color: #007acc;
+    text-decoration: none;
+}
+
+.locale-switcher-inline a:hover {
+    text-decoration: underline;
 }

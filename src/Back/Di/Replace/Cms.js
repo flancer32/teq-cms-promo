@@ -67,7 +67,13 @@ export default class Fl32_Cms_Demo_Back_Di_Replace_Cms {
                     app: defaultLocale,
                 },
             });
-            const data = extractVisitorInfo(req);
+            const data = {
+                ...extractVisitorInfo(req),
+                locale: {
+                    allowed: allowedLocales,
+                    current: locale,
+                },
+            };
             return {target, data, options: {}};
         };
     }
