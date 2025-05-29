@@ -3,5 +3,109 @@
 {% block title %}Установка — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Как установить и запустить TeqCMS.</p>
+<h1>Установка и запуск TeqCMS</h1>
+
+<p><strong>TeqCMS</strong> устанавливается как обычная npm-зависимость. Вы создаёте собственный проект с HTML-шаблонами
+    и подключаете CMS через <code>@flancer32/teq-cms</code>.</p>
+
+<h2>1. Создание проекта</h2>
+<pre><code>mkdir my-site
+cd my-site
+npm init -y
+npm install @flancer32/teq-cms</code></pre>
+
+<h2>2. Структура каталогов</h2>
+
+<ul>
+    <li><code>tmpl/web/{locale}/</code> — локализованные HTML-шаблоны</li>
+    <li><code>web/</code> — публичные статические ресурсы</li>
+    <li><code>var/teq-cms/</code> — служебные файлы (база переводов, системные промпты)</li>
+</ul>
+
+<h2>3. Переменные окружения (.env)</h2>
+
+<pre><code>SERVER_TYPE=express               # или fastify
+SERVER_PORT=3000
+
+TEQ_CMS_TMPL_ENGINE=nunjucks     # или mustache
+TEQ_CMS_LOCALE_ALLOWED=en,ru
+TEQ_CMS_LOCALE_BASE_DISPLAY=en
+TEQ_CMS_LOCALE_BASE_TRANSLATE=ru
+
+TEQ_CMS_AI_API_BASE_URL=https://api.deepseek.com/v1
+TEQ_CMS_AI_API_KEY=sk-...
+TEQ_CMS_AI_API_MODEL=deepseek-chat
+TEQ_CMS_AI_API_ORG=...
+</code></pre>
+
+<h2>4. Запуск веб-сервера</h2>
+
+Вариант 1 — без внешнего сервера:
+В этом случае CMS сама настраивает и запускает встроенный HTTP-сервер:
+
+<pre><code>const cfg = configWeb.create({port});
+await server.start(cfg);</code></pre>
+
+Вариант 2 — с внешним сервером (Express или Fastify):
+Вам нужно явно подключить библиотеку и создать сервер:
+
+<pre><code>"dependencies": {
+  "express": "^4.18.2",
+  "fastify": "^4.25.1"
+}
+</code></pre>
+
+<h3>Express:</h3>
+
+<pre><code>const app = Express();
+app.use(async (req, res) => {
+    await dispatcher.onEventRequest(req, res);
+});
+app.listen(port, () => {
+    console.info(`Listening on port ${port} with Express`);
+});
+</code></pre>
+
+<h3>Fastify:</h3>
+
+<pre><code>const fastify = Fastify();
+fastify.all('*', async (request, reply) => {
+    const req = request.raw;
+    const res = reply.raw;
+    await dispatcher.onEventRequest(req, res);
+});
+await fastify.listen({port});
+</code></pre>
+
+В этом случае запуск сервера и его конфигурация полностью контролируются разработчиком проекта.
+TeqCMS можно запускать напрямую или прятать за внешним прокси (например, Nginx).
+
+<h2>5. Запуск AI-переводов</h2>
+
+Переводы запускаются командой:
+
+<pre><code>npm run translate</code></pre>
+
+CMS сравнивает метки времени и обновляет только устаревшие переводы.
+Для целевой локали можно добавить рядом с HTML-файлом файл <code>*.prompt.md</code> с уточняющей инструкцией для LLM.
+
+<h2>6. Подстановка переменных в шаблоны</h2>
+
+Для передачи данных в шаблоны используется адаптер <code>Fl32_Cms_Back_Api_Adapter</code>. Его можно заменить через
+<code>TeqFw_Di_Pre_Replace</code>:
+
+Пример:
+
+<pre><code>import Container from '@teqfw/di';
+import Replace from '@teqfw/di/src/Pre/Replace.js';
+
+const container = new Container();
+const replace = new Replace();
+replace.add('Fl32_Cms_Back_Api_Adapter', 'Fl32_Cms_Demo_Back_Di_Replace_Cms');
+container.getPreProcessor().addChunk(replace);
+</code></pre>
+
+Это позволяет гибко управлять источниками переменных без изменения основной логики CMS.
+
+<p><a href="/{{ locale }}/docs/config.html">Далее: конфигурация CMS →</a></p>
 {% endblock %}

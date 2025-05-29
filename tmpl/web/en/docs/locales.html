@@ -3,5 +3,49 @@
 {% block title %}Locales — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Locale management and language definition.</p>
+<h1>Locales and Site Language</h1>
+
+<p><strong>TeqCMS</strong> supports multilingual websites with user language detection and fallback mechanisms. All
+    locales are configured in the settings and work at the URL level.</p>
+
+<h2>1. Locale Detection</h2>
+
+<p>The user's locale is determined by the following priority:</p>
+<ol>
+    <li><strong>URL prefix</strong> — <code>/en/</code>, <code>/ru/</code>, etc.</li>
+    <li><strong><code>Accept-Language</code> header</strong> — if no prefix is specified</li>
+    <li><strong>Default locale</strong> — <code>localeBaseDisplay</code> parameter</li>
+</ol>
+
+<p>If the URL doesn't contain a valid prefix, the CMS automatically redirects the user to the path with the base locale.</p>
+
+<h2>2. Configuring Available Locales</h2>
+
+<p>Locales are specified via environment variables:</p>
+<pre><code>TEQ_CMS_LOCALE_ALLOWED=en,ru,fr</code></pre>
+
+<p>Base locale for display:</p>
+<pre><code>TEQ_CMS_LOCALE_BASE_DISPLAY=en</code></pre>
+
+<p>Base locale for translations (e.g., original texts in Russian):</p>
+<pre><code>TEQ_CMS_LOCALE_BASE_TRANSLATE=ru</code></pre>
+
+<h2>3. Template Directories</h2>
+
+<p>A subdirectory is created for each locale:</p>
+<pre><code>tmpl/web/
+├── en/
+│   └── index.html
+├── ru/
+│   └── index.html
+</code></pre>
+
+<p>If the required file is missing in the target locale, the CMS uses the version from <code>localeBaseDisplay</code>.</p>
+
+<h2>4. Switching Locales on the Site</h2>
+
+<p>To switch languages, you can use a selector with links to <code>/en</code>, <code>/ru</code>, etc.
+    The CMS always renders pages according to the URL locale, making the behavior clear and predictable.</p>
+
+<p><a href="/{{ locale }}/docs/translate.html">Next: Page Translation Mechanism →</a></p>
 {% endblock %}

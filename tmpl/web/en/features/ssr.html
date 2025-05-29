@@ -3,5 +3,26 @@
 {% block title %}SSR — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Server-side rendering using template engines like Nunjucks.</p>
+<h1>Server-Side Rendering (SSR)</h1>
+
+<p><strong>TeqCMS</strong> uses server-side rendering to generate HTML pages from templates. This
+    provides fast response times, full compatibility with search engines, and predictable website behavior without
+    requiring client-side JavaScript.</p>
+
+<p>Rendering is implemented through the packages <a href="https://github.com/flancer32/teq-tmpl" target="_blank">@flancer32/teq-tmpl</a>
+    and <a href="https://github.com/flancer32/teq-cms" target="_blank">@flancer32/teq-cms</a>, which assemble final
+    pages from template fragments. Two engines are supported: <strong>Nunjucks</strong> and <strong>Mustache</strong>,
+    and the architecture allows for connecting others.</p>
+
+<p>If a specific fragment is missing for the required locale, TeqCMS automatically uses the template from the base locale. This
+    improves reliability and flexibility when working with multilingual sites.</p>
+
+<p>Important: the locale used to display pages <strong>does not have to</strong> match the base locale from
+    which translations are made. For example, translations can be made from the Russian version while displaying
+    the English version as the main site version. This behavior is explicitly configurable.</p>
+
+<p>Rendering occurs entirely on the server side, ensuring SEO optimization and easy deployment without build
+    pipelines.</p>
+
+<p><a href="/{{ locale }}/features/ai-localization.html">How templates are localized using LLM →</a></p>
 {% endblock %}

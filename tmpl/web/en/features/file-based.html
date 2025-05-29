@@ -1,7 +1,20 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}File system — TeqCMS{% endblock %}
+{% block title %}File System — TeqCMS{% endblock %}
 
 {% block content %}
-<p>No databases, no admin panels — just files.</p>
+<h1>File structure instead of a database</h1>
+
+<p><strong>TeqCMS</strong> fundamentally avoids using databases and admin panels. All website work comes down to managing files that are under version control (git).</p>
+
+<ul>
+    <li><code>tmpl/web/{locale}/</code> — localized templates and pages (HTML)</li>
+    <li><code>web/</code> — static resources: images, styles, JS</li>
+</ul>
+
+<p>Changes to the base locale are made in the development environment. Then AI translation is run to create page versions for other languages. All this is committed to git: every translation, every edit remains in the commit history.</p>
+
+<p>After committing, you can <strong>push</strong> to GitHub and deploy changes to production — manually or via GitHub Actions. This structure facilitates collaborative development, change auditing, and environment migration.</p>
+
+<p><a href="/{{ locale }}/features/ssr.html">More about server-side rendering →</a></p>
 {% endblock %}

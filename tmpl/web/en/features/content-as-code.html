@@ -3,5 +3,19 @@
 {% block title %}Content as Code — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Manage all website content as versioned code.</p>
+<h1>Content as Code</h1>
+
+<p><strong>TeqCMS</strong> implements the "content as code" principle — all pages, templates and translations are stored in regular files and managed via git. This simplifies development, localization and website maintenance.</p>
+
+<ul>
+    <li>📁 HTML pages, templates and styles are regular files in the project</li>
+    <li>📝 Changes are edited in your favorite editor, without a CMS interface</li>
+    <li>🔀 Change history is tracked in git: you can compare, rollback, comment</li>
+    <li>🤝 Collaboration with other team members works like code collaboration</li>
+    <li>⚙️ Project structure matches URL structure, everything is transparent and predictable</li>
+</ul>
+
+<p>This approach is perfect for landing pages, promo sites, documentation and other projects where simplicity, control and independence from admin panels and databases are important.</p>
+
+<p><a href="/{{ locale }}/features/ai-localization.html">How AI localization works →</a></p>
 {% endblock %}

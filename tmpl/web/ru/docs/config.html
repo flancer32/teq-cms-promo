@@ -3,5 +3,77 @@
 {% block title %}Конфигурация — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Параметры конфигурации и настройка окружения.</p>
+<h1>Конфигурация CMS</h1>
+
+<p><strong>TeqCMS</strong> настраивается через переменные окружения (например, в файле <code>.env</code>) и объект
+    конфигурации, передаваемый в <code>configCms.init()</code>. Это обеспечивает простоту и прозрачность поведения
+    системы.</p>
+
+<h2>1. Основные переменные окружения</h2>
+
+<pre><code># Тип сервера: express, fastify или встроенный (если не указано)
+SERVER_TYPE=express
+
+# Порт HTTP-сервера
+SERVER_PORT=3000
+
+# Движок шаблонов: nunjucks или mustache
+TEQ_CMS_TMPL_ENGINE=nunjucks
+
+# Разрешённые локали сайта
+TEQ_CMS_LOCALE_ALLOWED=en,ru
+
+# Базовая локаль для отображения сайта
+TEQ_CMS_LOCALE_BASE_DISPLAY=en
+
+# Базовая локаль для генерации переводов
+TEQ_CMS_LOCALE_BASE_TRANSLATE=ru
+
+# Конфигурация AI-провайдера
+TEQ_CMS_AI_API_BASE_URL=https://api.openai.com/v1
+TEQ_CMS_AI_API_KEY=sk-...
+TEQ_CMS_AI_API_MODEL=gpt-4
+TEQ_CMS_AI_API_ORG=your-org-id
+</code></pre>
+
+<h2>2. Инициализация конфигурации в коде</h2>
+
+Пример вызова <code>configCms.init()</code>:
+
+<pre><code>configCms.init({
+    rootPath: root,
+    tmplEngine: process.env.TEQ_CMS_TMPL_ENGINE,
+    localeAllowed: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
+    localeBaseDisplay: process.env.TEQ_CMS_LOCALE_BASE_DISPLAY,
+    localeBaseTranslate: process.env.TEQ_CMS_LOCALE_BASE_TRANSLATE,
+    aiApiBaseUrl: process.env.TEQ_CMS_AI_API_BASE_URL,
+    aiApiKey: process.env.TEQ_CMS_AI_API_KEY,
+    aiApiModel: process.env.TEQ_CMS_AI_API_MODEL,
+    aiApiOrg: process.env.TEQ_CMS_AI_API_ORG,
+});
+</code></pre>
+
+<h2>3. Логика поведения</h2>
+
+<ul>
+    <li>Если URL не содержит префикс локали, CMS перенаправит пользователя на базовую локаль
+        (<code>localeBaseDisplay</code>).
+    </li>
+    <li>Переводы выполняются из базовой локали (<code>localeBaseTranslate</code>) в остальные.</li>
+    <li>Файлы шаблонов выбираются по локали запроса, с fallback на базовую.</li>
+</ul>
+
+<h2>4. Дополнительные настройки</h2>
+
+<p>Вы можете заменить реализацию встроенных компонентов CMS, например, адаптер шаблонных переменных:</p>
+
+<pre><code>const container = new Container();
+const replace = new Replace();
+replace.add('Fl32_Cms_Back_Api_Adapter', 'My_Custom_Adapter');
+container.getPreProcessor().addChunk(replace);
+</code></pre>
+
+<p>Это даёт возможность адаптировать CMS под любую бизнес-логику без изменения исходного кода.</p>
+
+<p><a href="/{{ locale }}/docs/locales.html">Далее: работа с локалями →</a></p>
 {% endblock %}

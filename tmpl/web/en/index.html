@@ -1,12 +1,27 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Welcome to Tequila CMS{% endblock %}
+{% block title %}Tequila CMS — content as code, AI as translator{% endblock %}
 
 {% block content %}
-<h1>Tequila CMS — a minimalistic and extensible content management system</h1>
-<p>This system is specifically designed for modern projects where content is code, and localization and page generation are handled by AI.</p>
-<p>Tequila CMS uses a file structure to store templates and data, ensuring transparency, version control, and easy integration with CI/CD.</p>
-<p>With conventional dependency injection and server-side rendering, you can quickly deploy a multilingual site without complex configurations.</p>
-<p>The built-in automatic translation system allows generating localized pages as originals are updated, leveraging LLM capabilities.</p>
-<p>To get started, use the navigation menu. You can also open a sample page or explore the project structure.</p>
+<h1>Tequila CMS — minimalistic AI-oriented CMS without databases or admin panels</h1>
+
+<p><strong>TeqCMS</strong> is a way to manage a multilingual website as code. Content is stored in files,
+    edited via git and automatically translated using LLMs.</p>
+
+<div style="text-align: center; margin: 2em 0;">
+    <img src="/img/schema/overview.png" alt="CMS architecture overview" style="max-width:100%; height:auto;">
+</div>
+
+<ul>
+    <li>⏱ Quick start: deployment without builds or databases</li>
+    <li>🌍 AI localization: translations update themselves</li>
+    <li>💾 Transparency: the entire site consists of regular HTML files</li>
+    <li>🔌 SSR + templates: Nunjucks, Mustache or plain HTML</li>
+    <li>🤖 LLM-assisted development: page-level prompt support</li>
+</ul>
+
+<p>TeqCMS is perfect for landing pages, documentation, SaaS promotions and indie projects with international audiences.</p>
+
+<p><a href="/features/content-as-code.html">Learn more about "content as code"</a> or <a href="/services/setup.html">order
+    setup</a>.</p>
 {% endblock %}

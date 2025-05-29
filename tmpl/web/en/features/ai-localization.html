@@ -3,5 +3,27 @@
 {% block title %}AI Localization — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Automatic page translation using language models.</p>
+<h1>AI Localization</h1>
+
+<p><strong>TeqCMS</strong> supports automatic HTML page translation using language models (LLMs) compatible with OpenAI API. This allows creating and maintaining multilingual websites without manual content synchronization.</p>
+
+<ul>
+    <li>🧠 Translation is performed via the <code>npm run translate</code> command</li>
+    <li>🔌 Supports OpenAI, DeepSeek and other compatible APIs</li>
+    <li>📄 Each page can have local instructions in <code>*.prompt.md</code> files</li>
+    <li>🗂 Translation state is stored in <code>var/teq-cms/db_translate.json</code></li>
+    <li>⚙️ Behavior can be configured through environment variables:
+        <pre><code>TEQ_CMS_LOCALE_ALLOWED=...
+TEQ_CMS_LOCALE_BASE_TRANSLATE=...</code></pre>
+    </li>
+</ul>
+
+<p>The default system prompt is embedded in <a
+        href="https://github.com/flancer32/teq-cms/blob/main/src/Back/Defaults.js#L5"
+        target="_blank"><code>Defaults.js</code></a>, but can be overridden via the <code>var/teq-cms/system.prompt.md</code> file.
+</p>
+
+<p>TeqCMS tracks the modification time of the original page and the last translation time. This allows automatic detection of outdated translations and updates them only when necessary.</p>
+
+<p><a href="/{{ locale }}/features/file-based.html">Learn more about file structure →</a></p>
 {% endblock %}

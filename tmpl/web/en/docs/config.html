@@ -3,5 +3,73 @@
 {% block title %}Configuration — TeqCMS{% endblock %}
 
 {% block content %}
-<p>Configuration parameters and environment setup.</p>
+<h1>CMS Configuration</h1>
+
+<p><strong>TeqCMS</strong> is configured through environment variables (e.g., in the <code>.env</code> file) and a configuration object passed to <code>configCms.init()</code>. This ensures simplicity and transparency of the system's behavior.</p>
+
+<h2>1. Main Environment Variables</h2>
+
+<pre><code># Server type: express, fastify or built-in (if not specified)
+SERVER_TYPE=express
+
+# HTTP server port
+SERVER_PORT=3000
+
+# Template engine: nunjucks or mustache
+TEQ_CMS_TMPL_ENGINE=nunjucks
+
+# Allowed site locales
+TEQ_CMS_LOCALE_ALLOWED=en,ru
+
+# Base locale for site display
+TEQ_CMS_LOCALE_BASE_DISPLAY=en
+
+# Base locale for translation generation
+TEQ_CMS_LOCALE_BASE_TRANSLATE=ru
+
+# AI provider configuration
+TEQ_CMS_AI_API_BASE_URL=https://api.openai.com/v1
+TEQ_CMS_AI_API_KEY=sk-...
+TEQ_CMS_AI_API_MODEL=gpt-4
+TEQ_CMS_AI_API_ORG=your-org-id
+</code></pre>
+
+<h2>2. Configuration Initialization in Code</h2>
+
+Example of <code>configCms.init()</code> call:
+
+<pre><code>configCms.init({
+    rootPath: root,
+    tmplEngine: process.env.TEQ_CMS_TMPL_ENGINE,
+    localeAllowed: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
+    localeBaseDisplay: process.env.TEQ_CMS_LOCALE_BASE_DISPLAY,
+    localeBaseTranslate: process.env.TEQ_CMS_LOCALE_BASE_TRANSLATE,
+    aiApiBaseUrl: process.env.TEQ_CMS_AI_API_BASE_URL,
+    aiApiKey: process.env.TEQ_CMS_AI_API_KEY,
+    aiApiModel: process.env.TEQ_CMS_AI_API_MODEL,
+    aiApiOrg: process.env.TEQ_CMS_AI_API_ORG,
+});
+</code></pre>
+
+<h2>3. Behavior Logic</h2>
+
+<ul>
+    <li>If the URL doesn't contain a locale prefix, CMS will redirect the user to the base locale (<code>localeBaseDisplay</code>).</li>
+    <li>Translations are performed from the base locale (<code>localeBaseTranslate</code>) to others.</li>
+    <li>Template files are selected based on the request locale, with fallback to the base one.</li>
+</ul>
+
+<h2>4. Additional Settings</h2>
+
+<p>You can replace the implementation of built-in CMS components, for example, the template variables adapter:</p>
+
+<pre><code>const container = new Container();
+const replace = new Replace();
+replace.add('Fl32_Cms_Back_Api_Adapter', 'My_Custom_Adapter');
+container.getPreProcessor().addChunk(replace);
+</code></pre>
+
+<p>This allows adapting CMS to any business logic without modifying the source code.</p>
+
+<p><a href="/{{ locale }}/docs/locales.html">Next: working with locales →</a></p>
 {% endblock %}
