@@ -3,35 +3,35 @@
 {% block title %}Translation — TeqCMS{% endblock %}
 
 {% block content %}
-<h1>Page Translation via AI</h1>
+<h1>Page translation via AI</h1>
 
 <p><strong>TeqCMS</strong> uses language models (LLM) for automatic HTML page translation. The mechanism works locally, is initiated manually, and takes translation metadata into account.</p>
 
-<h2>1. Launch Command</h2>
+<h2>1. Launch command</h2>
 <p>Translations are initiated via CLI command:</p>
 <pre><code>npm run translate</code></pre>
-<p>The system scans all templates of the base locale and compares their last modification date with the date of the last translation to other locales.</p>
+<p>The system scans all templates of the base locale and compares their last modification date with the date of the last translation into other locales.</p>
 
-<h2>2. Metadata Storage</h2>
+<h2>2. Metadata storage</h2>
 <p>Translation information is stored in a JSON file:</p>
 <pre><code>var/teq-cms/db_translate.json</code></pre>
 <p>The file contains modification dates of the original and last translation dates for each locale. This allows precise identification of which pages need updating.</p>
 
-<h2>3. Template Structure</h2>
+<h2>3. Template structure</h2>
 <ul>
     <li>Source templates are located in <code>tmpl/web/{baseLocale}/</code></li>
     <li>Translations are saved to <code>tmpl/web/{targetLocale}/</code></li>
     <li>If a translation file is missing or outdated — it's automatically recreated</li>
 </ul>
 
-<h2>4. LLM Prompts</h2>
-<p>By default, the system uses built-in CMS instructions. These can be overridden in the file:</p>
+<h2>4. LLM prompts</h2>
+<p>By default, the system instruction embedded in CMS is used. It can be overridden in the file:</p>
 <pre><code>var/teq-cms/system.prompt.md</code></pre>
-<p>Additionally, you can specify a local prompt for each page in the target locale:</p>
+<p>Additionally, a local prompt can be set for each page in the target locale:</p>
 <pre><code>tmpl/web/ru/about.prompt.md</code></pre>
-<p>Such files are added to the LLM request and allow refining style or terminology for specific translations.</p>
+<p>Such a file is added to the LLM request and allows refining style or terminology for a specific translation.</p>
 
-<h2>5. API Support</h2>
+<h2>5. API support</h2>
 <p>TeqCMS works with any providers compatible with OpenAI API (e.g., OpenAI, DeepSeek). Configuration is set via environment variables:</p>
 <pre><code>TEQ_CMS_AI_API_BASE_URL=
 TEQ_CMS_AI_API_KEY=
@@ -39,5 +39,4 @@ TEQ_CMS_AI_API_MODEL=
 TEQ_CMS_AI_API_ORG=
 </code></pre>
 
-<p><a href="/{{ locale }}/docs/install.html">Return to installation guide →</a></p>
 {% endblock %}
