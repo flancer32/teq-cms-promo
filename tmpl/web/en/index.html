@@ -1,28 +1,28 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Tequila CMS — content as code, AI as translator{% endblock %}
+{% block title %}TeqCMS — content as code, AI as translator{% endblock %}
 
 {% block content %}
-<h1>Tequila CMS — minimalist AI-oriented CMS without databases or admin panels</h1>
+<h1>TeqCMS — AI-oriented CMS for those who code websites by hand</h1>
 
-<p><strong>TeqCMS</strong> is a way to manage a multilingual website as code. Content is stored in files,
-    edited via git and automatically translated using LLM.</p>
+<p><strong>TeqCMS</strong> is a file-based CMS without databases or frameworks, designed for quick launch and maintenance of multilingual websites. Content is edited in IDE, translated by LLM models, and published as regular HTML files.</p>
 
 <div style="text-align: center; margin: 2em 0;">
     <img src="/img/schema/overview.png" alt="CMS architecture overview" style="max-width:100%; height:auto;">
 </div>
 
 <ul>
-    <li>⏱ Quick start: deployment without builds or databases</li>
-    <li>🌍 AI localization: translations update themselves</li>
-    <li>💾 Transparency: the entire site is just regular HTML files</li>
-    <li>🔌 SSR + templates: Nunjucks, Mustache or plain HTML</li>
-    <li>🤖 LLM-powered development: page-level prompt support</li>
+    <li>⚡ Speed: changes and translations appear on the site within minutes</li>
+    <li>🌍 AI localization: translations are generated and updated automatically</li>
+    <li>💾 Git-first: the entire website consists of regular files under version control</li>
+    <li>🛠 SSR and templates: server-side rendering only, no SPA</li>
+    <li>🤖 LLM-assisted development: support for system and local prompts</li>
 </ul>
 
-<p>TeqCMS is perfect for landing pages, documentation, SaaS promotions and indie projects with international audiences.</p>
+<p>TeqCMS is the choice for those who want to publish and translate pages without bureaucracy and manual duplication.</p>
+
+<p>Ideal for landing pages, documentation, SaaS promotions, and other projects where speed and locale control are important.</p>
 
 <p><a href="/{{ locale }}/features/content-as-code.html">Learn more about "content as code"</a> or <a
-        href="/{{ locale }}/contact.html">order
-    customization</a>.</p>
+        href="/{{ locale }}/contact.html">get installation help</a>.</p>
 {% endblock %}

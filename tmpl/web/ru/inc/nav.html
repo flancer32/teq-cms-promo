@@ -1,8 +1,11 @@
 <nav>
-    <ul class="main-menu">
-        <li><a href="/{{ locale }}/">Главная</a></li>
-        <li><a href="/{{ locale }}/about.html">О проекте</a></li>
-        <li><a href="/{{ locale }}/services.html">Услуги</a></li>
+    <ul class="main-menu" id="mainMenu">
+        <li class="home-link">
+            <a href="/{{ locale }}/">
+                <img src="/favicon.ico" alt="Home" class="home-icon">
+                <span class="home-text">Главная</span>
+            </a>
+        </li>
         <li>
             <span>Возможности</span>
             <ul>
@@ -15,14 +18,69 @@
         <li>
             <span>Документация</span>
             <ul>
+                <li><a href="/{{ locale }}/docs/about.html">О проекте</a></li>
                 <li><a href="/{{ locale }}/docs/install.html">Установка</a></li>
                 <li><a href="/{{ locale }}/docs/config.html">Конфигурация</a></li>
                 <li><a href="/{{ locale }}/docs/locales.html">Локали</a></li>
                 <li><a href="/{{ locale }}/docs/translate.html">Переводы</a></li>
             </ul>
         </li>
-        <li><a href="/{{ locale }}/faq.html">FAQ</a></li>
+        <li><a href="/{{ locale }}/services.html">Услуги</a></li>
         <li><a href="/{{ locale }}/contact.html">Контакты</a></li>
     </ul>
-    {% include "inc/locales.html" %}
+
+    <div class="nav-right">
+        <div class="locale-switcher-inline">
+            {% for loc in localeAllowed %}
+            {% if not loop.first %}|{% endif %}
+            {% if loc == locale %}
+            <span>{{ loc | upper }}</span>
+            {% else %}
+            <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
 </nav>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mainMenu');
+        const navRight = document.querySelector('.nav-right');
+        if (menu) menu.classList.toggle('open');
+        if (navRight) navRight.classList.toggle('hidden-on-open');
+    }
+
+    // @formatter:off
+    function switchLocale(targetLocale) {
+        const allowed = {{ localeAllowed | dump | safe }};
+        const path = window.location.pathname;
+        const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
+        let basePath = path;
+
+        if (current) {
+            basePath = path.replace(new RegExp(`^/${current}`), '');
+        }
+        window.location.href = `/${targetLocale}${basePath || '/'}`;
+        return false;
+    }
+    // @formatter:on
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth <= 768) {
+            const toggles = document.querySelectorAll('.main-menu > li > span');
+            toggles.forEach(span => {
+                span.addEventListener('click', () => {
+                    const parent = span.parentElement;
+                    parent.classList.toggle('open');
+                    const submenu = span.nextElementSibling;
+                    if (submenu) {
+                        const expanded = submenu.style.maxHeight;
+                        submenu.style.maxHeight = expanded ? null : submenu.scrollHeight + 'px';
+                    }
+                });
+            });
+        }
+    });
+</script>

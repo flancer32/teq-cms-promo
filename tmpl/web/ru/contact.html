@@ -1,13 +1,42 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}Контакты — TeqCMS{% endblock %}
+{% block title %}Контакты и услуги — TeqCMS{% endblock %}
 
 {% block content %}
-<h1>Контакты</h1>
+<h1>Связаться со мной</h1>
 
 <ul>
     <li>Email: <a href="mailto:alex@wiredgeese.com">alex@wiredgeese.com</a></li>
     <li>GitHub: <a href="https://github.com/flancer64" target="_blank">github.com/flancer64</a></li>
     <li>Telegram: <a href="https://t.me/wiredgeese" target="_blank">@wiredgeese</a></li>
 </ul>
+
+<h2>Обо мне</h2>
+
+<div class="author-block">
+    <img src="/img/alex.png" alt="Alex Gusev" class="author-photo">
+    <p>Я — Алекс Гусев, автор TeqCMS и TeqFW, разработчик с 25+ годами опыта. Создаю системы, где контент — это код, а
+        AI помогает автоматизировать рутину. TeqCMS я использую сам, в реальных проектах — например, <a
+                href="https://nutrilog.app.wiredgeese.com/" target="_blank">NutriLog</a>.</p>
+</div>
+
+<h2>Чем могу помочь</h2>
+
+<ul>
+    <li><strong>Установка</strong> и запуск проекта под ваше окружение</li>
+    <li><strong>AI-локализация</strong>: настройка перевода с помощью LLM API</li>
+    <li><strong>Кастомизация</strong>: шаблоны, логика, компоненты CMS</li>
+    <li><strong>Консультации</strong>: архитектура, SSR, CI/CD, деплой</li>
+</ul>
+
+<h2>Условия</h2>
+
+<ul>
+    <li>Разовая помощь или сопровождение</li>
+    <li>Поддержка при миграции и продакшене</li>
+</ul>
+
+<p>Базовая ставка — от <strong>30 €/час</strong>. Стоимость зависит от задачи.</p>
+
+<p><a href="mailto:alex@wiredgeese.com">Напишите мне</a>, если хотите быстро внедрить TeqCMS под ваш проект.</p>
 {% endblock %}
