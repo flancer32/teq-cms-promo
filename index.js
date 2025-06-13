@@ -29,6 +29,7 @@ resolver.addNamespaceRoot('Fl32_Web_', join(node, '@flancer32', 'teq-web', 'src'
 /** Replaces CMS adapter interface with app-specific implementation. */
 const replace = new Replace();
 replace.add('Fl32_Cms_Back_Api_Adapter', 'Fl32_Cms_Demo_Back_Di_Replace_Cms');
+replace.add('Fl32_Tmpl_Back_Api_Adapter', 'Fl32_Cms_Demo_Back_Di_Replace_Tmpl');
 container.getPreProcessor().addChunk(replace);
 
 // Launch app
