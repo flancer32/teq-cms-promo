@@ -29,25 +29,13 @@
     "url": "git+https://github.com/flancer32/teq-cms-demo.git"
   },
   "scripts": {
-    "eslint": "./node_modules/.bin/eslint ./src/",
-    "start": "node index.js",
-    "test:unit": "./node_modules/.bin/_mocha './test/unit/**/*.test.mjs' --recursive",
-    "translate": "./node_modules/.bin/teq-cms translate"
+    "start": "npx teq-cms web",
+    "translate": "npx teq-cms translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "git+ssh://git@github.com:flancer32/teq-cms.git",
-    "@teqfw/di": ">=0.36.0",
-    "dotenv": "^16.4.7",
-    "express": "^4.18.2",
-    "fastify": "^4.25.1",
-    "nunjucks": "^3.2.4",
-    "openai": "^4.103.0"
-  },
-  "devDependencies": {
-    "@eslint/js": "^9.25.0",
-    "eslint": "^9.25.0",
-    "eslint-plugin-jsdoc": "^50.6.8",
-    "mocha": "^11.3.0"
+    "@flancer32/teq-cms": "^0.2.0",
+    "dotenv": "^16.5.0",
+    "nunjucks": "^3.2.4"
   },
   "overrides": {
     "whatwg-url": "13.0.0"

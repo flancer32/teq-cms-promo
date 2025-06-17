@@ -1,0 +1,18 @@
+[Unit]
+Description=TeqCMS Demo Site
+After=network.target
+
+[Service]
+Type=simple
+Restart=always
+User=live
+WorkingDirectory=/home/live/inst/cms/prod
+
+Environment="NVM_DIR=/home/live/.nvm"
+ExecStart=/bin/bash -c 'source $NVM_DIR/nvm.sh && npx teq-cms web'
+
+StandardOutput=append:/home/live/store/cms/log/out.log
+StandardError=append:/home/live/store/cms/log/out.log
+
+[Install]
+WantedBy=multi-user.target
