@@ -33,7 +33,8 @@
     "translate": "npx teq-cms translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "^0.3.0"
+    "@flancer32/teq-cms": "^0.3.0",
+    "nunjucks": "^3.2.4"
   },
   "overrides": {
     "whatwg-url": "13.0.0"
