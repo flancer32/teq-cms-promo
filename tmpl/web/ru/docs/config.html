@@ -43,7 +43,7 @@ TEQ_CMS_AI_API_ORG=your-org-id
 <pre><code>configCms.init({
     rootPath: root,
     tmplEngine: process.env.TEQ_CMS_TMPL_ENGINE,
-    localeAllowed: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
+    allowedLocales: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
     localeBaseDisplay: process.env.TEQ_CMS_LOCALE_BASE_DISPLAY,
     localeBaseTranslate: process.env.TEQ_CMS_LOCALE_BASE_TRANSLATE,
     aiApiBaseUrl: process.env.TEQ_CMS_AI_API_BASE_URL,

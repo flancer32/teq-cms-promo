@@ -41,7 +41,7 @@ Example of <code>configCms.init()</code> call:
 <pre><code>configCms.init({
     rootPath: root,
     tmplEngine: process.env.TEQ_CMS_TMPL_ENGINE,
-    localeAllowed: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
+    allowedLocales: process.env.TEQ_CMS_LOCALE_ALLOWED.split(','),
     localeBaseDisplay: process.env.TEQ_CMS_LOCALE_BASE_DISPLAY,
     localeBaseTranslate: process.env.TEQ_CMS_LOCALE_BASE_TRANSLATE,
     aiApiBaseUrl: process.env.TEQ_CMS_AI_API_BASE_URL,
@@ -56,7 +56,7 @@ Example of <code>configCms.init()</code> call:
 <ul>
     <li>If the URL doesn't contain a locale prefix, CMS will redirect the user to the base locale (<code>localeBaseDisplay</code>).</li>
     <li>Translations are performed from the base locale (<code>localeBaseTranslate</code>) to others.</li>
-    <li>Template files are selected based on the request locale, with fallback to the base one.</li>
+    <li>Template files are selected based on the request locale, with fallback to the base locale.</li>
 </ul>
 
 <h2>4. Additional Settings</h2>
@@ -69,7 +69,7 @@ replace.add('Fl32_Cms_Back_Api_Adapter', 'My_Custom_Adapter');
 container.getPreProcessor().addChunk(replace);
 </code></pre>
 
-<p>This allows adapting CMS to any business logic without modifying the source code.</p>
+<p>This allows adapting the CMS to any business logic without modifying the source code.</p>
 
-<p><a href="/{{ locale }}/docs/locales.html">Next: working with locales →</a></p>
+<p><a href="/{{ locale }}/docs/locales.html">Next: Working with Locales →</a></p>
 {% endblock %}
