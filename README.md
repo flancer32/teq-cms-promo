@@ -28,3 +28,6 @@ This plugin demonstrates how to:
 ## License
 
 Apache-2.0 © Alex Gusev
+
+## Структура сайта
+Подробное описание файлов для русской версии и планы v2 см. в [docs/site-structure.ru.md](docs/site-structure.ru.md).
