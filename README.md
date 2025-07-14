@@ -1,4 +1,4 @@
-# @flancer32/teqcms-promo
+# @flancer32/teq-cms-promo
 
 **Official promo site for [TeqCMS](https://github.com/flancer32/teq-cms)** — a file-first modular CMS built for
 LLM-assisted development.  
@@ -44,11 +44,10 @@ It illustrates how to:
 
 ## Repository Structure
 
-- `cfg/` — DI configuration and app wiring
 - `tmpl/` — page templates by locale (`tmpl/web/en/`, `tmpl/web/ru/`, etc.)
 - `web/` — static assets (CSS, JS, images)
 - `*.prompt.md` — localized context prompts for AI-based translation
-- `db_translate.json` — internal metadata for tracking translation state
+- `var/teq-cms/db_translate.json` — internal metadata for tracking translation state
 
 ---
 
