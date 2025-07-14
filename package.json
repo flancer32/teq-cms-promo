@@ -1,7 +1,7 @@
 {
-  "name": "@flancer32/teq-cms-demo",
-  "version": "0.2.0",
-  "description": "Demo plugin for Tequila Framework showing how to build a static SSR website using teq-cms and Mustache templates.",
+  "name": "@flancer32/teq-cms-promo",
+  "version": "0.3.0",
+  "description": "Promo site for TeqCMS — a file-first CMS built to work with LLMs at every stage: generation, localization, and extension.",
   "type": "module",
   "main": "index.js",
   "keywords": [
@@ -14,9 +14,9 @@
     "localization",
     "web"
   ],
-  "homepage": "https://github.com/flancer32/teq-cms-demo#readme",
+  "homepage": "https://github.com/flancer32/teq-cms-promo#readme",
   "bugs": {
-    "url": "https://github.com/flancer32/teq-cms-demo/issues"
+    "url": "https://github.com/flancer32/teq-cms-promo/issues"
   },
   "license": "Apache-2.0",
   "author": {
@@ -26,7 +26,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/flancer32/teq-cms-demo.git"
+    "url": "git+https://github.com/flancer32/teq-cms-promo.git"
   },
   "scripts": {
     "start": "npx teq-cms web",

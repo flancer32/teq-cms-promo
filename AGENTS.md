@@ -1,113 +1,136 @@
-# AGENTS.md
+# Top-level Context for LLMs
 
-## Назначение
+## Purpose
 
-<!-- Зачем существует этот файл и как его использовать -->
-
-Документ описывает архитектурную структуру проекта, роли агентов (если есть), зоны ответственности по каталогам и FQN.  
-Он служит контекстом для LLM-систем, работающих с репозиторием: генерация, анализ, сопровождение, локализация и другие
-задачи.
+This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance within this project.  
+It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator.  
+The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in the project structure.
 
 ---
 
-## Архитектурные принципы
+## Project Goals
 
-<!-- Общее устройство проекта — что важно для любого агента -->
-
-- Проект построен на внедрении зависимостей через DI (`@teqfw/di`).
-- Поведение компонентов определяется по FQN (fully qualified name), привязанному к файловой структуре.
-- Все компоненты переопределяемы. Поведение расширяется без изменения ядра.
-- Контент и логика отделены. Файлы локализуются автоматически.
-- LLM может использовать `*.prompt.md` файлы для уточнения генерации/перевода.
+- Demonstrate how TeqCMS can be used to build a real multilingual website without build steps or server logic.
+- Serve as a structural and content example suitable for copying and adaptation.
+- Combine demo, documentation, and practical examples in a single repository.
+- Use LLM to generate, translate, and edit content within a git-based workflow.
 
 ---
 
-## Зоны ответственности по структуре
+## Architectural Principles
 
-<!-- Каталоги → их значение и правила обращения -->
+- This project contains only the content layer: page templates, texts, and translations.
+- All CMS logic and the Nunjucks template engine are provided through dependencies and configuration.
+- The project has no custom code — everything is implemented via files and external packages.
+- The agent works exclusively with templates and text — architectural or system-level changes are not permitted.
 
-### `/cfg/`
+---
 
-- Конфигурация зависимостей и модулей.
-- Внедрение через `@teqfw/di`.
-- Агенты не должны изменять `cfg/` без необходимости.
+## Project File Layout and Agent Scope
+
+### `/agent/notes/`
+
+- Final task reports written by the agent.
+- Each `agent/notes/{task-id}.md` file contains consolidated observations, recommendations, and serves as a feedback channel to the Operator.
+
+### `/docs/`
+
+- Internal documentation for the project.
+- Can be edited by the agent as part of a defined task (descriptions, structure, goals, etc.).
+
+### `/etc/`
+
+- Configuration examples for external systems — not subject to modification.
+- The agent **must not** edit this directory without explicit instruction.
 
 ### `/tmpl/`
 
-- HTML-шаблоны, сгруппированные по локалям (`tmpl/web/{locale}/`).
-- Основной источник контента для LLM-локализации.
-- Рядом могут быть `*.prompt.md`.
+- Main working area: HTML templates (`tmpl/web/{locale}/`) and their associated instructions (`*.prompt.md`).
+- This is where pages are created, edited, and localized.
+
+### `/var/teq-cms/db_translate.json`
+
+- Service file used to track translation status.
+- The agent **must not** modify this file manually.
 
 ### `/web/`
 
-- Публичные ресурсы (JS, CSS, изображения).
-- Не изменяется агентами без явного запроса.
-
-### `/var/`, `/log/`
-
-- Временные и служебные файлы (`db_translate.json`, runtime-логи).
-- Можно обновлять автоматически.
+- Public static assets (JS, CSS, images) shared across all locales.
+- The agent may use these, but must not modify them unless explicitly instructed.
 
 ---
 
-## Компоненты по FQN
+## Agent Responsibilities
 
-<!-- Группы модулей и их назначение -->
+This project uses a single universal LLM agent that performs tasks set by the Operator in an autonomous manner.  
+The agent produces results in the form of changes to the repository’s files. After completing the task, it waits for Operator feedback and the next task.
 
-### `Fl32_Cms_Back_*`
+Agent responsibilities include:
 
-- Логика CMS: конфигурация, перевод, команды, адаптеры.
-- Агенты могут переопределять, но не модифицировать напрямую.
+- Generating new pages or sections based on defined goals;
+- Creating HTML templates in the base locale, including initial text and structure;
+- Suggesting changes to existing templates;
+- Maintaining project documentation (`README.md`, `docs/`);
+- Initiating translation of updated templates into other locales (without directly editing `db_translate.json`).
 
-### `Fl32_Tmpl_Back_*`
+The agent **must not**:
 
-- Шаблонизация, DTO, выбор движка (`Nunjucks`, `Mustache`).
-- Можно использовать как точку расширения.
-
-### `Fl32_Web_Back_*`
-
-- Веб-обработчики и маршруты.
-- SSR, отдача статики, поддержка `npm:` путей.
-
----
-
-## Поведение агентов (роли, если есть)
-
-<!-- Не обязательно: можно оставить пустым или описать роли одного общего агента -->
-
-### 🧠 Генерация кода
-
-- Создание новых компонентов по описанию (`execution-plan.md`)
-- Следует сохранять принцип "один класс — один файл"
-- Новые модули регистрируются через FQN
-
-### 🧠 Перевод контента
-
-- Использование `tmpl/web/en/*.html` как исходника
-- Проверка актуальности по `db_translate.json`
-- Результат: `tmpl/web/{locale}/*.html`
-
-### 🧠 Обновление документации
-
-- Работа с `README.md`, `product-value.md`, `docs/`, `features.html`
-- Согласование описания с фактической структурой
+- Modify configuration or service files (`etc/`, `db_translate.json`);
+- Alter CMS behavior, the template engine, or external packages;
+- Create or modify code outside the content layer of the project;
+- Take action outside the scope of the assigned task or without clear context from the Operator.
 
 ---
 
-## Правила и ограничения
+## Communication Protocol
 
-<!-- Что должен соблюдать любой агент -->
+The agent must record its feedback and observations for each task using two methods:
 
-- Не изменять `cfg/` без указания;
-- Не удалять файлы, если не запрошено;
-- Соблюдать архитектуру FQN и модули TeqFW;
-- Сохранять комментарии и структуру кода;
-- Не создавать магию: поведение должно быть явным и управляемым.
+### 1. Inline Comments in Templates
+
+- Used for specific remarks tied to particular changes.
+- Comment prefix: `AGENT:` — to make them easily searchable by the Operator.
+
+Example:
+
+```html
+<!-- AGENT: consider shortening this introduction block -->
+```
+
+### 2. Final Report in `agent/notes/{task-id}.md`
+
+* One file per task.
+* Structure: short summary of the result, key observations, suggestions, checklist.
+* Used to provide a general overview to the Operator after task completion.
+
+Example:
+
+```md
+# Task: Add "Team" Page
+
+## Summary
+
+Generated `tmpl/web/ru/team.html` and localization skeletons.
+
+## Observations
+
+- Content overlaps with `about.html` in some parts.
+- Header structure could be simplified.
+
+## Suggestions
+
+- Consider merging sections or using reusable includes.
+```
 
 ---
 
-## Дополнительно
+## Execution and Handoff
 
-- Контекстные подсказки: `*.prompt.md`
-- План разработки: `execution-plan.md`
-- Цели проекта: `product-value.md`
+The agent completes the assigned task within a single cycle. Upon completion:
+
+* All changes are written into the project’s file structure.
+* Agent feedback is recorded in `agent/notes/` and as `AGENT:` inline comments.
+* The agent waits for Operator response or a new task.
+
+---
+ 

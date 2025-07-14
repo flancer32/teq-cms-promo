@@ -1,33 +1,63 @@
-# @flancer32/teq-cms-demo
+# @flancer32/teqcms-promo
 
-A demo plugin for the Tequila Framework (TeqFW) that shows how to build a simple static website using server-side
-rendering (SSR) with [Mustache](https://mustache.github.io/) templates and multilingual support via the
-`@flancer32/teq-cms` plugin.
+**Official promo site for [TeqCMS](https://github.com/flancer32/teq-cms)** — a file-first modular CMS built for
+LLM-assisted development.  
+This project is built with TeqCMS itself and demonstrates how a real SSR website can be created, localized, and extended
+entirely via code and files, with full LLM integration.
+
+---
 
 ## Purpose
 
-This plugin demonstrates how to:
+This repository serves as the live, reproducible implementation of TeqCMS in action.  
+It illustrates how to:
 
-- Use `@flancer32/teq-cms` to render server-side pages
-- Structure a static multilingual website
-- Integrate TeqFW plugins in a modular monolith architecture
+- Build and manage a multilingual SSR site using files only
+- Use modular components with dependency injection and late binding
+- Integrate LLMs to assist with content generation, localization, and maintenance
 
-## Features
+---
 
-- Fully static SSR pages rendered from file-based Mustache templates
-- Language fallback and localization support
-- Minimal boilerplate to start a TeqFW-based CMS site
+## Highlights
+
+- ✅ **LLM-first architecture**: the site is built, extended and localized using LLMs (e.g. GPT, Codex)
+- ✅ **Server-side rendering** with [Nunjucks](https://mozilla.github.io/nunjucks/)
+- ✅ **Modular monolith**: clean FQN-based module resolution (`@teqfw/di`)
+- ✅ **No build step**: just clone and run (`node .`)
+- ✅ **Git-based structure**: all pages, templates, and translations are versioned
+- ✅ **AI-localized HTML**: automatic translation of templates using structured prompts
+
+---
 
 ## Requirements
 
-- Node.js >= 22
-- Tequila Framework (`teqfw`)
-- Dependencies:
-    - `@flancer32/teq-cms`
+- Node.js ≥ 22
+- A working knowledge of:
+    - TeqCMS plugin structure
+    - File-based SSR site organization
+    - Git-based workflows for content and code
+- Optional:
+    - OpenAI-compatible API for localization
+    - LLM-enabled development environment (e.g. Codex, AutoDev)
+
+---
+
+## Repository Structure
+
+- `cfg/` — DI configuration and app wiring
+- `tmpl/` — page templates by locale (`tmpl/web/en/`, `tmpl/web/ru/`, etc.)
+- `web/` — static assets (CSS, JS, images)
+- `*.prompt.md` — localized context prompts for AI-based translation
+- `db_translate.json` — internal metadata for tracking translation state
+
+---
+
+## Live Site
+
+📍 [https://cms.teqfw.com/](https://cms.teqfw.com/)
+
+---
 
 ## License
 
-Apache-2.0 © Alex Gusev
-
-## Структура сайта
-Подробное описание файлов для русской версии и планы v2 см. в [docs/site-structure.ru.md](docs/site-structure.ru.md).
+Apache-2.0 © Alex Gusev (`@flancer32`)
