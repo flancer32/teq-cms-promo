@@ -1,8 +1,14 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}Overview - Документация v2{% endblock %}
+{% block title %}Обзор — Документация v2{% endblock %}
 
 {% block content %}
-<h1>Overview</h1>
-<p>Документация в разработке.</p>
+<h1>Обзор архитектуры</h1>
+<p>TeqCMS построена вокруг DI-контейнера <code>@teqfw/di</code> и модульного подхода. Все страницы и шаблоны лежат в файловой системе и управляются через модули.</p>
+<ul>
+    <li>Шаблоны: <code>tmpl/web/{locale}/</code></li>
+    <li>Статика: <code>web/</code></li>
+    <li>Служебные файлы CMS: <code>var/teq-cms/</code></li>
+</ul>
+<p>CMS не требует базы данных и может работать с любым Node.js-сервером.</p>
 {% endblock %}
