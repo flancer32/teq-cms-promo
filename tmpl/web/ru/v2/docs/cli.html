@@ -1,8 +1,13 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}Cli - Документация v2{% endblock %}
+{% block title %}CLI — Документация v2{% endblock %}
 
 {% block content %}
-<h1>Cli</h1>
-<p>Документация в разработке.</p>
+<h1>CLI и автоматизация</h1>
+<p>TeqCMS поставляется с набором CLI-команд для запуска сервера и управления переводами.</p>
+<ul>
+    <li><code>npx teq-cms web</code> — запуск веб-сервера</li>
+    <li><code>npm run translate</code> — обновление переводов</li>
+</ul>
+<p>Скрипты можно расширять и дополнять через плагины или собственные npm-команды.</p>
 {% endblock %}

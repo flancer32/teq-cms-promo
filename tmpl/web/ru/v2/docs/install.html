@@ -1,8 +1,39 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}Install - Документация v2{% endblock %}
+{% block title %}Установка — Документация v2{% endblock %}
 
 {% block content %}
-<h1>Install</h1>
-<p>Документация в разработке.</p>
+<h1>Установка и запуск TeqCMS</h1>
+<p>TeqCMS подключается как обычная зависимость npm. Создайте проект с HTML‑шаблонами и установите пакет <code>@flancer32/teq-cms</code>.</p>
+
+<h2>1. Создание проекта</h2>
+<pre><code>mkdir my-site
+cd my-site
+npm init -y
+npm install @flancer32/teq-cms
+</code></pre>
+
+<h2>2. Структура каталогов</h2>
+<ul>
+    <li><code>tmpl/web/{locale}/</code> — шаблоны страниц</li>
+    <li><code>web/</code> — статические файлы</li>
+    <li><code>var/teq-cms/</code> — служебные данные CMS</li>
+</ul>
+
+<h2>3. Переменные окружения</h2>
+<pre><code>SERVER_TYPE=express
+SERVER_PORT=3000
+TEQ_CMS_LOCALE_ALLOWED=en,ru
+TEQ_CMS_LOCALE_BASE_DISPLAY=en
+TEQ_CMS_LOCALE_BASE_TRANSLATE=ru
+</code></pre>
+
+<h2>4. Запуск сервера</h2>
+<p>CMS может стартовать встроенный HTTP‑сервер или работать с Express/Fastify. В простейшем случае используйте:</p>
+<pre><code>npx teq-cms web</code></pre>
+
+<h2>5. Переводы</h2>
+<p>Для генерации переводов выполните:</p>
+<pre><code>npm run translate</code></pre>
+<p>Система сравнит даты изменений и обновит только устаревшие страницы.</p>
 {% endblock %}
