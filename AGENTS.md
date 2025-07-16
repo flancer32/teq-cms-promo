@@ -2,9 +2,11 @@
 
 ## Purpose
 
-This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance within this project.  
+This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance
+within this project.  
 It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator.  
-The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in the project structure.
+The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in
+the project structure.
 
 ---
 
@@ -31,7 +33,23 @@ The agent operates autonomously, relying on the provided context, and produces r
 ### `/agent/notes/`
 
 - Final task reports written by the agent.
-- Each `agent/notes/{task-id}.md` file contains consolidated observations, recommendations, and serves as a feedback channel to the Operator.
+- Each `agent/notes/{task-id}.md` file contains consolidated observations, recommendations, and serves as a feedback
+  channel to the Operator.
+
+### `/ctx/`
+
+- Cognitive context for page generation, cloned from the external repository `@flancer32/teq-cms-promo-ctx`.
+- Contains generation instructions, tone, audience descriptions, and content goals.
+- Instructions for each page are located at:
+
+```
+./ctx/tmpl/web/{locale}/{path}/{name}.gen.md
+```
+
+Example: to generate `tmpl/web/ru/v2/about.html`, use `ctx/tmpl/web/ru/v2/about.gen.md`.
+
+- The file `ctx/AGENTS.md` defines the rules and constraints for generation tasks. It must be treated with the same
+  authority as this file (`./AGENTS.md`) and strictly followed by the agent.
 
 ### `/docs/`
 
@@ -63,7 +81,8 @@ The agent operates autonomously, relying on the provided context, and produces r
 ## Agent Responsibilities
 
 This project uses a single universal LLM agent that performs tasks set by the Operator in an autonomous manner.  
-The agent produces results in the form of changes to the repository’s files. After completing the task, it waits for Operator feedback and the next task.
+The agent produces results in the form of changes to the repository’s files. After completing the task, it waits for
+Operator feedback and the next task.
 
 Agent responsibilities include:
 
@@ -129,7 +148,7 @@ Generated `tmpl/web/ru/team.html` and localization skeletons.
 The agent completes the assigned task within a single cycle. Upon completion:
 
 * All changes are written into the project’s file structure.
-* Agent feedback is recorded in `agent/notes/` and as `AGENT:` inline comments.
+* Agent feedback is recorded in `agent/notes/YYYY/MM-XX-{name}.md` and as `AGENT:` inline comments.
 * The agent waits for Operator response or a new task.
 
 ---
