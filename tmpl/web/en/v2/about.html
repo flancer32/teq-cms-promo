@@ -1,0 +1,58 @@
+{% extends "inc/layout-v2.html" %}
+
+{% block title %}About the Project — TeqCMS v2{% endblock %}
+
+{% block content %}
+<h1>A site built by an AI agent</h1>
+<!-- AGENT: page regenerated following ctx instructions -->
+<p>This site was generated entirely in a dialogue with an LLM agent. We set a task, and the agent produces templates, texts, and translations that go straight into the repository.</p>
+
+<h2>Why it works</h2>
+<ul>
+    <li>TeqCMS has no database: every page is just a file.</li>
+    <li>There is no admin panel, so content is edited directly.</li>
+    <li>Any tool, including an LLM, can work with these files without restrictions.</li>
+</ul>
+
+<h2>Content as code</h2>
+<ul>
+    <li>Pages and translations live side by side and are versioned through git.</li>
+    <li>The HTML structure is readable and suitable for generation.</li>
+    <li>Every edit is tracked in commit history.</li>
+</ul>
+
+<h2>LLM in the creation process</h2>
+<ul>
+    <li>The agent is not embedded into the CMS — it simply writes files.</li>
+    <li>New pages and sections appear as a result of dialogue, not manual labor.</li>
+    <li>The CMS shows exactly what the agent generated, without extra layers.</li>
+</ul>
+
+<h2>What the CMS does</h2>
+<ul>
+    <li>Renders pages on the server with Nunjucks.</li>
+    <li>Detects locale from the URL and loads the proper templates.</li>
+    <li>Does not manage content — it merely displays it.</li>
+</ul>
+
+<h2>Who it's for</h2>
+<ul>
+    <li>Developers working with LLMs and generative tools.</li>
+    <li>Teams that prefer a "content as code" approach.</li>
+    <li>Those who want to use AI not as a plugin but as a full participant in the process.</li>
+</ul>
+
+<h2>Give it a try</h2>
+<ul>
+    <li>Check out the source code on GitHub and explore the file structure.</li>
+    <li>Formulate a task for the agent and add your own page.</li>
+</ul>
+
+<h2>Related resources</h2>
+<ul>
+    <li><a href="https://github.com/flancer32/teq-cms">TeqCMS on GitHub</a></li>
+    <li><a href="https://www.npmjs.com/package/@flancer32/teq-cms">TeqCMS on npm</a></li>
+    <li><a href="https://github.com/flancer32/teq-cms-promo">TeqCMS Promo on GitHub</a></li>
+    <li><a href="https://wiredgeese.com">Author's site</a></li>
+</ul>
+{% endblock %}

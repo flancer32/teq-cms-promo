@@ -1,0 +1,91 @@
+<nav>
+    <ul class="main-menu" id="mainMenu">
+        <li class="home-link">
+            <a href="/{{ locale }}/v2/">
+                <img src="/favicon.ico" alt="Home" class="home-icon">
+                <span class="home-text">Home</span>
+            </a>
+        </li>
+        <li><a href="/{{ locale }}/v2/about.html">About</a></li>
+        <li><a href="/{{ locale }}/v2/features.html">Features</a></li>
+        <li>
+            <span>Examples</span>
+            <ul>
+                <li><a href="/{{ locale }}/v2/examples/landing.html">Landing</a></li>
+                <li><a href="/{{ locale }}/v2/examples/blog.html">Blog</a></li>
+                <li><a href="/{{ locale }}/v2/examples/hybrid.html">Hybrid</a></li>
+            </ul>
+        </li>
+        <li>
+            <span>Documentation</span>
+            <ul>
+                <li><a href="/{{ locale }}/v2/docs/overview.html">Overview</a></li>
+                <li><a href="/{{ locale }}/v2/docs/install.html">Installation</a></li>
+                <li><a href="/{{ locale }}/v2/docs/config.html">Configuration</a></li>
+                <li><a href="/{{ locale }}/v2/docs/locales.html">Locales</a></li>
+                <li><a href="/{{ locale }}/v2/docs/translate.html">Translations</a></li>
+                <li><a href="/{{ locale }}/v2/docs/cli.html">CLI</a></li>
+                <li><a href="/{{ locale }}/v2/docs/dev-llm.html">LLM Development</a></li>
+                <li><a href="/{{ locale }}/v2/docs/faq.html">FAQ</a></li>
+                <li><a href="/{{ locale }}/v2/docs/plugins.html">Plugins</a></li>
+                <li><a href="/{{ locale }}/v2/docs/troubleshooting.html">Troubleshooting</a></li>
+            </ul>
+        </li>
+        <li><a href="/{{ locale }}/v2/roadmap.html">Roadmap</a></li>
+    </ul>
+
+    <div class="nav-right">
+        <div class="locale-switcher-inline">
+            {% for loc in allowedLocales %}
+            {% if not loop.first %}|{% endif %}
+            {% if loc == locale %}
+            <span>{{ loc | upper }}</span>
+            {% else %}
+            <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
+            {% endif %}
+            {% endfor %}
+        </div>
+        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+    </div>
+</nav>
+
+<script>
+    function toggleMenu() {
+        const menu = document.getElementById('mainMenu');
+        const navRight = document.querySelector('.nav-right');
+        if (menu) menu.classList.toggle('open');
+        if (navRight) navRight.classList.toggle('hidden-on-open');
+    }
+
+    // @formatter:off
+    function switchLocale(targetLocale) {
+        const allowed = {{ allowedLocales | dump | safe }};
+        const path = window.location.pathname;
+        const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
+        let basePath = path;
+
+        if (current) {
+            basePath = path.replace(new RegExp(`^/${current}`), '');
+        }
+        window.location.href = `/${targetLocale}${basePath || '/'}`;
+        return false;
+    }
+    // @formatter:on
+
+    document.addEventListener('DOMContentLoaded', () => {
+        if (window.innerWidth <= 768) {
+            const toggles = document.querySelectorAll('.main-menu > li > span');
+            toggles.forEach(span => {
+                span.addEventListener('click', () => {
+                    const parent = span.parentElement;
+                    parent.classList.toggle('open');
+                    const submenu = span.nextElementSibling;
+                    if (submenu) {
+                        const expanded = submenu.style.maxHeight;
+                        submenu.style.maxHeight = expanded ? null : submenu.scrollHeight + 'px';
+                    }
+                });
+            });
+        }
+    });
+</script>
