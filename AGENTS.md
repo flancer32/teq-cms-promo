@@ -2,11 +2,7 @@
 
 ## Purpose
 
-This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance
-within this project.  
-It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator.  
-The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in
-the project structure.
+This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance within this project. It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator. The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in the project structure.
 
 ---
 
@@ -33,8 +29,7 @@ the project structure.
 ### `/agent/notes/`
 
 - Final task reports written by the agent.
-- Each `agent/notes/{task-id}.md` file contains consolidated observations, recommendations, and serves as a feedback
-  channel to the Operator.
+- Each `agent/notes/{task-id}.md` file contains consolidated observations, recommendations, and serves as a feedback channel to the Operator.
 
 ### `/ctx/`
 
@@ -48,8 +43,7 @@ the project structure.
 
 Example: to generate `tmpl/web/ru/v2/about.html`, use `ctx/tmpl/web/ru/v2/about.gen.md`.
 
-- The file `ctx/AGENTS.md` defines the rules and constraints for generation tasks. It must be treated with the same
-  authority as this file (`./AGENTS.md`) and strictly followed by the agent.
+- The file `ctx/AGENTS.md` defines the rules and constraints for generation tasks. It must be treated with the same authority as this file (`./AGENTS.md`) and strictly followed by the agent.
 
 ### `/docs/`
 
@@ -81,8 +75,7 @@ Example: to generate `tmpl/web/ru/v2/about.html`, use `ctx/tmpl/web/ru/v2/about.
 ## Agent Responsibilities
 
 This project uses a single universal LLM agent that performs tasks set by the Operator in an autonomous manner.  
-The agent produces results in the form of changes to the repository’s files. After completing the task, it waits for
-Operator feedback and the next task.
+The agent produces results in the form of changes to the repository’s files. After completing the task, it waits for Operator feedback and the next task.
 
 Agent responsibilities include:
 
@@ -97,6 +90,7 @@ The agent **must not**:
 - Modify configuration or service files (`etc/`, `db_translate.json`);
 - Alter CMS behavior, the template engine, or external packages;
 - Create or modify code outside the content layer of the project;
+- Trigger translation of templates into other locales — initiating translation is the responsibility of the Operator;
 - Take action outside the scope of the assigned task or without clear context from the Operator.
 
 ---
@@ -116,7 +110,7 @@ Example:
 <!-- AGENT: consider shortening this introduction block -->
 ```
 
-### 2. Final Report in `agent/notes/{task-id}.md`
+### 2. Final Report in `agent/notes/YYYY/MM-XX-{name}.md`
 
 * One file per task.
 * Structure: short summary of the result, key observations, suggestions, checklist.
