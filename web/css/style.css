@@ -108,16 +108,17 @@ nav {
 }
 
 .author-block {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
     margin-bottom: 1rem;
-    overflow: hidden; /* для обтекания */
+    flex-wrap: wrap;
 }
 
 .author-photo {
-    float: left;
-    width: 96px;
+    width: 100px;
     height: auto;
     border-radius: 6px;
-    margin: 0 1rem 0.5rem 0;
 }
 
 
