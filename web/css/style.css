@@ -109,16 +109,22 @@ nav {
 
 .author-block {
     display: flex;
+    flex-direction: row;
     align-items: flex-start;
     gap: 1rem;
     margin-bottom: 1rem;
-    flex-wrap: wrap;
+    flex-wrap: nowrap;
 }
 
 .author-photo {
     width: 100px;
     height: auto;
     border-radius: 6px;
+    flex-shrink: 0;
+}
+
+.author-text {
+    margin-left: 1rem;
 }
 
 
@@ -198,11 +204,17 @@ nav {
 
     .author-photo {
         display: block;
-        margin: 0.5rem;
+        margin: 0.5rem 0;
     }
 
     .author-block {
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+    }
+
+    .author-text {
+        margin-left: 0;
     }
 
     .author-block p {
