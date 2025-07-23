@@ -1,63 +1,85 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}AISM — context-driven site management{% endblock %}
+{% block title %}TeqCMS — AISM approach to site management{% endblock %}
 
 {% block content %}
-<h1>AISM — managing a site through context and an agent</h1>
+<h1>TeqCMS: managing a site through context and an agent</h1>
 <!-- AGENT: page regenerated following ctx instructions -->
 
 <section>
-    <p>AISM stands for AI-Driven Site Management. I describe it as "Creating a context that guides the Agent who creates the content."</p>
+    <p>TeqCMS is a CMS for developers, not editors. I define tasks in context, the agent edits files, and git tracks every change.</p>
     <ul>
-        <li>I outline goals and structure in the context.</li>
-        <li>The agent reads the instructions and edits the files.</li>
-        <li>The content is published without manual sync.</li>
+        <li>no browser UI</li>
+        <li>no database</li>
+        <li>git and AI ensure full control</li>
     </ul>
 </section>
 
+<section style="text-align:center;">
+    <img src="/img/schema/teqcms_aism_overview.svg" alt="AISM architecture" style="max-width:800px; height:auto;">
+    <div>AISM architecture: from context to site</div>
+</section>
+
 <section>
-    <h2>Product architecture</h2>
-    <p>The system combines TeqCMS, the agent and the cognitive context. The context may live in a separate repository.</p>
+    <h2>How it works</h2>
+    <ol>
+        <li>You write a task or context</li>
+        <li>The agent creates HTML</li>
+        <li>You accept the result</li>
+        <li>AI translates into all locales</li>
+    </ol>
+</section>
+
+<section>
+    <h2>What's inside</h2>
     <table>
         <thead>
-        <tr><th>Component</th><th>Role</th></tr>
+        <tr><th>Component</th><th>Purpose</th></tr>
         </thead>
         <tbody>
         <tr><td>.gen.md</td><td>Page generation task</td></tr>
-        <tr><td>.prompt.md</td><td>Detailed instructions</td></tr>
-        <tr><td>agent/notes/...</td><td>Agent reports and history</td></tr>
+        <tr><td>.prompt.md</td><td>Additional context</td></tr>
+        <tr><td>agent/notes/</td><td>Generation log</td></tr>
+        <tr><td>SSR</td><td>Server-side template rendering</td></tr>
         </tbody>
     </table>
 </section>
 
 <section>
-    <h2>Workflow</h2>
-    <ol>
-        <li>Prepare the context.</li>
-        <li>Define a task.</li>
-        <li>The agent updates templates.</li>
-        <li>I merge the Pull Request.</li>
-    </ol>
-    <p>The task can be refined, and I can request another iteration before merging.</p>
-</section>
-
-<section>
-    <h2>Approach advantages</h2>
+    <h2>Advantages</h2>
     <table>
         <thead>
-        <tr><th>Advantage</th><th>Explanation</th></tr>
+        <tr><th>Pain</th><th>Solution in TeqCMS</th></tr>
         </thead>
         <tbody>
-        <tr><td>Git control</td><td>Every change is visible through git diff.</td></tr>
-        <tr><td>SSR</td><td>Templates render pages on the server.</td></tr>
-        <tr><td>Agent review</td><td>Changes go through a Pull Request.</td></tr>
-        <tr><td>Mass update</td><td>Context edits cascade to many pages.</td></tr>
+        <tr><td>Manual translations</td><td>Automatic LLM sync</td></tr>
+        <tr><td>Databases and admin panels</td><td>Just HTML + Git</td></tr>
+        <tr><td>Complex builds and migrations</td><td>No dependencies — plain SSR</td></tr>
         </tbody>
     </table>
 </section>
 
 <section>
     <h2>Who is it for</h2>
-    <p>The approach targets indie developers and solo founders who need frequent edits, automation and no complex CMS.</p>
+    <p>The approach suits those who value control and automation.</p>
+    <ul>
+        <li>If you write HTML by hand</li>
+        <li>If you work via git</li>
+        <li>If you want AI without building a UI</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Usage examples</h2>
+    <ul>
+        <li>You create a landing — the agent writes everything at once</li>
+        <li>You maintain docs — AI updates translations</li>
+        <li>You deploy a site — just git clone + <code>node</code></li>
+    </ul>
+</section>
+
+<section>
+    <h2>Start now</h2>
+    <p>Git. HTML. AI. It's simple. Give it a try → <a href="https://github.com/flancer32/teq-cms">GitHub</a></p>
 </section>
 {% endblock %}
