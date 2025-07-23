@@ -2,8 +2,8 @@
 
 ## Purpose
 
-This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance within this project.  
-It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator.  
+This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance within this project.
+It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator.
 The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in the project structure.
 
 ---
@@ -29,8 +29,8 @@ The agent operates autonomously, relying on the provided context, and produces r
 
 ### `/agent/notes/`
 
-- Directory for final task reports.
-- Each report is a Markdown file: `agent/notes/YYYY/MM-DD-{task-name}.md`.
+ - Directory for final task reports.
+ - Each report is a Markdown file: `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`.
 
 ### `/ctx/`
 
@@ -67,7 +67,7 @@ ctx/tmpl/web/{locale}/{path}/{name}.gen.md
 
 ## Agent Responsibilities
 
-The agent performs tasks autonomously based on Operator instructions.  
+The agent performs tasks autonomously based on Operator instructions.
 Results are committed to the file structure and accompanied by a feedback report.
 
 Allowed actions:
@@ -100,7 +100,7 @@ Agent feedback is provided in two forms:
 
 ### 2. Final Report (Mandatory)
 
-* One file per task, saved as: `agent/notes/YYYY/MM-DD-{task-name}.md`.
+* One file per task, saved as: `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`.
 * The final report is **mandatory** for **every task**. Tasks submitted without a report are considered incomplete and will be rejected.
 * Contents include:
 
@@ -136,5 +136,5 @@ Upon completing a task, the agent must:
 
 * Write all file changes to the repository;
 * Add inline comments where relevant;
-* Create a final report in `agent/notes/YYYY/MM-DD-{task-name}.md`;
+* Create a final report in `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`;
 * Wait for Operator feedback or the next task.
