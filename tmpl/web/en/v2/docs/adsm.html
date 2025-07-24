@@ -4,27 +4,33 @@
 <h1>Agent Driven Site Management (ADSM)</h1>
 
 <h2>What Is It</h2>
-<p><strong>ADSM</strong> is a model where an agent manages your site using a cognitive context. You write the instructions, and the agent shapes the site.</p>
+<p><strong>ADSM</strong> is a way to manage a site through text instructions. You describe what pages you need and what should be on them, and the agent builds and maintains them.</p>
+<p>The cognitive context is a set of files describing the project and the site structure. It helps the agent understand how the site is organized and which rules to follow.</p>
 
 <h2>Scheme</h2>
 <p style="text-align:center;">
-    <img src="/img/schema/adsm_concept.png" alt="ADSM Concept">
+    <img src="/img/schema/adsm_concept.png" alt="Interaction diagram: human → agent → site">
     <br>
-    <em>The idea of ADSM: a human describes, the agent updates</em>
+    <em>A human describes the task, the agent updates the site</em>
 </p>
 
 <h2>Why It Matters</h2>
-<p>Your website is often the first touchpoint for visitors. Manual updates are slow and tedious. ADSM keeps the site current without extra effort.</p>
+<p>The site brings together social networks, videos and ads, so it must be updated regularly to stay useful.</p>
+<p>Manual editing takes time. Developers, landing page authors and documentation writers face this constantly. ADSM removes the routine and lets you update content quickly.</p>
 
 <h2>How It Works</h2>
-<p>You formulate requirements in a cognitive context, and the agent creates and updates pages. Change the description, and the site refreshes immediately.</p>
+<p>You write a text instruction: what the project is, which pages you need and what to place on them. The agent reads this text and creates or changes the site's files. You describe the goal — the agent does the work.</p>
+
+<h2>Example</h2>
+<p>Suppose you need an “About Us” page. You write: “Add an 'About Us' page with a title and a short team description.” The agent creates the page with the requested content. All interaction happens through plain text.</p>
 
 <h2>Benefits</h2>
 <table>
     <tr><th>Advantage</th><th>Description</th></tr>
-    <tr><td>Relevance</td><td>The site always reflects the product's state</td></tr>
-    <tr><td>Update speed</td><td>No manual work required</td></tr>
-    <tr><td>Simple description</td><td>No HTML/CSS knowledge needed</td></tr>
-    <tr><td>Scalability</td><td>Easy to add translations and page versions</td></tr>
+    <tr><td>Relevance</td><td>The site always matches the current project description</td></tr>
+    <tr><td>Simplicity</td><td>You can update the site with plain text</td></tr>
+    <tr><td>Fast updates</td><td>Changes in the description instantly appear on the pages</td></tr>
+    <tr><td>Language adaptation</td><td>The agent can translate and adapt content for different audiences</td></tr>
+    <tr><td>Flexibility</td><td>Can be used in any environment: with files, templates or databases</td></tr>
 </table>
 {% endblock %}
