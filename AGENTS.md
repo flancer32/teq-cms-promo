@@ -39,7 +39,7 @@ The agent operates autonomously, relying on the provided context, and produces r
 
 ```
 
-ctx/tmpl/web/{locale}/{path}/{name}.gen.md
+ctx/site/tmpl/web/{locale}/{path}/{name}.gen.md
 
 ```
 
