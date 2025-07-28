@@ -1,85 +1,60 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}TeqCMS — AISM-подход к управлению сайтом{% endblock %}
+{% block title %}TeqCMS — ADSM-подход к управлению сайтом{% endblock %}
 
 {% block content %}
-<h1>TeqCMS: управление сайтом через контекст и агента</h1>
+<h1>ADSM: управление сайтом через агента</h1>
 <!-- AGENT: page regenerated following ctx instructions -->
 
 <section>
-    <p>TeqCMS — это CMS для разработчиков, а не для редакторов. Я описываю задачи в контексте, агент правит файлы, а git хранит историю.</p>
-    <ul>
-        <li>без пользовательского UI</li>
-        <li>без базы данных</li>
-        <li>git и AI обеспечивают полный контроль</li>
-    </ul>
-</section>
-
-<section style="text-align:center;">
-    <img src="/img/schema/teqcms_aism_overview.svg" alt="Архитектура AISM" style="max-width:800px; height:auto;">
-    <div>Архитектура AISM: от контекста к сайту</div>
-</section>
-
-<section>
-    <h2>Как это работает</h2>
-    <ol>
-        <li>Пишешь задачу или контекст</li>
-        <li>Агент создаёт HTML</li>
-        <li>Ты принимаешь результат</li>
-        <li>AI переводит на все локали</li>
-    </ol>
-</section>
-
-<section>
-    <h2>Что под капотом</h2>
-    <table>
-        <thead>
-        <tr><th>Компонент</th><th>Назначение</th></tr>
-        </thead>
-        <tbody>
-        <tr><td>.gen.md</td><td>Инструкция генерации страницы</td></tr>
-        <tr><td>.prompt.md</td><td>Уточняющий контекст</td></tr>
-        <tr><td>agent/notes/</td><td>Журнал генерации</td></tr>
-        <tr><td>SSR</td><td>Серверный рендеринг шаблонов</td></tr>
-        </tbody>
-    </table>
+    <h2>Что это и зачем</h2>
+    <p><strong>ADSM</strong> (Agent Driven Site Management) позволяет поддерживать сайт через текстовые инструкции. Вы создаёте продукт, а агент заботится о его отражении в HTML.</p>
 </section>
 
 <section>
     <h2>Преимущества</h2>
-    <table>
-        <thead>
-        <tr><th>Боль</th><th>Решение в TeqCMS</th></tr>
-        </thead>
-        <tbody>
-        <tr><td>Ручные переводы</td><td>Автоматические LLM-синхронизации</td></tr>
-        <tr><td>Базы и админки</td><td>Только HTML + Git</td></tr>
-        <tr><td>Сложные сборки и миграции</td><td>Нет зависимостей — простой SSR</td></tr>
-        </tbody>
-    </table>
-</section>
-
-<section>
-    <h2>Кому подойдёт</h2>
-    <p>Подход рассчитан на тех, кто ценит контроль и автоматизацию.</p>
     <ul>
-        <li>Если вы пишете HTML вручную</li>
-        <li>Если вы работаете через git</li>
-        <li>Если вам нужен AI, но не хотите городить UI</li>
+        <li>Обновления без кода и админок</li>
+        <li>Сайт всегда соответствует описанию продукта</li>
+        <li>История правок в git</li>
+        <li>LLM синхронизирует переводы</li>
     </ul>
 </section>
 
 <section>
-    <h2>Примеры использования</h2>
+    <h2>Как работает</h2>
+    <p style="text-align:center;">
+        <img src="/img/schema/adsm_concept.png" alt="Схема: человек → агент → сайт" style="max-width:100%; height:auto;">
+    </p>
+    <ol>
+        <li>Пишете контекст и задачи</li>
+        <li>Агент создаёт или меняет страницы</li>
+        <li>Git фиксирует изменения</li>
+        <li>Сайт публикует актуальные версии</li>
+    </ol>
+</section>
+
+<section>
+    <h2>Что входит в продукт</h2>
     <ul>
-        <li>Вы создаёте лендинг — агент пишет всё сразу</li>
-        <li>Вы ведёте документацию — AI обновляет переводы</li>
-        <li>Вы развёртываете сайт — просто git clone + <code>node</code></li>
+        <li>Методология ADSM</li>
+        <li>Шаблоны контекста и инструкций</li>
+        <li>Примеры HTML-страниц</li>
+        <li>Руководство по работе с агентом</li>
     </ul>
 </section>
 
 <section>
-    <h2>Начните прямо сейчас</h2>
-    <p>Git. HTML. AI. Всё просто. Попробуйте сами → <a href="https://github.com/flancer32/teq-cms">GitHub</a></p>
+    <h2>Для кого</h2>
+    <ul>
+        <li>Тем, кто устал ждать помощи разработчика</li>
+        <li>Командам, где продукт быстро меняется</li>
+        <li>Разработчикам, работающим через git и LLM</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Начните сейчас</h2>
+    <p>Познакомьтесь с методологией подробнее → <a href="/ru/v2/docs/overview.html">Документация ADSM</a></p>
 </section>
 {% endblock %}
