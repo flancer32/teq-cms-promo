@@ -1,85 +1,60 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}TeqCMS — AISM approach to site management{% endblock %}
+{% block title %}TeqCMS — ADSM approach to site management{% endblock %}
 
 {% block content %}
-<h1>TeqCMS: managing a site through context and an agent</h1>
+<h1>ADSM: managing a site with an agent</h1>
 <!-- AGENT: page regenerated following ctx instructions -->
 
 <section>
-    <p>TeqCMS is a CMS for developers, not editors. I define tasks in context, the agent edits files, and git tracks every change.</p>
-    <ul>
-        <li>no browser UI</li>
-        <li>no database</li>
-        <li>git and AI ensure full control</li>
-    </ul>
-</section>
-
-<section style="text-align:center;">
-    <img src="/img/schema/teqcms_aism_overview.svg" alt="AISM architecture" style="max-width:800px; height:auto;">
-    <div>AISM architecture: from context to site</div>
-</section>
-
-<section>
-    <h2>How it works</h2>
-    <ol>
-        <li>You write a task or context</li>
-        <li>The agent creates HTML</li>
-        <li>You accept the result</li>
-        <li>AI translates into all locales</li>
-    </ol>
-</section>
-
-<section>
-    <h2>What's inside</h2>
-    <table>
-        <thead>
-        <tr><th>Component</th><th>Purpose</th></tr>
-        </thead>
-        <tbody>
-        <tr><td>.gen.md</td><td>Page generation task</td></tr>
-        <tr><td>.prompt.md</td><td>Additional context</td></tr>
-        <tr><td>agent/notes/</td><td>Generation log</td></tr>
-        <tr><td>SSR</td><td>Server-side template rendering</td></tr>
-        </tbody>
-    </table>
+    <h2>What and Why</h2>
+    <p><strong>ADSM</strong> (Agent Driven Site Management) lets you maintain a site through plain-text instructions. You build the product while the agent keeps the HTML in sync.</p>
 </section>
 
 <section>
     <h2>Advantages</h2>
-    <table>
-        <thead>
-        <tr><th>Pain</th><th>Solution in TeqCMS</th></tr>
-        </thead>
-        <tbody>
-        <tr><td>Manual translations</td><td>Automatic LLM sync</td></tr>
-        <tr><td>Databases and admin panels</td><td>Just HTML + Git</td></tr>
-        <tr><td>Complex builds and migrations</td><td>No dependencies — plain SSR</td></tr>
-        </tbody>
-    </table>
-</section>
-
-<section>
-    <h2>Who is it for</h2>
-    <p>The approach suits those who value control and automation.</p>
     <ul>
-        <li>If you write HTML by hand</li>
-        <li>If you work via git</li>
-        <li>If you want AI without building a UI</li>
+        <li>Updates without code or admin panels</li>
+        <li>The site always matches the product description</li>
+        <li>Edit history in git</li>
+        <li>LLM keeps translations in sync</li>
     </ul>
 </section>
 
 <section>
-    <h2>Usage examples</h2>
+    <h2>How It Works</h2>
+    <p style="text-align:center;">
+        <img src="/img/schema/adsm_concept.png" alt="Diagram: human → agent → site" style="max-width:100%; height:auto;">
+    </p>
+    <ol>
+        <li>You write context and tasks</li>
+        <li>The agent creates or updates pages</li>
+        <li>Git stores the changes</li>
+        <li>The site publishes the latest version</li>
+    </ol>
+</section>
+
+<section>
+    <h2>What's Included</h2>
     <ul>
-        <li>You create a landing — the agent writes everything at once</li>
-        <li>You maintain docs — AI updates translations</li>
-        <li>You deploy a site — just git clone + <code>node</code></li>
+        <li>The ADSM methodology</li>
+        <li>Context and instruction templates</li>
+        <li>Example HTML pages</li>
+        <li>A guide to using the agent</li>
     </ul>
 </section>
 
 <section>
-    <h2>Start now</h2>
-    <p>Git. HTML. AI. It's simple. Give it a try → <a href="https://github.com/flancer32/teq-cms">GitHub</a></p>
+    <h2>Who It's For</h2>
+    <ul>
+        <li>Anyone tired of waiting for a developer's help</li>
+        <li>Teams with rapidly changing products</li>
+        <li>Developers working with git and LLM</li>
+    </ul>
+</section>
+
+<section>
+    <h2>Get Started</h2>
+    <p>Read more about the methodology → <a href="/en/v2/docs/overview.html">ADSM Docs</a></p>
 </section>
 {% endblock %}
