@@ -1,0 +1,21 @@
+{
+  "recommendations": [
+    "dbaeumer.vscode-eslint",
+    "esbenp.prettier-vscode",
+    "christian-kohler.npm-intellisense",
+    "christian-kohler.path-intellisense",
+    "xabikos.javascriptsnippets",
+    "stevencl.addDocComments",
+    "eamodio.gitlens",
+    "usernamehw.errorlens",
+    "alefragnani.bookmarks",
+    "gruntfuggly.todo-tree",
+    "humao.rest-client",
+    "mikestead.dotenv",
+    "aaron-bond.better-comments",
+    "pkief.material-icon-theme",
+    "oderwat.indent-rainbow",
+    "formulahendry.auto-rename-tag",
+    "vincaslt.highlight-matching-tag"
+  ]
+}

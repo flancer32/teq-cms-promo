@@ -1,8 +1,13 @@
+!/.vscode/extensions.json
+!/.vscode/launch.json
+!/.vscode/settings.json
+!/.vscode/tasks.json
+/.idea/
+/.vscode/*
 /**/.env
 /**/node_modules/
 /**/own_modules/
 /**/tmp/
-/.idea/
+/ctx/
 /http-client.env.json
 /tmp/
-/ctx/
