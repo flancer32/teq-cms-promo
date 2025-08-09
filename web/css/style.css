@@ -55,6 +55,15 @@ p {
 .section--alt { background: var(--bg-alt); }
 
 /* === Navigation === */
+header.site-header {
+  padding-inline: var(--space-2);
+}
+@media (min-width: 768px) {
+  header.site-header {
+    padding-inline: var(--space-3);
+  }
+}
+
 .nav {
   display: flex;
   flex-wrap: wrap;
@@ -151,10 +160,17 @@ p {
 
 @media (max-width: 767px) {
   .nav-right {
-    width: 100%;
-    margin-top: var(--space-2);
+    order: 1;
+    width: auto;
+    margin-top: 0;
+    margin-left: 0;
+  }
+  .nav__toggle {
+    order: 2;
+    margin-left: auto;
   }
   .nav__menu, .main-menu {
+    order: 3;
     flex-direction: column;
   }
   .nav__menu > li > ul, .main-menu > li > ul {
