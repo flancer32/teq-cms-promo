@@ -1,50 +1,76 @@
-{% extends "inc/layout-v2.html" %}
-
-{% block title %}Contacts — TeqCMS{% endblock %}
-
-{% block content %}
+{% extends "inc/layout-v2.html" %} {% block title %}Contacts — TeqCMS{% endblock %} {% block content %}
 <h1>Get in Touch</h1>
 <!-- AGENT: page regenerated following ctx instructions -->
 
 <h2>Who I Am</h2>
 <div class="author-block">
-    <img src="/img/alex.png" alt="Alex Gusev" loading="lazy" class="author-photo">
-    <div class="author-text">
-        <p>I'm Alex Gusev, developer of TeqCMS with more than 25 years of experience. I use it in real projects like <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">NutriLog</a>.</p>
-    </div>
+  <img src="/img/alex.png" alt="Alex Gusev" loading="lazy" class="author-photo" />
+  <div class="author-text">
+    <p>
+      I'm Alex Gusev, developer of TeqCMS with more than 25 years of experience. I use it in real projects like
+      <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">NutriLog</a>.
+    </p>
+  </div>
 </div>
 
 <h2>What I Offer</h2>
 <ul>
-    <li>Deploying and adapting TeqCMS</li>
-    <li>Helping with multilingual sites and translation setup</li>
-    <li>Consulting on architecture and automation</li>
+  <li>Deploying and adapting TeqCMS</li>
+  <li>Helping with multilingual sites and translation setup</li>
+  <li>Consulting on architecture and automation</li>
 </ul>
 
 <h2>When to Reach Out</h2>
 <ul>
-    <li>Startups or founders needing a quick launch</li>
-    <li>Open-source projects or SaaS prototypes</li>
-    <li>If you want to move away from heavy CMS platforms</li>
+  <li>Startups or founders needing a quick launch</li>
+  <li>Open-source projects or SaaS prototypes</li>
+  <li>If you want to move away from heavy CMS platforms</li>
 </ul>
 
 <h2>Contacts</h2>
 <table>
-    <thead>
-    <tr><th>Channel</th><th>Link</th></tr>
-    </thead>
-    <tbody>
-    <tr><td>Email</td><td><a href="mailto:alex@wiredgeese.com">alex@wiredgeese.com</a></td></tr>
-    <tr><td>Telegram</td><td><a href="https://t.me/wiredgeese" target="_blank">@wiredgeese</a></td></tr>
-    <tr><td>LinkedIn</td><td><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank">LinkedIn</a></td></tr>
-    <tr><td>Upwork</td><td><a href="https://upwork.com/freelancers/aleksandrsg6" target="_blank">Upwork</a></td></tr>
-    <tr><td>Fiverr</td><td><a href="https://www.fiverr.com/wiredgeese?public_mode=true" target="_blank">Fiverr</a></td></tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Channel</th>
+      <th>Link</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td><a href="mailto:alex@wiredgeese.com">alex@wiredgeese.com</a></td>
+    </tr>
+    <tr>
+      <td>Telegram</td>
+      <td><a href="https://t.me/wiredgeese" target="_blank">@wiredgeese</a></td>
+    </tr>
+    <tr>
+      <td>LinkedIn</td>
+      <td>
+        <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank">LinkedIn</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Upwork</td>
+      <td>
+        <a href="https://upwork.com/freelancers/aleksandrsg6" target="_blank">Upwork</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Fiverr</td>
+      <td>
+        <a href="https://www.fiverr.com/wiredgeese?public_mode=true" target="_blank">Fiverr</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <h2>Notes</h2>
-<p>I reply in Russian or English. Telegram works for quick questions, email is best for detailed discussions. Response time may vary with workload.</p>
+<p>
+  I reply in Russian or English. Telegram works for quick questions, email is best for detailed discussions. Response
+  time may vary with workload.
+</p>
 
-<p><a href="/{{ locale }}/v2/contacts.html" class="btn">Contact me</a></p>
+<p><a href="mailto:alex@wiredgeese.com" class="btn">Contact me</a></p>
 
 {% endblock %}

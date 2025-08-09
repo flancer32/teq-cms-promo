@@ -1,50 +1,76 @@
-{% extends "inc/layout-v2.html" %}
-
-{% block title %}Контакты — TeqCMS{% endblock %}
-
-{% block content %}
+{% extends "inc/layout-v2.html" %} {% block title %}Контакты — TeqCMS{% endblock %} {% block content %}
 <h1>Как связаться</h1>
 <!-- AGENT: page regenerated following ctx instructions -->
 
 <h2>Кто я</h2>
 <div class="author-block">
-    <img src="/img/alex.png" alt="Алекс Гусев" loading="lazy" class="author-photo">
-    <div class="author-text">
-        <p>Я, Алекс Гусев, разработчик TeqCMS с более чем 25‑летним опытом. Использую систему в реальных проектах, например <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">NutriLog</a>.</p>
-    </div>
+  <img src="/img/alex.png" alt="Алекс Гусев" loading="lazy" class="author-photo" />
+  <div class="author-text">
+    <p>
+      Я, Алекс Гусев, разработчик TeqCMS с более чем 25‑летним опытом. Использую систему в реальных проектах, например
+      <a href="https://nutrilog.app.wiredgeese.com/" target="_blank">NutriLog</a>.
+    </p>
+  </div>
 </div>
 
 <h2>Что я предлагаю</h2>
 <ul>
-    <li>Внедрение и адаптацию TeqCMS</li>
-    <li>Помощь в создании многоязычных сайтов</li>
-    <li>Консультации по архитектуре и автоматизации перевода</li>
+  <li>Внедрение и адаптацию TeqCMS</li>
+  <li>Помощь в создании многоязычных сайтов</li>
+  <li>Консультации по архитектуре и автоматизации перевода</li>
 </ul>
 
 <h2>Когда стоит написать</h2>
 <ul>
-    <li>Стартапам и фаундерам, которые хотят быстро запуститься</li>
-    <li>Open-source проектам и авторам SaaS-прототипов</li>
-    <li>Тем, кто устал от тяжёлых CMS</li>
+  <li>Стартапам и фаундерам, которые хотят быстро запуститься</li>
+  <li>Open-source проектам и авторам SaaS-прототипов</li>
+  <li>Тем, кто устал от тяжёлых CMS</li>
 </ul>
 
 <h2>Контакты</h2>
 <table>
-    <thead>
-    <tr><th>Канал</th><th>Ссылка</th></tr>
-    </thead>
-    <tbody>
-    <tr><td>Email</td><td><a href="mailto:alex@wiredgeese.com">alex@wiredgeese.com</a></td></tr>
-    <tr><td>Telegram</td><td><a href="https://t.me/wiredgeese" target="_blank">@wiredgeese</a></td></tr>
-    <tr><td>LinkedIn</td><td><a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank">LinkedIn</a></td></tr>
-    <tr><td>Upwork</td><td><a href="https://upwork.com/freelancers/aleksandrsg6" target="_blank">Upwork</a></td></tr>
-    <tr><td>Fiverr</td><td><a href="https://www.fiverr.com/wiredgeese?public_mode=true" target="_blank">Fiverr</a></td></tr>
-    </tbody>
+  <thead>
+    <tr>
+      <th>Канал</th>
+      <th>Ссылка</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Email</td>
+      <td><a href="mailto:alex@wiredgeese.com">alex@wiredgeese.com</a></td>
+    </tr>
+    <tr>
+      <td>Telegram</td>
+      <td><a href="https://t.me/wiredgeese" target="_blank">@wiredgeese</a></td>
+    </tr>
+    <tr>
+      <td>LinkedIn</td>
+      <td>
+        <a href="https://www.linkedin.com/in/aleksandrs-gusevs-011ba928/" target="_blank">LinkedIn</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Upwork</td>
+      <td>
+        <a href="https://upwork.com/freelancers/aleksandrsg6" target="_blank">Upwork</a>
+      </td>
+    </tr>
+    <tr>
+      <td>Fiverr</td>
+      <td>
+        <a href="https://www.fiverr.com/wiredgeese?public_mode=true" target="_blank">Fiverr</a>
+      </td>
+    </tr>
+  </tbody>
 </table>
 
 <h2>Уточнения</h2>
-<p>Отвечаю на русском и английском. Быстрые вопросы удобнее через Telegram, подробные — по email. Время ответа зависит от текущей загрузки.</p>
+<p>
+  Отвечаю на русском и английском. Быстрые вопросы удобнее через Telegram, подробные — по email. Время ответа зависит от
+  текущей загрузки.
+</p>
 
-<p><a href="/{{ locale }}/v2/contacts.html" class="btn">Связаться со мной</a></p>
+<p><a href="mailto:alex@wiredgeese.com" class="btn">Связаться со мной</a></p>
 
 {% endblock %}
