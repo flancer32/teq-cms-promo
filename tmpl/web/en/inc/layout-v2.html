@@ -1,42 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="/css/style.css">
-    {# --- SEO Canonical & Alternate URLs --- #}
-    {% if canonicalUrl %}
-    <link rel="canonical" href="{{ canonicalUrl }}">
-    {% endif %}
-    {% if alternateUrls %}
-    {% for lang, url in alternateUrls %}
-    <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">
-    {% endfor %}
-    {% endif %}
-    {# --- Social Preview --- #}
-    {% block og %}
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="TeqCMS — CMS that treats content as code">
-    <meta property="og:description"
-          content="TeqCMS is a file-based CMS without database or admin panel, powered by AI localization and git workflow.">
-    <meta property="og:image" content="/img/site_preview.png">
-    <meta property="og:url" content="{{ canonicalUrl }}">
-    <meta property="og:locale" content="{{ locale.current }}">
+    <link rel="stylesheet" href="/css/style2.css" />
+    {# --- SEO Canonical & Alternate URLs --- #} {% if canonicalUrl %}
+    <link rel="canonical" href="{{ canonicalUrl }}" />
+    {% endif %} {% if alternateUrls %} {% for lang, url in alternateUrls %}
+    <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}" />
+    {% endfor %} {% endif %} {# --- Social Preview --- #} {% block og %}
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="TeqCMS — CMS that treats content as code" />
+    <meta
+      property="og:description"
+      content="TeqCMS is a file-based CMS without database or admin panel, powered by AI localization and git workflow."
+    />
+    <meta property="og:image" content="/img/site_preview.png" />
+    <meta property="og:url" content="{{ canonicalUrl }}" />
+    <meta property="og:locale" content="{{ locale.current }}" />
+    {% endblock %} {% block twitter %}
+    <meta name="twitter:title" content="TeqCMS — CMS that treats content as code" />
+    <meta
+      name="twitter:description"
+      content="TeqCMS is a file-based CMS without database or admin panel, powered by AI localization and git workflow."
+    />
+    <meta name="twitter:image" content="/img/site_preview.png" />
     {% endblock %}
-    {% block twitter %}
-    <meta name="twitter:title" content="TeqCMS — CMS that treats content as code">
-    <meta name="twitter:description"
-          content="TeqCMS is a file-based CMS without database or admin panel, powered by AI localization and git workflow.">
-    <meta name="twitter:image" content="/img/site_preview.png">
-    {% endblock %}
-</head>
-<body>
-{% include "inc/nav-v2.html" %}
-<main class="container">
-    <section class="section">
-        {% block content %}{% endblock %}
-    </section>
-</main>
-</body>
+  </head>
+  <body>
+    {% include "inc/nav-v2.html" %}
+    <main class="container">
+      <section class="section">{% block content %}{% endblock %}</section>
+    </main>
+  </body>
 </html>
