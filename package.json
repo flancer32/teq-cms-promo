@@ -29,12 +29,24 @@
     "url": "git+https://github.com/flancer32/teq-cms-promo.git"
   },
   "scripts": {
-    "start": "npx teq-cms web",
-    "translate": "npx teq-cms translate"
+    "start": "teq fl32:web:start",
+    "translate": "teq cms:translate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "^0.5.2",
+    "@flancer32/teq-cms": "^0.6.0",
     "nunjucks": "^3.2.4"
+  },
+  "teqfw": {
+    "fw": {
+      "cli": {
+        "command": {
+          "default": "fl32:web:start"
+        },
+        "container": {
+          "configurator": "./node_modules/@flancer32/teq-cms/bootstrap/di-config.mjs"
+        }
+      }
+    }
   },
   "overrides": {
     "whatwg-url": "13.0.0"

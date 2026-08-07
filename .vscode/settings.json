@@ -16,7 +16,7 @@
   "npm.enableScriptExplorer": true,
   "workbench.iconTheme": "material-icon-theme",
   "files.exclude": {
-    "**/node_modules": true,
+    "**/node_modules": false,
     "**/dist": true
   }
 }
