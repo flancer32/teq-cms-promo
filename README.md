@@ -1,9 +1,6 @@
 # @flancer32/teq-cms-promo
 
-**Official promo site for [TeqCMS](https://github.com/flancer32/teq-cms)** — a file-first modular CMS built for
-LLM-assisted development.  
-This project is built with TeqCMS itself and demonstrates how a real SSR website can be created, localized, and extended
-entirely via code and files, with full LLM integration.
+**Official promo site for [TeqCMS](https://github.com/flancer32/teq-cms)** — a file-based CMS for agents building multilingual websites. Agents maintain localized Markdown and templates in Git; TeqCMS renders HTML for people and can expose selected Markdown to agents.
 
 ---
 
@@ -14,31 +11,30 @@ It illustrates how to:
 
 - Build and manage a multilingual SSR site using files only
 - Use modular components with dependency injection and late binding
-- Integrate LLMs to assist with content generation, localization, and maintenance
+- Let agents author and review each locale's source files
+- Generate discovery files for both human and agent readers
 
 ---
 
 ## Highlights
 
-- ✅ **LLM-first architecture**: the site is built, extended and localized using LLMs (e.g. GPT, Codex)
+- ✅ **Agent-first authoring**: agents maintain content and locale variants in Git
 - ✅ **Server-side rendering** with [Nunjucks](https://mozilla.github.io/nunjucks/)
 - ✅ **Modular monolith**: clean FQN-based module resolution (`@teqfw/di`)
-- ✅ **No build step**: just clone and run (`node .`)
+- ✅ **No build step**: install dependencies and run `npm start`
 - ✅ **Git-based structure**: all pages, templates, and translations are versioned
-- ✅ **AI-localized HTML**: automatic translation of templates using structured prompts
+- ✅ **Markdown publications**: opt-in HTML rendering and machine-readable sources
 
 ---
 
 ## Requirements
 
-- Node.js ≥ 22
+- Node.js ≥ 20
 - A working knowledge of:
     - TeqCMS plugin structure
     - File-based SSR site organization
     - Git-based workflows for content and code
-- Optional:
-    - OpenAI-compatible API for localization
-    - LLM-enabled development environment (e.g. Codex, AutoDev)
+- Optional: an agent-enabled development environment (e.g. Codex)
 
 ---
 
@@ -46,8 +42,10 @@ It illustrates how to:
 
 - `tmpl/` — page templates by locale (`tmpl/web/en/`, `tmpl/web/ru/`, etc.)
 - `web/` — static assets (CSS, JS, images)
-- `*.prompt.md` — localized context prompts for AI-based translation
-- `var/teq-cms/db_translate.json` — internal metadata for tracking translation state
+- `ctx/` — cognitive context for agents working on this site
+- `agent/notes/` — task reports
+
+The package manifest keeps stable CMS and template dependencies for production. Development dependencies `teq-cms-main` and `teq-tmpl-main` track the GitHub `main` branches under separate install names, so `npm ci --omit=dev` retains the stable runtime packages. To work against the main branches, run `npm ci`, `npm run dev:main`, then `npm run start:main`. This temporarily links the main packages to their runtime names. Run `npm ci` again to restore the locked production-compatible installation.
 
 ---
 

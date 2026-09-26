@@ -1,9 +1,8 @@
 {
   "name": "@flancer32/teq-cms-promo",
   "version": "0.3.0",
-  "description": "Promo site for TeqCMS — a file-first CMS built to work with LLMs at every stage: generation, localization, and extension.",
+  "description": "Promo site for TeqCMS — a file-based CMS for agents building multilingual websites.",
   "type": "module",
-  "main": "index.js",
   "keywords": [
     "teqfw",
     "tequila framework",
@@ -30,11 +29,17 @@
   },
   "scripts": {
     "start": "teq fl32:web:start",
-    "translate": "teq cms:translate"
+    "dev:main": "npm link --no-save ./node_modules/teq-cms-main ./node_modules/teq-tmpl-main",
+    "start:main": "teq web:start"
   },
   "dependencies": {
     "@flancer32/teq-cms": "^0.6.0",
+    "@flancer32/teq-tmpl": "0.5.0",
     "nunjucks": "^3.2.4"
+  },
+  "devDependencies": {
+    "teq-cms-main": "github:flancer32/teq-cms#main",
+    "teq-tmpl-main": "github:flancer32/teq-tmpl#main"
   },
   "teqfw": {
     "fw": {
@@ -49,6 +54,7 @@
     }
   },
   "overrides": {
+    "@flancer32/teq-tmpl": "$@flancer32/teq-tmpl",
     "whatwg-url": "13.0.0"
   },
   "engines": {

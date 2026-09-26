@@ -3,30 +3,5 @@
 {% block title %}AI Локализация — TeqCMS{% endblock %}
 
 {% block content %}
-<h1>AI Локализация</h1>
-
-<p><strong>TeqCMS</strong> поддерживает автоматический перевод HTML-страниц с использованием языковых моделей (LLM),
-    совместимых с OpenAI API. Это позволяет создавать и поддерживать многоязычные сайты без ручной синхронизации
-    контента.</p>
-
-<ul>
-    <li>🧠 Перевод выполняется через команду <code>npm run translate</code></li>
-    <li>🔌 Поддерживаются OpenAI, DeepSeek и другие совместимые API</li>
-    <li>📄 Для каждой страницы можно задать локальные инструкции в виде <code>*.prompt.md</code></li>
-    <li>🗂 Состояние переводов хранится в <code>var/teq-cms/db_translate.json</code></li>
-    <li>⚙️ Поведение можно настраивать через переменные окружения:
-        <pre><code>TEQ_CMS_LOCALE_ALLOWED=...
-TEQ_CMS_LOCALE_BASE_TRANSLATE=...</code></pre>
-    </li>
-</ul>
-
-<p>Общий системный промпт по умолчанию зашит в <a
-        href="https://github.com/flancer32/teq-cms/blob/main/src/Back/Defaults.js#L5"
-        target="_blank"><code>Defaults.js</code></a>, но может быть переопределён через файл <code>var/teq-cms/system.prompt.md</code>.
-</p>
-
-<p>TeqCMS отслеживает время изменения оригинальной страницы и время последнего перевода. Это позволяет автоматически
-    выявлять устаревшие переводы и обновлять их только при необходимости.</p>
-
-<p><a href="/{{ locale }}/features/file-based.html">Узнать больше о файловой структуре →</a></p>
+<h1>Локализация агентами</h1><p>Агенты создают и проверяют Markdown для каждой локали в Git. TeqCMS создаёт HTML из подготовленных файлов и может открывать выбранный Markdown агентам. CMS не обращается к API языковой модели.</p>
 {% endblock %}

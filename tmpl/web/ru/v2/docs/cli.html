@@ -1,13 +1,11 @@
 {% extends "inc/layout-v2.html" %}
-
 {% block title %}CLI — Документация v2{% endblock %}
-
 {% block content %}
 <h1>CLI и автоматизация</h1>
-<p>TeqCMS поставляется с набором CLI-команд для запуска сервера и управления переводами.</p>
+<p>TeqCMS использует стандартный CLI-хост TeqFW.</p>
 <ul>
-    <li><code>npx teq-cms web</code> — запуск веб-сервера</li>
-    <li><code>npm run translate</code> — обновление переводов</li>
+    <li><code>npx teq web:start</code> — запуск веб-сервера</li>
+    <li><code>npx teq cms:generate</code> — генерация <code>robots.txt</code>, <code>llms.txt</code> и <code>sitemap.xml</code></li>
 </ul>
-<p>Скрипты можно расширять и дополнять через плагины или собственные npm-команды.</p>
+<p>Повторяйте генерацию после изменения публикаций и фиксируйте результат в Git.</p>
 {% endblock %}

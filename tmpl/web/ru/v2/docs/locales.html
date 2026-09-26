@@ -1,32 +1,11 @@
 {% extends "inc/layout-v2.html" %}
-
 {% block title %}Локали — Документация v2{% endblock %}
-
 {% block content %}
 <h1>Локали и языки сайта</h1>
-<p>TeqCMS поддерживает многоязычные сайты и автоматически определяет язык пользователя.</p>
-
-<h2>1. Определение локали</h2>
-<ol>
-    <li>Префикс в URL — <code>/ru/</code>, <code>/en/</code> и т.п.</li>
-    <li>Заголовок <code>Accept-Language</code>, если префикса нет</li>
-    <li>Базовая локаль <code>localeBaseDisplay</code></li>
-</ol>
-<p>При отсутствии валидного префикса пользователь перенаправляется на базовую локаль.</p>
-
-<h2>2. Настройка локалей</h2>
-<pre><code>TEQ_CMS_LOCALE_ALLOWED=en,ru</code></pre>
-<p>Базовая локаль отображения:</p>
-<pre><code>TEQ_CMS_LOCALE_BASE_DISPLAY=en</code></pre>
-<p>Базовая локаль перевода:</p>
-<pre><code>TEQ_CMS_LOCALE_BASE_TRANSLATE=ru</code></pre>
-
-<h2>3. Каталоги шаблонов</h2>
-<pre><code>tmpl/web/en/
-tmpl/web/ru/
+<p>Агент поддерживает содержимое каждой локали в отдельном каталоге.</p>
+<pre><code>TEQFW_TMPL__ALLOWED_LOCALES=en,ru
+TEQFW_TMPL__DEFAULT_LOCALE=en
 </code></pre>
-<p>Если файл отсутствует в целевой локали, используется версия из базовой локали.</p>
-
-<h2>4. Переключение языка</h2>
-<p>Используйте ссылки вида <code>/ru</code>, <code>/en</code> и т.п. CMS всегда отдаёт страницы согласно префиксу.</p>
+<p>Публикации размещаются в <code>tmpl/web/en/</code> и <code>tmpl/web/ru/</code>. HTML формируется из Markdown и шаблона представления.</p>
+<p>Публичный исходный Markdown разрешается отдельно через <code>TEQ_CMS__PUBLICATION_MACHINE_LOCALES</code>. Пустой список не открывает исходные файлы.</p>
 {% endblock %}

@@ -1,28 +1,7 @@
 {% extends "inc/layout.html" %}
 
-{% block title %}TeqCMS — content as code, AI as translator{% endblock %}
+{% block title %}TeqCMS — a CMS for agents{% endblock %}
 
 {% block content %}
-<h1>TeqCMS — AI-oriented CMS for those who code websites by hand</h1>
-
-<p><strong>TeqCMS</strong> is a file-based CMS without databases or frameworks, designed for quick launch and maintenance of multilingual websites. Content is edited in IDE, translated by LLM models, and published as regular HTML files.</p>
-
-<div style="text-align: center; margin: 2em 0;">
-    <img src="/img/schema/overview.png" alt="CMS architecture overview" style="max-width:100%; height:auto;">
-</div>
-
-<ul>
-    <li>⚡ Speed: changes and translations appear on the site within minutes</li>
-    <li>🌍 AI localization: translations are generated and updated automatically</li>
-    <li>💾 Git-first: the entire website consists of regular files under version control</li>
-    <li>🛠 SSR and templates: server-side rendering only, no SPA</li>
-    <li>🤖 LLM-assisted development: support for system and local prompts</li>
-</ul>
-
-<p>TeqCMS is the choice for those who want to publish and translate pages without bureaucracy and manual duplication.</p>
-
-<p>Ideal for landing pages, documentation, SaaS promotions, and other projects where speed and locale control are important.</p>
-
-<p><a href="/{{ locale }}/features/content-as-code.html">Learn more about "content as code"</a> or <a
-        href="/{{ locale }}/contact.html">get installation help</a>.</p>
+<h1>TeqCMS — a CMS for agents</h1><p>Agents author multilingual Markdown in Git. TeqCMS renders HTML for people and can expose selected Markdown to other agents.</p><p>Use the standard TeqFW CLI to run the site and generate discovery files.</p>
 {% endblock %}

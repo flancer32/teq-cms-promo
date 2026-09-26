@@ -1,60 +1,32 @@
 {% extends "inc/layout-v2.html" %}
 
-{% block title %}TeqCMS — ADSM approach to site management{% endblock %}
+{% block title %}TeqCMS — a file-based CMS for multilingual sites{% endblock %}
 
 {% block content %}
-<h1>ADSM: managing a site with an agent</h1>
-<!-- AGENT: page regenerated following ctx instructions -->
+<h1>TeqCMS: build a site from files</h1>
+<p>I built TeqCMS for sites whose pages and translations are managed in Git. The CMS finds templates by locale and renders HTML on the server. This site shows it in use.</p>
 
 <section>
-    <h2>What and Why</h2>
-    <p><strong>ADSM</strong> (Agent Driven Site Management) lets you maintain a site through plain-text instructions. You build the product while the agent keeps the HTML in sync.</p>
-</section>
-
-<section>
-    <h2>Advantages</h2>
+    <h2>What TeqCMS does</h2>
     <ul>
-        <li>Updates without code or admin panels</li>
-        <li>The site always matches the product description</li>
-        <li>Edit history in git</li>
-        <li>LLM keeps translations in sync</li>
+        <li>Reads page templates from project files.</li>
+        <li>Selects a page for the requested locale and renders it on the server.</li>
+        <li>Lets me keep content and its change history in Git.</li>
     </ul>
 </section>
 
 <section>
-    <h2>How It Works</h2>
-    <p style="text-align:center;">
-        <img src="/img/schema/adsm_concept.png" alt="Diagram: human → agent → site" style="max-width:100%; height:auto;">
-    </p>
-    <ol>
-        <li>You write context and tasks</li>
-        <li>The agent creates or updates pages</li>
-        <li>Git stores the changes</li>
-        <li>The site publishes the latest version</li>
-    </ol>
+    <h2>How I work on this site</h2>
+    <p>I describe a task in plain text, and an external AI agent edits the page files. I review the result and the change history. The agent is not built into TeqCMS: the CMS displays the prepared content.</p>
 </section>
 
 <section>
-    <h2>What's Included</h2>
-    <ul>
-        <li>The ADSM methodology</li>
-        <li>Context and instruction templates</li>
-        <li>Example HTML pages</li>
-        <li>A guide to using the agent</li>
-    </ul>
+    <h2>ADSM as a way of working</h2>
+    <p>Agent Driven Site Management organizes how a person and an agent work on a site. I demonstrate that approach here with TeqCMS. <a href="/en/v2/docs/adsm.html">Learn about ADSM</a>.</p>
 </section>
 
 <section>
-    <h2>Who It's For</h2>
-    <ul>
-        <li>Anyone tired of waiting for a developer's help</li>
-        <li>Teams with rapidly changing products</li>
-        <li>Developers working with git and LLM</li>
-    </ul>
-</section>
-
-<section>
-    <h2>Get Started</h2>
-    <p>Read more about the methodology → <a href="/en/v2/docs/overview.html">ADSM Docs</a></p>
+    <h2>Get started</h2>
+    <p><a href="/en/v2/docs/install.html">Read the installation guide</a> and <a href="https://github.com/flancer32/teq-cms">explore the TeqCMS source</a>.</p>
 </section>
 {% endblock %}

@@ -1,36 +1,17 @@
 {% extends "inc/layout-v2.html" %}
-
 {% block title %}Конфигурация — Документация v2{% endblock %}
-
 {% block content %}
 <h1>Конфигурация CMS</h1>
-<p>Параметры задаются через переменные окружения и объект <code>configCms.init()</code>, что обеспечивает прозрачность и контроль поведения.</p>
-
-<h2>1. Важные переменные</h2>
-<pre><code># Тип сервера: express, fastify или встроенный
-SERVER_TYPE=express
-# Порт HTTP
-SERVER_PORT=3000
-# Движок шаблонов
-TEQ_CMS_TMPL_ENGINE=nunjucks
-# Разрешённые локали
-TEQ_CMS_LOCALE_ALLOWED=en,ru
-# Базовая локаль отображения
-TEQ_CMS_LOCALE_BASE_DISPLAY=en
-# Базовая локаль перевода
-TEQ_CMS_LOCALE_BASE_TRANSLATE=ru
+<p>CLI-хост загружает настройки из окружения. TeqCMS использует пространство <code>TEQ_CMS__*</code>.</p>
+<pre><code>TEQFW_WEB__TYPE=http
+TEQFW_WEB__PORT=3000
+TEQFW_TMPL__ENGINE=nunjucks
+TEQFW_TMPL__ALLOWED_LOCALES=en,ru
+TEQFW_TMPL__DEFAULT_LOCALE=en
+TEQ_CMS__BASE_URL=https://example.com
+TEQ_CMS__PUBLICATION_FAMILIES=[{"prefix":"journal","presentation":"publication.html"}]
+TEQ_CMS__PUBLICATION_MACHINE_LOCALES=en
 </code></pre>
-
-<h2>2. Инициализация конфигурации</h2>
-<pre><code>configCms.init({ /* параметры */ })</code></pre>
-
-<h2>3. Логика работы</h2>
-<ul>
-    <li>При отсутствии префикса локали происходит редирект на базовую локаль.</li>
-    <li>Переводы выполняются из базовой локали во все остальные.</li>
-    <li>Шаблоны выбираются по текущей локали с резервом на базовую.</li>
-</ul>
-
-<h2>4. Замена компонентов</h2>
-<p>Через DI можно подменять модули CMS, адаптируя систему под любую бизнес‑логику.</p>
+<p>Markdown-публикации выключены до настройки семейства. Исходный Markdown доступен только для явно перечисленных машинных локалей.</p>
+<p>Для приёма сообщений от агентов включите <code>TEQ_CMS__AGENT_MESSAGE_ENABLED=true</code>. Сообщения сохраняются в закрытом каталоге <code>var/teq-cms/agent-messages/</code>.</p>
 {% endblock %}
