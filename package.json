@@ -32,8 +32,8 @@
     "generate": "teq cms:generate"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "github:flancer32/teq-cms#main",
-    "@flancer32/teq-tmpl": "github:flancer32/teq-tmpl#main",
+    "@flancer32/teq-cms": "github:flancer32/teq-cms#v0.10.0",
+    "@flancer32/teq-tmpl": "github:flancer32/teq-tmpl#v0.6.0",
     "nunjucks": "^3.2.4"
   },
   "teqfw": {

@@ -2,21 +2,21 @@
 
 Human locales: en, ru
 
-- https://cms.teqfw.com/
-- https://cms.teqfw.com/about
-- https://cms.teqfw.com/contacts
-- https://cms.teqfw.com/docs/adsm
-- https://cms.teqfw.com/docs/cli
-- https://cms.teqfw.com/docs/config
-- https://cms.teqfw.com/docs/dev-llm
-- https://cms.teqfw.com/docs/faq
-- https://cms.teqfw.com/docs/install
-- https://cms.teqfw.com/docs/locales
-- https://cms.teqfw.com/docs/overview
-- https://cms.teqfw.com/docs/plugins
-- https://cms.teqfw.com/docs/translate
-- https://cms.teqfw.com/docs/troubleshooting
-- https://cms.teqfw.com/examples
-- https://cms.teqfw.com/features
-- https://cms.teqfw.com/roadmap
-- https://cms.teqfw.com/subscription
+- https://cms.teqfw.com/about.md
+- https://cms.teqfw.com/contacts.md
+- https://cms.teqfw.com/docs/adsm.md
+- https://cms.teqfw.com/docs/cli.md
+- https://cms.teqfw.com/docs/config.md
+- https://cms.teqfw.com/docs/dev-llm.md
+- https://cms.teqfw.com/docs/faq.md
+- https://cms.teqfw.com/docs/install.md
+- https://cms.teqfw.com/docs/locales.md
+- https://cms.teqfw.com/docs/overview.md
+- https://cms.teqfw.com/docs/plugins.md
+- https://cms.teqfw.com/docs/translate.md
+- https://cms.teqfw.com/docs/troubleshooting.md
+- https://cms.teqfw.com/examples.md
+- https://cms.teqfw.com/features.md
+- https://cms.teqfw.com/index.md
+- https://cms.teqfw.com/roadmap.md
+- https://cms.teqfw.com/subscription.md
