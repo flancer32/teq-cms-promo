@@ -3,7 +3,8 @@
 {% set markdownAlternateUrl = none %}
 {% set alternateUrls = {} %}
 {% block title %}Страница не найдена — TeqCMS{% endblock %}
-{% block robots %}<meta name="robots" content="noindex, follow">{% include "inc/not-found-styles.html" %}{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% endblock %}
+{% block styles %}<link rel="stylesheet" href="/assets/css/not-found.css">{% endblock %}
 {% block content %}
 <section class="not-found">
   <div>

@@ -14,7 +14,7 @@ The cognitive context is a set of files describing the project and the site stru
 
 ## Scheme
 
-<img src="/img/schema/adsm_concept.png" style="max-width:100%; height:auto;" alt="Interaction diagram: human → agent → site" />  
+<img src="/img/schema/adsm_concept.png" alt="Interaction diagram: human → agent → site" />
 *A human describes the task, the agent updates the site*
 
 ## Why It Matters

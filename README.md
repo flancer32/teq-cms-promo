@@ -30,7 +30,7 @@ The sample contains only public examples. Keep operational dotenv values outside
 
 ## Content and presentation
 
-All 36 localized publications live under `tmpl/web/{en,ru}/`. Each Markdown source has YAML `title`, `description`, and ISO calendar `date`. The corresponding locale's `publication.html` renders it through `inc/layout.html`, `inc/nav.html`, and `inc/promo-styles.html`.
+All 36 localized publications live under `tmpl/web/{en,ru}/`. Each Markdown source has YAML `title`, `description`, and ISO calendar `date`. The corresponding locale's `publication.html` renders it through `inc/layout.html` and `inc/nav.html`, with shared external styles in `web/assets/css/site.css`. The 404 presentation additionally loads `web/assets/css/not-found.css`.
 
 The locale-neutral URL `/about` returns authored English Markdown, including front matter. `/en/about` and `/ru/about` render their exact-locale HTML. Metadata supplies canonical HTML, available language alternates, and the neutral Markdown alternate. The mobile navigation uses a native disclosure with a `☰` icon and an accessible localized name.
 
