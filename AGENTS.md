@@ -34,12 +34,14 @@ The agent operates autonomously, relying on the provided context, and produces r
 
 ### `/ctx/`
 
-- Cognitive context for page generation, imported from the external repo `@flancer32/teq-cms-promo-ctx`.
+- Cognitive context in the separate Git checkout `@flancer32/teq-cms-promo-ctx`.
+- Start with `ctx/AGENTS.md` and `ctx/docs/filesystem.md`; canonical documentation is under `ctx/docs/` in product → architecture → environment → code order.
+- Shared page and layout rules are in `ctx/docs/code/browser/ssr/`; page-specific generation prompts are in its `prompts/` branch.
 - Instructions for each page are located at:
 
 ```
 
-ctx/site/tmpl/web/{locale}/{path}/{name}.gen.md
+ctx/docs/code/browser/ssr/prompts/{locale}/{path}/{name}.gen.md
 
 ```
 

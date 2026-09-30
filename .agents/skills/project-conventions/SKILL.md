@@ -10,7 +10,7 @@ description: Project conventions for every task in the teq-cms-promo repository 
 ## Repositories
 
 - The site root (`flancer32/teq-cms-promo`) and `ctx/` (`flancer32/teq-cms-promo-ctx`) are separate Git repositories. Check status and diffs separately; do not combine their commits or pushes.
-- `ctx/` is the cognitive context for page generation. Read the relevant `ctx/site/tmpl/web/{locale}/.../*.gen.md` instructions before editing a page when they exist.
+- `ctx/` is the cognitive context for page generation. Read the relevant `ctx/docs/code/browser/ssr/prompts/{locale}/.../*.gen.md` instructions before editing a page when they exist.
 
 ## Workflow
 
