@@ -1,0 +1,32 @@
+# Published Markdown
+
+Human locales: en, ru
+
+- https://cms.teqfw.com/docs/about
+- https://cms.teqfw.com/docs/config
+- https://cms.teqfw.com/docs/install
+- https://cms.teqfw.com/docs/locales
+- https://cms.teqfw.com/docs/translate
+- https://cms.teqfw.com/features/ai-localization
+- https://cms.teqfw.com/features/content-as-code
+- https://cms.teqfw.com/features/file-based
+- https://cms.teqfw.com/features/ssr
+- https://cms.teqfw.com/pages/contact
+- https://cms.teqfw.com/pages/faq
+- https://cms.teqfw.com/pages/index
+- https://cms.teqfw.com/v2/about
+- https://cms.teqfw.com/v2/contacts
+- https://cms.teqfw.com/v2/docs/adsm
+- https://cms.teqfw.com/v2/docs/cli
+- https://cms.teqfw.com/v2/docs/config
+- https://cms.teqfw.com/v2/docs/dev-llm
+- https://cms.teqfw.com/v2/docs/faq
+- https://cms.teqfw.com/v2/docs/install
+- https://cms.teqfw.com/v2/docs/locales
+- https://cms.teqfw.com/v2/docs/overview
+- https://cms.teqfw.com/v2/docs/plugins
+- https://cms.teqfw.com/v2/docs/translate
+- https://cms.teqfw.com/v2/docs/troubleshooting
+- https://cms.teqfw.com/v2/index
+- https://cms.teqfw.com/v2/roadmap
+- https://cms.teqfw.com/v2/subscription

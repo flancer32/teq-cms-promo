@@ -3,40 +3,40 @@
     <button class="menu-toggle nav__toggle" aria-controls="mainMenu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
     <ul class="main-menu nav__menu" id="mainMenu">
         <li class="home-link">
-            <a href="/{{ locale }}/v2/">
+            <a href="/{{ locale }}/v2/index">
                 <img src="/favicon.ico" alt="Home" class="home-icon">
                 <span class="home-text">Главная</span>
             </a>
         </li>
-        <li><a href="/{{ locale }}/v2/about.html">О проекте</a></li>
+        <li><a href="/{{ locale }}/v2/about">О проекте</a></li>
         <li>
             <span>Документация</span>
             <ul>
-                <li><a href="/{{ locale }}/v2/docs/overview.html">Обзор</a></li>
-                <li><a href="/{{ locale }}/v2/docs/adsm.html">ADSM</a></li>
-                <li><a href="/{{ locale }}/v2/docs/install.html">Установка</a></li>
-                <li><a href="/{{ locale }}/v2/docs/config.html">Конфигурация</a></li>
-                <li><a href="/{{ locale }}/v2/docs/locales.html">Локали</a></li>
-                <li><a href="/{{ locale }}/v2/docs/translate.html">Локализация</a></li>
-                <li><a href="/{{ locale }}/v2/docs/cli.html">CLI</a></li>
-                <li><a href="/{{ locale }}/v2/docs/dev-llm.html">Разработка LLM</a></li>
-                <li><a href="/{{ locale }}/v2/docs/faq.html">Частые вопросы</a></li>
-                <li><a href="/{{ locale }}/v2/docs/plugins.html">Плагины</a></li>
-                <li><a href="/{{ locale }}/v2/docs/troubleshooting.html">Устранение неполадок</a></li>
+                <li><a href="/{{ locale }}/v2/docs/overview">Обзор</a></li>
+                <li><a href="/{{ locale }}/v2/docs/adsm">ADSM</a></li>
+                <li><a href="/{{ locale }}/v2/docs/install">Установка</a></li>
+                <li><a href="/{{ locale }}/v2/docs/config">Конфигурация</a></li>
+                <li><a href="/{{ locale }}/v2/docs/locales">Локали</a></li>
+                <li><a href="/{{ locale }}/v2/docs/translate">Локализация</a></li>
+                <li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
+                <li><a href="/{{ locale }}/v2/docs/dev-llm">Разработка LLM</a></li>
+                <li><a href="/{{ locale }}/v2/docs/faq">Частые вопросы</a></li>
+                <li><a href="/{{ locale }}/v2/docs/plugins">Плагины</a></li>
+                <li><a href="/{{ locale }}/v2/docs/troubleshooting">Устранение неполадок</a></li>
             </ul>
         </li>
-        <li><a href="/{{ locale }}/v2/roadmap.html">Дорожная карта</a></li>
-        <li><a href="/{{ locale }}/v2/subscription.html">Подписка</a></li>
-        <li><a href="/{{ locale }}/v2/contacts.html">Контакты</a></li>
+        <li><a href="/{{ locale }}/v2/roadmap">Дорожная карта</a></li>
+        <li><a href="/{{ locale }}/v2/subscription">Подписка</a></li>
+        <li><a href="/{{ locale }}/v2/contacts">Контакты</a></li>
     </ul>
     <div class="nav-right">
         <div class="locale-switcher-inline">
-            {% for loc in allowedLocales %}
+            {% for loc, url in alternateUrls %}
             {% if not loop.first %}|{% endif %}
             {% if loc == locale %}
             <span>{{ loc | upper }}</span>
             {% else %}
-            <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
+            <a href="{{ url }}">{{ loc | upper }}</a>
             {% endif %}
             {% endfor %}
         </div>
@@ -53,20 +53,6 @@ function toggleMenu(btn) {
     menu.classList.toggle('is-open');
 }
 
-// @formatter:off
-function switchLocale(targetLocale) {
-    const allowed = {{ allowedLocales | dump | safe }};
-    const path = window.location.pathname;
-    const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
-    let basePath = path;
-
-    if (current) {
-        basePath = path.replace(new RegExp(`^/${current}`), '');
-    }
-    window.location.href = `/${targetLocale}${basePath || '/'}`;
-    return false;
-}
-// @formatter:on
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth <= 768) {

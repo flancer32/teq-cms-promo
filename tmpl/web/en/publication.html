@@ -1,0 +1,18 @@
+{% extends "inc/layout-v2.html" %}
+{% block title %}{{ publication.metadata.title }}{% endblock %}
+{% block og %}
+<meta name="description" content="{{ publication.metadata.description }}">
+<meta property="og:type" content="website">
+<meta property="og:title" content="{{ publication.metadata.title }}">
+<meta property="og:description" content="{{ publication.metadata.description }}">
+<meta property="og:url" content="{{ canonicalUrl }}">
+<meta property="og:locale" content="{{ locale }}">
+<meta property="og:image" content="/img/site_preview.png">
+{% endblock %}
+{% block twitter %}
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="{{ publication.metadata.title }}">
+<meta name="twitter:description" content="{{ publication.metadata.description }}">
+<meta name="twitter:image" content="/img/site_preview.png">
+{% endblock %}
+{% block content %}<article class="publication">{{ publication.html | safe }}</article>{% endblock %}

@@ -3,40 +3,40 @@
     <button class="menu-toggle nav__toggle" aria-controls="mainMenu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
     <ul class="main-menu nav__menu" id="mainMenu">
         <li class="home-link">
-            <a href="/{{ locale }}/v2/">
+            <a href="/{{ locale }}/v2/index">
                 <img src="/favicon.ico" alt="Home" class="home-icon">
                 <span class="home-text">Home</span>
             </a>
         </li>
-        <li><a href="/{{ locale }}/v2/about.html">About</a></li>
+        <li><a href="/{{ locale }}/v2/about">About</a></li>
         <li>
             <span>Documentation</span>
             <ul>
-                <li><a href="/{{ locale }}/v2/docs/overview.html">Overview</a></li>
-                <li><a href="/{{ locale }}/v2/docs/adsm.html">ADSM</a></li>
-                <li><a href="/{{ locale }}/v2/docs/install.html">Installation</a></li>
-                <li><a href="/{{ locale }}/v2/docs/config.html">Configuration</a></li>
-                <li><a href="/{{ locale }}/v2/docs/locales.html">Locales</a></li>
-                <li><a href="/{{ locale }}/v2/docs/translate.html">Localization</a></li>
-                <li><a href="/{{ locale }}/v2/docs/cli.html">CLI</a></li>
-                <li><a href="/{{ locale }}/v2/docs/dev-llm.html">LLM Development</a></li>
-                <li><a href="/{{ locale }}/v2/docs/faq.html">FAQ</a></li>
-                <li><a href="/{{ locale }}/v2/docs/plugins.html">Plugins</a></li>
-                <li><a href="/{{ locale }}/v2/docs/troubleshooting.html">Troubleshooting</a></li>
+                <li><a href="/{{ locale }}/v2/docs/overview">Overview</a></li>
+                <li><a href="/{{ locale }}/v2/docs/adsm">ADSM</a></li>
+                <li><a href="/{{ locale }}/v2/docs/install">Installation</a></li>
+                <li><a href="/{{ locale }}/v2/docs/config">Configuration</a></li>
+                <li><a href="/{{ locale }}/v2/docs/locales">Locales</a></li>
+                <li><a href="/{{ locale }}/v2/docs/translate">Localization</a></li>
+                <li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
+                <li><a href="/{{ locale }}/v2/docs/dev-llm">LLM Development</a></li>
+                <li><a href="/{{ locale }}/v2/docs/faq">FAQ</a></li>
+                <li><a href="/{{ locale }}/v2/docs/plugins">Plugins</a></li>
+                <li><a href="/{{ locale }}/v2/docs/troubleshooting">Troubleshooting</a></li>
             </ul>
         </li>
-        <li><a href="/{{ locale }}/v2/roadmap.html">Roadmap</a></li>
-        <li><a href="/{{ locale }}/v2/subscription.html">Subscription</a></li>
-        <li><a href="/{{ locale }}/v2/contacts.html">Contacts</a></li>
+        <li><a href="/{{ locale }}/v2/roadmap">Roadmap</a></li>
+        <li><a href="/{{ locale }}/v2/subscription">Subscription</a></li>
+        <li><a href="/{{ locale }}/v2/contacts">Contacts</a></li>
     </ul>
     <div class="nav-right">
         <div class="locale-switcher-inline">
-            {% for loc in allowedLocales %}
+            {% for loc, url in alternateUrls %}
             {% if not loop.first %}|{% endif %}
             {% if loc == locale %}
             <span>{{ loc | upper }}</span>
             {% else %}
-            <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
+            <a href="{{ url }}">{{ loc | upper }}</a>
             {% endif %}
             {% endfor %}
         </div>
@@ -53,20 +53,6 @@ function toggleMenu(btn) {
     menu.classList.toggle('is-open');
 }
 
-// @formatter:off
-function switchLocale(targetLocale) {
-    const allowed = {{ allowedLocales | dump | safe }};
-    const path = window.location.pathname;
-    const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
-    let basePath = path;
-
-    if (current) {
-        basePath = path.replace(new RegExp(`^/${current}`), '');
-    }
-    window.location.href = `/${targetLocale}${basePath || '/'}`;
-    return false;
-}
-// @formatter:on
 
 document.addEventListener('DOMContentLoaded', () => {
     if (window.innerWidth <= 768) {

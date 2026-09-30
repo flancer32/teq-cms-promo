@@ -1,5 +1,3 @@
 User-agent: *
 Allow: /
-
 Sitemap: https://cms.teqfw.com/sitemap.xml
-

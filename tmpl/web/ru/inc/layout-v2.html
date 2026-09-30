@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ locale }}">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -9,7 +9,7 @@
     <link rel="canonical" href="{{ canonicalUrl }}" />
     {% endif %} {% if alternateUrls %} {% for lang, url in alternateUrls %}
     <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}" />
-    {% endfor %} {% endif %} {# --- Social Preview --- #} {% block og %}
+    {% endfor %} {% endif %} {% if markdownAlternateUrl %}<link rel="alternate" type="text/markdown" href="{{ markdownAlternateUrl }}">{% endif %} {# --- Social Preview --- #} {% block og %}
     <meta property="og:type" content="website" />
     <meta property="og:title" content="TeqCMS — CMS, где контент как код" />
     <meta
