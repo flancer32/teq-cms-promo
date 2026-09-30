@@ -27,7 +27,7 @@ The `.html` addresses are aliases of localized HTML pages; neutral `.md` address
 | [`publication.html`](tmpl/web/en/publication.html) | Turns a publication's metadata and rendered Markdown into the shared page layout. Each locale has its own copy. |
 | [`inc/layout.html`](tmpl/web/en/inc/layout.html) and [`inc/nav.html`](tmpl/web/en/inc/nav.html) | The page shell and navigation. Change these when a change should affect every page in that locale. |
 | [`web/assets/css/`](web/assets/css/) | External styles shared by both languages: `site.css` for the site and `not-found.css` for the prepared 404 presentation. |
-| [`web/img/`](web/img/) and [`web/favicon.ico`](web/favicon.ico) | Images and the platform emblem. Files in `web/` are public static assets. |
+| [`web/assets/img/`](web/assets/img/) and [`web/favicon.ico`](web/favicon.ico) | Images and the platform emblem. Files in `web/` are public static assets. |
 | [`web/llms.txt`](web/llms.txt), [`web/sitemap.xml`](web/sitemap.xml), and [`web/robots.txt`](web/robots.txt) | Generated discovery files for agents and crawlers. |
 | [`.env.sample`](.env.sample) | Public examples of runtime settings: site URL, languages, host, and port. |
 | [`package.json`](package.json) and [`package-lock.json`](package-lock.json) | Commands and dependencies. The lockfile pins the engine revisions used by this site. |

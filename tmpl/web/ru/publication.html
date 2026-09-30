@@ -7,12 +7,12 @@
 <meta property="og:description" content="{{ publication.metadata.description }}">
 <meta property="og:url" content="{{ canonicalUrl }}">
 <meta property="og:locale" content="{{ locale }}">
-<meta property="og:image" content="/img/site_preview.png">
+<meta property="og:image" content="/assets/img/site_preview.png">
 {% endblock %}
 {% block twitter %}
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="{{ publication.metadata.title }}">
 <meta name="twitter:description" content="{{ publication.metadata.description }}">
-<meta name="twitter:image" content="/img/site_preview.png">
+<meta name="twitter:image" content="/assets/img/site_preview.png">
 {% endblock %}
 {% block content %}<article class="publication">{{ publication.html | safe }}</article>{% endblock %}

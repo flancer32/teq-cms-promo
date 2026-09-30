@@ -9,7 +9,7 @@ date: 2026-09-30
 I can help you decide whether TeqCMS fits your project, then turn that decision into a working implementation.
 
 <div class="author-block">
-<img src="/img/alex.png" alt="Alex Gusev" loading="lazy" width="100" class="author-photo">
+<img src="/assets/img/alex.png" alt="Alex Gusev" loading="lazy" width="100" class="author-photo">
 <div class="author-text"><p>I'm Alex Gusev, the developer of TeqCMS, with more than 25 years of software development experience. I build and maintain my own projects, including <a href="https://nutrilog.app.wiredgeese.com/">NutriLog</a>. This promotional site is a working example of TeqCMS.</p><p>I work directly with you, from the first discussion to reviewing the result.</p></div>
 </div>
 

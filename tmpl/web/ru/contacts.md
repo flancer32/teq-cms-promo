@@ -9,7 +9,7 @@ date: 2026-09-30
 Можно начать с оценки задачи: подходит ли вам файловая CMS, как организовать языковые версии и что потребуется для запуска.
 
 <div class="author-block">
-<img src="/img/alex.png" alt="Алекс Гусев" loading="lazy" width="100" class="author-photo">
+<img src="/assets/img/alex.png" alt="Алекс Гусев" loading="lazy" width="100" class="author-photo">
 <div class="author-text"><p>Я Алекс Гусев, разработчик TeqCMS. У меня больше 25 лет опыта разработки. Я создаю и поддерживаю собственные проекты, в том числе <a href="https://nutrilog.app.wiredgeese.com/">NutriLog</a>. Этот промосайт — рабочий пример TeqCMS.</p><p>Со мной можно напрямую обсудить задачу и проверить результат работы.</p></div>
 </div>
 

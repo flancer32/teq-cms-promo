@@ -29,7 +29,6 @@
   },
   "scripts": {
     "start": "teq web:start",
-    "start:main": "npm start",
     "generate": "teq cms:generate"
   },
   "dependencies": {
