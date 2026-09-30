@@ -1,49 +1,43 @@
 ---
-title: "What TeqCMS can do — TeqCMS"
-description: "Markdown sources, Git history, multilingual HTML, shared templates, and public Markdown URLs. Explore the capabilities and the projects TeqCMS fits."
+title: "How TeqCMS works — TeqCMS"
+description: "One Markdown source, two reading formats, and a Git workflow for an agent to maintain content, translations, design, and page structure."
 date: 2026-09-30
 ---
 
-# Markdown at the source. HTML at the edge.
+# One source for people and agents
 
-I built TeqCMS around a simple idea: keep authored content readable and reviewable, then give each reader the representation they need.
+TeqCMS is a CMS for product websites, documentation, and multilingual project sites maintained through files and Git. I designed it for working with an external AI agent.
 
-## Files you can own and move
+## Same content, different presentation
 
-Content lives in Markdown files. Layout lives in shared templates. You can work in your editor, inspect the repository, and keep changes in Git. Publishing content requires no CMS database or admin panel.
+A page's Markdown file holds its text and metadata. Agents read that source; people read HTML rendered from it through shared templates. There is no separately authored agent version. Each language has its own maintained Markdown file, shared by that language's two representations.
 
-## One publication, explicit language variants
+Compare this page's [Markdown source](/en/features.md) with its [HTML page](/en/features.html), or open the [Russian HTML page](/ru/features.html).
 
-Each language is a maintained source file at the same path in its locale directory. English and Russian pages can share a layout while using wording tailored to their audiences. A requested HTML page requires its exact language source; an absent translation returns 404.
+## Two discovery paths
 
-## HTML for people, Markdown for agents
+- **Agents:** [llms.txt](/llms.txt) lists public resources they can follow to read Markdown.
+- **People:** [sitemap.xml](/sitemap.xml) helps search engines discover HTML pages; readers arrive through search results or site navigation.
 
-Use an explicit extension when you want a particular representation:
+Both paths describe the same published content. These files aid discovery; they do not guarantee that every crawler or agent will use them. [URL and language selection](/en/docs/locales) explains HTTP behavior and explicit format links.
 
-| Open this example | What you receive |
-| --- | --- |
-| [English page](/en/features.html) | HTML rendered from the English source |
-| [Russian page](/ru/features.html) | HTML rendered from the Russian source |
-| [Public Markdown](/en/features.md) | The authored source, including metadata |
+## A site your agent can maintain
 
-These links pin both format and language. Extensionless URLs such as `/about`, `/features`, or `/en/features` select HTML for people or Markdown for clients that support it. Without a locale prefix, HTML uses the first supported language matching the request’s `Accept-Language` preferences, then the configured default. See [URL and language selection](/en/docs/locales) for details of format, language, and neutral Markdown selection.
+Give the agent a task and project instructions. It can edit:
 
-## Shared presentation, server rendering
+- **Content:** create and update Markdown pages.
+- **Languages:** translate and adapt separate locale files.
+- **Design:** change CSS and shared presentation templates.
+- **Structure:** organize pages, menus, and links.
 
-The host selects its template engine and owns the presentation templates. This site uses Nunjucks. A shared layout keeps navigation, metadata, and styling consistent while TeqCMS turns each Markdown body into HTML on the server.
+I review the Git diff and the rendered pages before publishing. The agent runs outside TeqCMS; the CMS serves prepared files without an LLM API or an agent running on the server.
 
-## An agent can use the same files you use
+## Files you control
 
-An external agent can read, write, adapt, and review the files. I can examine the resulting diff before publishing. TeqCMS serves those prepared sources; it doesn't run an agent or call a translation API during page requests.
+Content, translations, templates, and CSS stay in Git. Review a change, restore a version, or move the sources to another project. HTML is rendered on the server; reading it needs no browser application. Publishing needs no content database or admin panel.
 
-## Discovery from the publication corpus
+This workflow fits technical owners and small teams comfortable with Git and an agent. Contributors who need visual page editing should evaluate that requirement before choosing TeqCMS.
 
-The engine's `cms:generate` command can produce `robots.txt`, `llms.txt`, and `sitemap.xml` from configured public publications. The site owner regenerates these files after content changes. Private instructions are outside the public publication corpus.
+<div class="actions"><a class="btn" href="/en/docs/install">Try the working example</a><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms">Read the CMS code →</a></div>
 
-## Where it fits
-
-I use this model for promotional websites and see a clear fit for documentation, developer portals, and multilingual project sites maintained through files and Git. If your main requirement is a visual editing interface for nontechnical contributors, assess that workflow before adopting TeqCMS.
-
-<div class="actions"><a class="btn" href="/en/examples">Inspect real applications</a><a class="btn btn-secondary" href="/en/docs/install">Read the setup guide</a></div>
-
-[Discuss whether it fits your project](/en/contacts).
+[See real websites](/en/examples) or [discuss your project](/en/contacts).

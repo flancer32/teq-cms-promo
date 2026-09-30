@@ -8,7 +8,7 @@ date: 2026-09-30
 
 ## Do I need an agent?
 
-No. You can edit the Markdown and templates in your editor. An external agent is another way to prepare those files.
+TeqCMS is designed for agent-managed publishing, but you can edit the same Markdown, templates, and CSS by hand. The CMS serves prepared files without an agent running.
 
 ## Does it translate pages automatically?
 
@@ -32,7 +32,7 @@ TeqCMS does not supply one. Assess your contributors' editing workflow if they n
 
 ## Is support required?
 
-No. The engine is open source under Apache-2.0. [My implementation help](/en/contacts) and [support subscription](/en/subscription) are optional.
+No. The engine is open source under Apache-2.0. [My implementation help](/en/contacts) and [ongoing support](/en/subscription) are optional.
 
 ## Can I inspect a real implementation?
 

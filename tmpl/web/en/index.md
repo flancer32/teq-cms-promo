@@ -1,72 +1,59 @@
 ---
-title: "TeqCMS — Markdown for agents. Websites for people."
-description: "A file-based CMS for multilingual websites. Keep Markdown and translations in Git, render HTML on the server, and get implementation help from its author."
+title: "TeqCMS — websites maintained by an AI agent"
+description: "A CMS for product sites and documentation maintained by an AI agent. One Markdown source for agents and people; content, translations, and design in Git."
 date: 2026-09-30
 ---
 
 <div class="hero">
 <div>
-<h1><span class="hero-product">TeqCMS / A multilingual CMS built around Markdown</span>Your content.<br>Your Git.<br><span>Your website.</span></h1>
-<p class="lead">I built TeqCMS for multilingual websites that people and agents can read. Author in Markdown, keep every language in Git, and deliver finished HTML from the server.</p>
-<div class="actions"><a class="btn" href="/en/docs/install">Build with TeqCMS</a><a class="btn btn-secondary" href="/en/examples">See real sites →</a></div>
-<p class="small-note">Open source · No content database · No admin panel</p>
+<p class="eyebrow">TeqCMS / A CMS for agent-managed websites</p>
+<h1>Let an agent<br><span>maintain your site.</span></h1>
+<p class="lead">TeqCMS is for developers, technical founders, and open-source maintainers building product sites or documentation. Your agent maintains content, translations, design, and structure. People and agents read the same Markdown source in different formats.</p>
+<div class="actions"><a class="btn" href="/en/docs/install">Start with TeqCMS</a><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms">Explore the code on GitHub →</a></div>
+<p class="small-note">Open source · Multilingual · Files and Git</p>
 </div>
 <div class="source-window">
-<div class="window-label"><span>ONE PUBLICATION / TWO REPRESENTATIONS</span><span aria-hidden="true">.md →</span></div>
-<pre><code>tmpl/web/
-├── en/features.md
-├── ru/features.md
-└── en/publication.html
-# Content stays in your repository.
-# The template shapes the page.</code></pre>
+<p class="eyebrow">One source. Two ways to read it.</p>
+<pre><code>Markdown in Git
+  ├─ Markdown → agents
+  └─ HTML → people</code></pre>
+<p>The agent reads the Markdown source. People read HTML rendered from that same file. Each language has its own source; there is no separate copy for agents.</p>
 <div class="output-list">
-<a class="output-link" href="/en/features.md"><span>/en/features.md</span><strong>Markdown ↗</strong></a>
-<a class="output-link" href="/en/features.html"><span>/en/features.html</span><strong>English HTML ↗</strong></a>
-<a class="output-link" href="/ru/features.html"><span>/ru/features.html</span><strong>Russian HTML ↗</strong></a>
+<a class="output-link" href="/en/index.md"><span>/en/index.md</span><strong>Markdown ↗</strong></a>
+<a class="output-link" href="/en/index.html"><span>/en/index.html</span><strong>HTML ↗</strong></a>
 </div>
-<p class="small-note">These examples pin the language and format: .md opens the source; .html opens the rendered page. A URL without an extension, such as /about, selects its format from the client’s HTTP request: HTML for a browser, Markdown for a client that supports it. Without a locale prefix, HTML uses the first supported language matching Accept-Language, then the default language. <a href="/en/docs/locales">How format and language are selected</a>.</p>
+<p class="small-note"><a href="/llms.txt">llms.txt</a> → Markdown for agents.<br><a href="/sitemap.xml">sitemap.xml</a> → HTML for search engines, which help people find the pages.</p>
 </div>
 </div>
 
 <div class="benefit-strip">
-<div><strong>Readable sources</strong><span>Markdown for agents and editors.</span></div>
-<div><strong>Reviewable changes</strong><span>Content and locale files in Git.</span></div>
-<div><strong>Ready to read</strong><span>Localized HTML rendered on the server.</span></div>
+<div><strong>Delegate the upkeep</strong><span>An agent edits content, languages, and presentation.</span></div>
+<div><strong>Keep one source</strong><span>Agents and people read the same publication.</span></div>
+<div><strong>Review every change</strong><span>Text, translations, templates, and CSS stay in Git.</span></div>
 </div>
-
-<section class="content-section">
-<p class="eyebrow">A small, inspectable publishing model</p>
-<h2>Work with the tools you already use.</h2>
-<div class="card-grid">
-<div class="card"><span class="card-tag">FILES + GIT</span><h3>Keep control of your content</h3><p>Pages are ordinary files. Review a diff, restore an earlier version, or move your Markdown to another project.</p></div>
-<div class="card"><span class="card-tag">EN / RU / …</span><h3>Give each language its own voice</h3><p>Each locale has an explicit source. Adapt the message to its audience and review the wording before publishing.</p></div>
-<div class="card"><span class="card-tag">SERVER-RENDERED HTML</span><h3>Deliver the page, already built</h3><p>Shared templates turn Markdown into HTML on the server. Readers can access the content without a client-side application.</p></div>
-</div>
-<a href="/en/features.html">Explore the capabilities →</a>
-</section>
 
 <section class="content-section workflow">
-<p class="eyebrow">From an edit to a page</p>
-<h2>A workflow you can inspect.</h2>
+<h2>You set the direction. The agent updates the files.</h2>
 <ol>
-<li><strong>Write or ask an agent.</strong> Edit a Markdown file in your editor, or give an external agent a task.</li>
-<li><strong>Review in Git.</strong> Check the content, locale variants, and template changes before publishing.</li>
-<li><strong>Serve with TeqCMS.</strong> The CMS reads the prepared files and renders the requested language through the site's templates.</li>
+<li><strong>Describe the result.</strong> Set the audience, page purpose, languages, and style in project instructions.</li>
+<li><strong>Let the agent prepare it.</strong> It writes Markdown, translates it, and adjusts templates, CSS, and navigation.</li>
+<li><strong>Review and publish.</strong> Check the diff and the pages. TeqCMS serves the prepared Markdown and renders HTML on the server.</li>
 </ol>
-<p>I use ADSM — Agent Driven Site Management — to keep project instructions alongside this workflow. <a href="/en/docs/adsm">See how the approach works</a>.</p>
+<p>The agent works in your repository, outside the CMS. Serving pages needs no running agent or LLM API. <a href="/en/features">How TeqCMS works</a> · <a href="/en/docs/adsm">How I organize agent work</a>.</p>
 </section>
 
 <section class="proof-block">
-<p class="eyebrow">You're looking at a working example</p>
-<h2>This site is the demonstration.</h2>
-<p>I publish this website with TeqCMS: Markdown sources, English and Russian pages, shared templates, and an external agent working on files. You can inspect the implementation rather than take the product claims on trust.</p>
-<div class="actions"><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms-promo">Inspect this site's repository</a><a class="btn btn-secondary" href="/en/index.md">Read this page as Markdown</a></div>
+<h2>Real websites. Code you can inspect.</h2>
+<p>I use TeqCMS for this site and these projects:</p>
+<div class="card-grid">
+<div class="card"><h3><a href="https://teqfw.com/">teqfw.com</a></h3><p>The TeqFW framework website: product introduction and documentation.</p><a href="https://github.com/flancer32/site-teqfw">TeqFW site code →</a></div>
+<div class="card"><h3><a href="https://wiredgeese.com/">wiredgeese.com</a></h3><p>My engineering practice: projects, writing, and collaboration.</p><a href="https://github.com/flancer32/site_wg">Wired Geese site code →</a></div>
+</div>
+<p><a href="https://github.com/flancer32/teq-cms-promo">This site's code</a> · <a href="/en/examples">All examples</a> · <a href="/en/docs/overview">Documentation</a>.</p>
 </section>
 
 <section class="support-panel">
-<p class="eyebrow">Work directly with the author</p>
-<h2>Want help getting your site live?</h2>
-<p>I'm Alex Gusev. I can help you assess the fit, set up TeqCMS, migrate content, or design a multilingual publishing workflow. Bring your project and its constraints; I'll help you define a practical scope.</p>
-<div class="actions"><a class="btn" href="/en/contacts">Discuss your project →</a><a href="/en/subscription">Explore ongoing support</a></div>
-<p class="small-note">Prefer to build it yourself? <a href="/en/docs/install">Start with the installation guide</a> or <a href="https://github.com/flancer32/teq-cms">read the engine source</a>.</p>
+<h2>Build your site with me.</h2>
+<p>I'm Alex Gusev, the author of TeqCMS. I'm open to collaboration: setup, content migration, an agent workflow, or ongoing support. Scope and cost depend on your project and are agreed before work starts.</p>
+<div class="actions"><a class="btn" href="/en/contacts">Discuss your project →</a><a href="/en/subscription">Collaboration and support</a></div>
 </section>

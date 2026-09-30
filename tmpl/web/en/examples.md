@@ -1,33 +1,29 @@
 ---
-title: "Real applications — TeqCMS"
-description: "Explore three real TeqCMS sites and their application repositories."
+title: "Websites built with TeqCMS — TeqCMS"
+description: "Explore teqfw.com, wiredgeese.com, and this promotional site, with direct links to their application code."
 date: 2026-09-30
 ---
 
-# Real sites. Open repositories.
+# Websites built with TeqCMS
 
-These three applications use TeqCMS. I link both the running site and its application repository so you can see what is actually built.
+I use TeqCMS for these websites. Open a site to see the result, then its application repository to inspect the files.
 
-## TeqCMS
+## teqfw.com — a framework website
 
-The site you are reading: a product introduction, documentation, and direct access to the author.
+An introduction to TeqFW and its documentation.
 
-[Live site](https://cms.teqfw.com/) · [Application source](https://github.com/flancer32/teq-cms-promo)
+[Visit teqfw.com](https://teqfw.com/) · [Inspect the site code](https://github.com/flancer32/site-teqfw)
 
-## Wired Geese
+## wiredgeese.com — an engineering practice
 
-My personal site: a place to learn about my work and get in touch.
+My projects, writing, and ways to work with me.
 
-[Live site](https://wiredgeese.com/) · [Application source](https://github.com/flancer32/site_wg)
+[Visit wiredgeese.com](https://wiredgeese.com/) · [Inspect the site code](https://github.com/flancer32/site_wg)
 
-## TeqFW
+## This site — a product introduction
 
-The TeqFW project website: an introduction to the framework and its documentation.
+TeqCMS explained in English and Russian, with documentation and author contacts. Compare [this page's Markdown](/en/examples.md) with its [HTML representation](/en/examples.html).
 
-[Live site](https://teqfw.com/) · [Application source](https://github.com/flancer32/site-teqfw)
+[Visit cms.teqfw.com](https://cms.teqfw.com/en/index.html) · [Inspect the site code](https://github.com/flancer32/teq-cms-promo)
 
-## Inspect this example
-
-Open the [Markdown for this page](/en/examples.md), switch languages in the header, and compare the locale files in this site’s repository. These are parts of the publishing model you can check directly.
-
-[Build your own site](/en/docs/install) or [ask me for implementation help](/en/contacts).
+[Start your own site](/en/docs/install) · [Read the CMS code](https://github.com/flancer32/teq-cms) · [Discuss implementation help](/en/contacts).

@@ -1,26 +1,29 @@
 ---
-title: "Working with an external agent — TeqCMS"
-description: "Practical guidance for working with an external agent: Markdown sources, localized HTML, and the TeqCMS publishing workflow."
+title: "Maintain a site with an agent — TeqCMS"
+description: "Give an external agent tasks for content, translations, CSS, templates, and navigation; review the changes in Git before publishing."
 date: 2026-09-30
 ---
 
-# Give a task. Review the files.
+# Give the agent a site task
 
-An agent uses the same Markdown and template files you can edit yourself. It works outside the CMS runtime. I use it to prepare changes, then decide what to publish.
+TeqCMS is designed for a file workflow an external AI agent can use directly. The agent edits Markdown, locale files, templates, and CSS; I set the direction and review the result.
 
-## Make the task concrete
+## Describe the outcome
 
-Include the page purpose, target audience, factual sources, languages, and a clear description of the result. For example:
+Include the page purpose, audience, factual sources, languages, and style constraints. Keep lasting project rules in text files the agent can read. For example:
 
-> Add a page explaining the three ways I help with TeqCMS: consultation, implementation, and ongoing support. Write in my first-person voice. Use the existing contact details and preserve locale-aware links.
+> Add a product page for developers. Prepare Russian and English Markdown, use our existing design, add the page to navigation, and show me the Git diff and rendered result.
 
-## Review what matters
+You can also ask the agent to adapt translations, reorganize documentation, or change the site's presentation. Agree which files and actions are in scope.
 
-- Read the proposed text and check product claims against the engine documentation.
-- Inspect the Git diff, including metadata and language variants.
-- Open the pages on a narrow screen and test the language switcher.
-- Keep approval for publishing and other external actions with the site owner.
+## Review before publishing
 
-The agent is optional. The CMS continues to serve the files without an agent process or LLM API running.
+- Check text and product claims against their sources.
+- Inspect the Git diff: content, metadata, translations, templates, and CSS.
+- Open pages on desktop and mobile; check links and language switching.
+- Regenerate `llms.txt` and `sitemap.xml` after publication changes.
+- Keep publication approval with the site owner.
 
-[Learn how ADSM organizes project instructions](/en/docs/adsm).
+The CMS serves the prepared files. A running agent or LLM API is not needed to read the site; you can also edit the files manually.
+
+[ADSM](/en/docs/adsm) explains how I organize the project's instructions. [This site's repository](https://github.com/flancer32/teq-cms-promo) shows the files and review history.

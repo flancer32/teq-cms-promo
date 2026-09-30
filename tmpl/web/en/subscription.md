@@ -1,26 +1,24 @@
 ---
-title: "Support options — TeqCMS"
-description: "Optional monthly support from the TeqCMS author. Discuss the scope before subscribing, or arrange a separate implementation engagement."
+title: "Collaboration and support — TeqCMS"
+description: "Work directly with the author on setup, migration, agent workflows, and ongoing support. Scope and cost are agreed for your project."
 date: 2026-09-30
 ---
 
-# Ongoing help, directly from the author
+# Collaboration around your project
 
-TeqCMS is open source and free to use. I offer optional support for people who want help adopting it and keeping their publishing workflow running.
+I'm open to working with developers, technical founders, and project maintainers who want to use TeqCMS. We can arrange a consultation, a focused implementation task, or ongoing support.
 
-## Support options
+## What I can help with
 
-| Plan | Published monthly price |
-| --- | --- |
-| Individual | **€20/month** |
-| Team | **€50/month** |
+- Setting up TeqCMS and moving existing content to Markdown.
+- Adapting design, templates, and navigation.
+- Organizing an agent workflow for content and multilingual publishing.
+- Maintaining the site and helping with technical questions over time.
 
-Support covers setup and launch questions, priority answers, and private guidance and examples. Before subscribing, contact me to confirm the scope, availability, and how we will work together.
+## Scope and cost
 
-## Have a larger implementation task?
+Cost depends on the volume and complexity of the work and the collaboration format. Tell me about your project; we'll agree the result, scope, availability, and cost before work starts.
 
-A content migration, custom presentation, or full site launch needs its own scope. I can discuss a separate one-off engagement rather than leave you guessing what a subscription covers.
+TeqCMS itself is open source and free to use. Working with me is optional.
 
-[See consulting and implementation options](/en/contacts).
-
-<div class="actions"><a class="btn" href="mailto:alex@wiredgeese.com?subject=TeqCMS%20support">Discuss support with me</a><a class="btn btn-secondary" href="/en/docs/install">Start independently</a></div>
+<div class="actions"><a class="btn" href="/en/contacts">Discuss your project →</a><a class="btn btn-secondary" href="/en/docs/install">Start independently</a></div>

@@ -1,8 +1,12 @@
 # TeqCMS promotional site
 
-This is the source of [cms.teqfw.com](https://cms.teqfw.com/en/): a bilingual introduction to TeqCMS, with features, real examples, documentation, and author support. It is also a working example of the CMS: the pages you read on the website come from the files in this repository.
+This is the source of [cms.teqfw.com](https://cms.teqfw.com/en/): a bilingual introduction to TeqCMS, with a compact product introduction, real examples, secondary documentation, and individually agreed author support. It is also a working example of the CMS: the pages you read on the website come from the files in this repository.
+
+TeqCMS is designed for developers, technical founders, and maintainers who delegate website upkeep to an external AI agent. The agent can write content, prepare translations, and change CSS, templates, and navigation.
 
 TeqCMS keeps content in Markdown and renders HTML on the server. Pages, translations, and presentation stay in Git; there is no content database or admin panel to set up. The [CMS engine](https://github.com/flancer32/teq-cms) and [template package](https://github.com/flancer32/teq-tmpl) provide the runtime. This repository supplies the website's content and appearance.
+
+Agents discover public Markdown through `llms.txt`; search engines discover human-facing HTML through `sitemap.xml`. Both representations derive from the same maintained Markdown source per language. The owner reviews the files before publishing; the CMS does not run the agent or call an LLM API.
 
 ## Start with one page
 

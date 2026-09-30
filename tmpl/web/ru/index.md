@@ -1,72 +1,59 @@
 ---
-title: "TeqCMS — Markdown для агентов. Сайт для людей."
-description: "Файловая CMS для многоязычных сайтов: Markdown и переводы в Git, готовый HTML с сервера. Этот сайт — рабочий пример. Автор поможет с внедрением."
+title: "TeqCMS — сайт под управлением ИИ-агента"
+description: "CMS для промосайтов и документации под управлением агента. Один Markdown-источник для людей и агентов; контент, переводы и оформление в Git."
 date: 2026-09-30
 ---
 
 <div class="hero">
 <div>
-<h1><span class="hero-product">TeqCMS / Многоязычная CMS на основе Markdown</span>Ваш контент.<br>Ваш Git.<br><span>Ваш сайт.</span></h1>
-<p class="lead">Я создал TeqCMS для многоязычных сайтов, которые читают и люди, и агенты. Пишите в Markdown, храните языковые версии в Git и отдавайте готовый HTML с сервера.</p>
-<div class="actions"><a class="btn" href="/ru/docs/install">Начать с TeqCMS</a><a class="btn btn-secondary" href="/ru/examples">Посмотреть сайты →</a></div>
-<p class="small-note">Открытый код · Без базы контента · Без админки</p>
+<p class="eyebrow">TeqCMS / CMS для сайтов под управлением агента</p>
+<h1>Сайт под<br><span>управлением агента.</span></h1>
+<p class="lead">TeqCMS — для промосайтов и документации разработчиков, технических основателей и open-source проектов. Агент ведёт контент, переводы, оформление и структуру. Люди и агенты читают один Markdown-источник в разных форматах.</p>
+<div class="actions"><a class="btn" href="/ru/docs/install">Начать с TeqCMS</a><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms">Изучить код на GitHub →</a></div>
+<p class="small-note">Открытый код · Несколько языков · Файлы и Git</p>
 </div>
 <div class="source-window">
-<div class="window-label"><span>ОДИН МАТЕРИАЛ / ДВА ПРЕДСТАВЛЕНИЯ</span><span aria-hidden="true">.md →</span></div>
-<pre><code>tmpl/web/
-├── en/features.md
-├── ru/features.md
-└── en/publication.html
-# Контент остаётся в репозитории.
-# Шаблон задаёт оформление.</code></pre>
+<p class="eyebrow">Один источник. Два способа чтения.</p>
+<pre><code>Markdown в Git
+  ├─ Markdown → агенты
+  └─ HTML → люди</code></pre>
+<p>Агент читает Markdown-исходник. Человек — HTML, сформированный из того же файла. У каждого языка свой исходник; отдельной копии для агентов нет.</p>
 <div class="output-list">
-<a class="output-link" href="/ru/features.md"><span>/ru/features.md</span><strong>Markdown ↗</strong></a>
-<a class="output-link" href="/ru/features.html"><span>/ru/features.html</span><strong>Русский HTML ↗</strong></a>
-<a class="output-link" href="/en/features.html"><span>/en/features.html</span><strong>English HTML ↗</strong></a>
+<a class="output-link" href="/ru/index.md"><span>/ru/index.md</span><strong>Markdown ↗</strong></a>
+<a class="output-link" href="/ru/index.html"><span>/ru/index.html</span><strong>HTML ↗</strong></a>
 </div>
-<p class="small-note">В этих примерах язык и формат указаны явно: .md открывает исходник, .html — оформленную страницу. Адрес без расширения, например /about, выбирает формат по HTTP-запросу клиента: HTML для браузера человека, Markdown для клиента, который его поддерживает. Без префикса локали HTML использует первый поддерживаемый язык по предпочтениям Accept-Language, затем язык по умолчанию. <a href="/ru/docs/locales">Как выбираются формат и язык</a>.</p>
+<p class="small-note"><a href="/llms.txt">llms.txt</a> → Markdown для агентов.<br><a href="/sitemap.xml">sitemap.xml</a> → HTML для поисковиков, которые помогают людям найти страницы.</p>
 </div>
 </div>
 
 <div class="benefit-strip">
-<div><strong>Контент виден</strong><span>Markdown можно читать и редактировать.</span></div>
-<div><strong>Правки проверяемы</strong><span>Тексты и языковые версии хранятся в Git.</span></div>
-<div><strong>Страница готова</strong><span>HTML нужного языка формируется на сервере.</span></div>
+<div><strong>Правки — агенту</strong><span>Контент, языки и оформление в одном процессе.</span></div>
+<div><strong>Источник — общий</strong><span>Люди и агенты читают один материал.</span></div>
+<div><strong>Контроль — у вас</strong><span>Тексты, переводы, шаблоны и CSS хранятся в Git.</span></div>
 </div>
-
-<section class="content-section">
-<p class="eyebrow">Прозрачная модель публикации</p>
-<h2>Сайт в привычных инструментах.</h2>
-<div class="card-grid">
-<div class="card"><span class="card-tag">ФАЙЛЫ + GIT</span><h3>Контент под вашим контролем</h3><p>Страницы — обычные файлы. Можно проверить разницу версий, вернуть прежний текст или перенести Markdown в другой проект.</p></div>
-<div class="card"><span class="card-tag">RU / EN / …</span><h3>Каждому языку — свой текст</h3><p>У каждой локали свой исходник. Адаптируйте подачу под аудиторию и проверяйте формулировки до публикации.</p></div>
-<div class="card"><span class="card-tag">HTML С СЕРВЕРА</span><h3>Читатель сразу получает страницу</h3><p>Общие шаблоны превращают Markdown в HTML на сервере. Для чтения контента не нужно запускать приложение в браузере.</p></div>
-</div>
-<a href="/ru/features.html">Подробнее о возможностях →</a>
-</section>
 
 <section class="content-section workflow">
-<p class="eyebrow">От правки к странице</p>
-<h2>Каждый шаг можно проверить.</h2>
+<h2>Вы задаёте цель. Агент меняет файлы.</h2>
 <ol>
-<li><strong>Напишите сами или дайте задачу агенту.</strong> Отредактируйте Markdown в редакторе либо поручите правку внешнему агенту.</li>
-<li><strong>Посмотрите изменения в Git.</strong> Проверьте текст, языковые версии и шаблоны перед публикацией.</li>
-<li><strong>Отдайте страницу через TeqCMS.</strong> CMS читает подготовленные файлы и формирует страницу нужного языка в шаблонах сайта.</li>
+<li><strong>Опишите результат.</strong> Укажите аудиторию, назначение страниц, языки и стиль в инструкциях проекта.</li>
+<li><strong>Поручите работу агенту.</strong> Он пишет Markdown, готовит переводы, меняет шаблоны, CSS и навигацию.</li>
+<li><strong>Проверьте и опубликуйте.</strong> Посмотрите изменения и страницы. TeqCMS отдаёт подготовленный Markdown и формирует HTML на сервере.</li>
 </ol>
-<p>Я использую ADSM — Agent Driven Site Management, — чтобы хранить инструкции о проекте и организовать работу с агентом. <a href="/ru/docs/adsm">Как устроен этот подход</a>.</p>
+<p>Агент работает в вашем репозитории, вне CMS. Для выдачи страниц не нужны работающий агент и API языковой модели. <a href="/ru/features">Как работает TeqCMS</a> · <a href="/ru/docs/adsm">Как я организую работу агента</a>.</p>
 </section>
 
 <section class="proof-block">
-<p class="eyebrow">Рабочий пример перед вами</p>
-<h2>Этот сайт и есть демонстрация.</h2>
-<p>Я публикую его на TeqCMS: Markdown-исходники, русские и английские страницы, общие шаблоны и внешний агент, который работает с файлами. Реализацию можно изучить, а утверждения о продукте — проверить.</p>
-<div class="actions"><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms-promo">Посмотреть репозиторий сайта</a><a class="btn btn-secondary" href="/ru/index.md">Прочитать страницу в Markdown</a></div>
+<h2>Рабочие сайты. Открытый код.</h2>
+<p>Я использую TeqCMS для этого сайта и следующих проектов:</p>
+<div class="card-grid">
+<div class="card"><h3><a href="https://teqfw.com/">teqfw.com</a></h3><p>Сайт фреймворка TeqFW: представление продукта и документация.</p><a href="https://github.com/flancer32/site-teqfw">Код сайта TeqFW →</a></div>
+<div class="card"><h3><a href="https://wiredgeese.com/">wiredgeese.com</a></h3><p>Моя инженерная практика: проекты, публикации и сотрудничество.</p><a href="https://github.com/flancer32/site_wg">Код сайта Wired Geese →</a></div>
+</div>
+<p><a href="https://github.com/flancer32/teq-cms-promo">Код этого сайта</a> · <a href="/ru/examples">Все примеры</a> · <a href="/ru/docs/overview">Документация</a>.</p>
 </section>
 
 <section class="support-panel">
-<p class="eyebrow">Помощь напрямую от автора</p>
-<h2>Нужно внедрить в свой проект?</h2>
-<p>Я Алекс Гусев. Помогу оценить, подходит ли TeqCMS для вашей задачи, настроить сайт, перенести контент и организовать работу с языковыми версиями. Обсудим ограничения проекта и определим объём работ.</p>
-<div class="actions"><a class="btn" href="/ru/contacts">Обсудить задачу →</a><a href="/ru/subscription">Постоянная поддержка</a></div>
-<p class="small-note">Хотите разобраться самостоятельно? Начните с <a href="/ru/docs/install">инструкции по установке</a> и <a href="https://github.com/flancer32/teq-cms">исходников движка</a>.</p>
+<h2>Давайте сделаем ваш сайт.</h2>
+<p>Я Алекс Гусев, автор TeqCMS. Открыт к сотрудничеству: настройка, перенос контента, работа с агентом или постоянная поддержка. Объём и стоимость зависят от вашей задачи и согласуются до начала работы.</p>
+<div class="actions"><a class="btn" href="/ru/contacts">Обсудить проект →</a><a href="/ru/subscription">Сотрудничество и поддержка</a></div>
 </section>

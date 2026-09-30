@@ -10,7 +10,7 @@ I can help you decide whether TeqCMS fits your project, then turn that decision 
 
 <div class="author-block">
 <img src="/assets/img/alex.png" alt="Alex Gusev" loading="lazy" width="100" class="author-photo">
-<div class="author-text"><p>I'm Alex Gusev, the developer of TeqCMS, with more than 25 years of software development experience. I build and maintain my own projects, including <a href="https://nutrilog.app.wiredgeese.com/">NutriLog</a>. This promotional site is a working example of TeqCMS.</p><p>I work directly with you, from the first discussion to reviewing the result.</p></div>
+<div class="author-text"><p>I'm Alex Gusev, the developer of TeqCMS, with more than 25 years of software development experience. I use TeqCMS for <a href="https://teqfw.com/">teqfw.com</a>, <a href="https://wiredgeese.com/">wiredgeese.com</a>, and this site.</p><p>I work directly with you, from the first discussion to reviewing the result.</p></div>
 </div>
 
 ## Choose the help you need
@@ -18,18 +18,18 @@ I can help you decide whether TeqCMS fits your project, then turn that decision 
 <div class="card-grid">
 <div class="card"><span class="card-tag">CONSULTING</span><h3>Make the right start</h3><p>Review your content model, language requirements, hosting constraints, and current site. Define what to build and what to migrate.</p></div>
 <div class="card"><span class="card-tag">IMPLEMENTATION</span><h3>Get a working site</h3><p>Set up TeqCMS, adapt presentation templates, migrate agreed content, and check localized pages and public Markdown routes.</p></div>
-<div class="card"><span class="card-tag">WORKFLOW</span><h3>Keep it maintainable</h3><p>Organize Git review, project instructions, and agent-assisted localization. Help your contributors understand the publishing process.</p></div>
+<div class="card"><span class="card-tag">WORKFLOW</span><h3>Keep it maintainable</h3><p>Organize Git review and project instructions so an agent can maintain content, translations, style, and structure. Help your contributors understand the publishing process.</p></div>
 </div>
 
 ## A concrete scope before work starts
 
 Tell me what your site does, which languages you need, where it runs, and what is slowing you down. A link to your current site or repository helps. I’ll discuss the scope and fee with you before paid work begins.
 
-I offer one-off help and [ongoing support](/en/subscription). I’m also open to a small experimental collaboration when it offers useful experience and helps develop TeqCMS; we can agree the format together.
+I offer one-off help and [ongoing support](/en/subscription). I’m open to collaboration; cost depends on scope, complexity, and the work format and is agreed before we start.
 
 ## When to get in touch
 
-Founders, startups, open-source maintainers, and SaaS prototype authors can bring launch or documentation tasks. You can also contact me if you want to move an existing site to a file-based publishing workflow.
+Developers, technical founders, and open-source maintainers can bring product-site, multilingual publishing, or documentation tasks. You can also contact me if you want to move an existing site to a file-based publishing workflow.
 
 <div class="actions"><a class="btn" href="mailto:alex@wiredgeese.com?subject=TeqCMS%20project">Email me about your project</a><a class="btn btn-secondary" href="https://t.me/wiredgeese">Ask on Telegram</a></div>
 

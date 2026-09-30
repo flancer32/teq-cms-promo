@@ -1,33 +1,25 @@
 ---
-title: "Built with TeqCMS — about this site"
-description: "See how I use TeqCMS, Git, shared templates, and an external agent to maintain this bilingual website."
+title: "About this site and its author — TeqCMS"
+description: "How Alex Gusev maintains this TeqCMS site with an external AI agent: Markdown, translations, templates, and CSS reviewed in Git."
 date: 2026-09-30
 ---
 
-# A site you can inspect, not just a product pitch
+# I use the workflow I built TeqCMS for
 
-I’m Alex Gusev, the author of TeqCMS. I use this website to demonstrate the same publishing model I offer to other projects.
+I'm Alex Gusev, the author of TeqCMS. This bilingual site is a working example: I describe the result, an external AI agent prepares the files, and I review what to publish.
 
-## The source is the starting point
+## What the agent manages
 
-The English and Russian texts live in `tmpl/web/en/` and `tmpl/web/ru/`. Markdown holds the page content and metadata; shared Nunjucks templates define the presentation. TeqCMS reads the requested locale and renders the HTML on the server.
+Content lives in Markdown. Each language has its own source file; shared templates and CSS shape the pages. The agent can write content, prepare translations, and update design and navigation. I check the wording, Git diff, and rendered result.
 
-The [site repository](https://github.com/flancer32/teq-cms-promo) contains the application’s content and templates. The [engine repository](https://github.com/flancer32/teq-cms) contains the CMS implementation. You can examine both boundaries.
+TeqCMS publishes those prepared sources. It does not run the agent or call an LLM API. I keep project instructions in a separate context repository; [ADSM](/en/docs/adsm) explains that approach.
 
-## How I work with an agent
+## Inspect the same publication in two forms
 
-I describe the purpose of a page, the audience, and the constraints. An external agent proposes and edits the files. I review the text, the rendered result, and the Git diff through iterations before deciding what to publish.
+You are reading HTML derived from [this page's Markdown](/en/about.md). Agents discover public sources through [llms.txt](/llms.txt); search engines discover human-facing pages through [sitemap.xml](/sitemap.xml).
 
-The agent works outside the CMS runtime. I can also edit the same files by hand. Content, locale variants, and templates are version-controlled together in the site repository.
+- [Site code](https://github.com/flancer32/teq-cms-promo): Markdown, templates, and styles.
+- [CMS code](https://github.com/flancer32/teq-cms): publishing and rendering.
+- [Other real sites](/en/examples): TeqFW and Wired Geese.
 
-## Try the model on this page
-
-1. Open the [public Markdown](/en/about.md) to see its authored source.
-2. Switch between English and Russian in the header to view the corresponding page.
-3. Look at `tmpl/web/{locale}/about.md` in the site repository and compare it with the page you are reading.
-
-## Where the instructions live
-
-I keep the project’s long-term textual context in a separate repository mounted at `ctx/`. It describes the product, page purposes, and working boundaries for agents. I explain this related approach on the [ADSM page](/en/docs/adsm).
-
-[Explore other real applications](/en/examples) or [talk to me about your site](/en/contacts).
+[Discuss a site with me](/en/contacts) or [run this example yourself](/en/docs/install).
