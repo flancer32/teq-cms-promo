@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="container header-bar">
-    <a class="brand" href="/{{ locale }}/v2/index" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
-    <div class="quick-links"><a href="/{{ locale }}/v2/features">Возможности</a><a href="/{{ locale }}/v2/examples">Примеры</a><a href="/{{ locale }}/v2/docs/overview">Документация</a><a href="/{{ locale }}/v2/contacts">Помощь автора</a></div>
+    <a class="brand" href="/{{ locale }}/" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
+    <div class="quick-links"><a href="/{{ locale }}/features">Возможности</a><a href="/{{ locale }}/examples">Примеры</a><a href="/{{ locale }}/docs/overview">Документация</a><a href="/{{ locale }}/contacts">Помощь автора</a></div>
     <div class="locale-switcher" aria-label="Язык">
       {% for loc, url in alternateUrls %}
       {% if loc == locale %}<span lang="{{ loc }}" aria-current="true">{{ loc | upper }}</span>{% else %}<a href="{{ url }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>{% endif %}
@@ -10,24 +10,24 @@
     <details class="site-menu">
       <summary aria-label="Меню"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Меню</span></summary>
       <nav class="menu-panel" aria-label="Основная навигация"><ul>
-        <li><a href="/{{ locale }}/v2/index">Главная</a></li>
-        <li><a href="/{{ locale }}/v2/about">О проекте</a></li>
-        <li><a href="/{{ locale }}/v2/features">Возможности</a></li>
-        <li><a href="/{{ locale }}/v2/examples">Примеры</a></li>
-        <li><details class="docs-menu"><summary>Документация</summary><ul><li><a href="/{{ locale }}/v2/docs/overview">Обзор</a></li>
-<li><a href="/{{ locale }}/v2/docs/adsm">Подход ADSM</a></li>
-<li><a href="/{{ locale }}/v2/docs/install">Установка</a></li>
-<li><a href="/{{ locale }}/v2/docs/config">Конфигурация</a></li>
-<li><a href="/{{ locale }}/v2/docs/locales">Локали</a></li>
-<li><a href="/{{ locale }}/v2/docs/translate">Локализация</a></li>
-<li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
-<li><a href="/{{ locale }}/v2/docs/dev-llm">Работа с агентами</a></li>
-<li><a href="/{{ locale }}/v2/docs/faq">Частые вопросы</a></li>
-<li><a href="/{{ locale }}/v2/docs/plugins">Интеграция</a></li>
-<li><a href="/{{ locale }}/v2/docs/troubleshooting">Решение проблем</a></li></ul></details></li>
-        <li><a href="/{{ locale }}/v2/roadmap">Планы</a></li>
-        <li><a href="/{{ locale }}/v2/subscription">Поддержка</a></li>
-        <li><a href="/{{ locale }}/v2/contacts">Контакты</a></li>
+        <li><a href="/{{ locale }}/">Главная</a></li>
+        <li><a href="/{{ locale }}/about">О проекте</a></li>
+        <li><a href="/{{ locale }}/features">Возможности</a></li>
+        <li><a href="/{{ locale }}/examples">Примеры</a></li>
+        <li><details class="docs-menu"><summary>Документация</summary><ul><li><a href="/{{ locale }}/docs/overview">Обзор</a></li>
+<li><a href="/{{ locale }}/docs/adsm">Подход ADSM</a></li>
+<li><a href="/{{ locale }}/docs/install">Установка</a></li>
+<li><a href="/{{ locale }}/docs/config">Конфигурация</a></li>
+<li><a href="/{{ locale }}/docs/locales">Локали</a></li>
+<li><a href="/{{ locale }}/docs/translate">Локализация</a></li>
+<li><a href="/{{ locale }}/docs/cli">CLI</a></li>
+<li><a href="/{{ locale }}/docs/dev-llm">Работа с агентами</a></li>
+<li><a href="/{{ locale }}/docs/faq">Частые вопросы</a></li>
+<li><a href="/{{ locale }}/docs/plugins">Интеграция</a></li>
+<li><a href="/{{ locale }}/docs/troubleshooting">Решение проблем</a></li></ul></details></li>
+        <li><a href="/{{ locale }}/roadmap">Планы</a></li>
+        <li><a href="/{{ locale }}/subscription">Поддержка</a></li>
+        <li><a href="/{{ locale }}/contacts">Контакты</a></li>
       </ul></nav>
     </details>
   </div>

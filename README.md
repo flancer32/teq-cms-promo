@@ -14,7 +14,7 @@ npm start
 
 Adjust the public configuration examples before deployment. For local canonical links, set `TEQ_CMS__BASE_URL=http://localhost:3000` in `.env`. The CLI loads the project dotenv file once; process environment values override matching keys. No configuration values are embedded in npm scripts. `npm start` runs `teq web:start`.
 
-Open `/en/v2/index` or `/ru/v2/index`. The root and locale entry pages lead to this primary promotional content. The old `docs`, `features`, and `pages` content directories and their presentation templates have been removed.
+Open `/en/` or `/ru/`. Localized Markdown home pages render directly. The neutral root `/` serves the home Markdown source.
 
 ## Configuration ownership
 
@@ -30,9 +30,9 @@ The sample contains only public examples. Keep operational dotenv values outside
 
 ## Content and presentation
 
-All 36 localized publications live under `tmpl/web/{en,ru}/v2/`. Each Markdown source has YAML `title`, `description`, and ISO calendar `date`. The corresponding locale's `publication.html` renders it through `inc/layout.html`, `inc/nav.html`, and `inc/promo-styles.html`.
+All 36 localized publications live under `tmpl/web/{en,ru}/`. Each Markdown source has YAML `title`, `description`, and ISO calendar `date`. The corresponding locale's `publication.html` renders it through `inc/layout.html`, `inc/nav.html`, and `inc/promo-styles.html`.
 
-The locale-neutral URL `/v2/about` returns authored English Markdown, including front matter. `/en/v2/about` and `/ru/v2/about` render their exact-locale HTML. Metadata supplies canonical HTML, available language alternates, and the neutral Markdown alternate. The mobile navigation uses a native disclosure with a `☰` icon and an accessible localized name.
+The locale-neutral URL `/about` returns authored English Markdown, including front matter. `/en/about` and `/ru/about` render their exact-locale HTML. Metadata supplies canonical HTML, available language alternates, and the neutral Markdown alternate. The mobile navigation uses a native disclosure with a `☰` icon and an accessible localized name.
 
 ## Discovery
 
@@ -44,9 +44,11 @@ npm run generate
 
 The generator loads the same `.env` as the server and refreshes `web/robots.txt`, `web/llms.txt`, and `web/sitemap.xml`. Review the generated files with the content they describe.
 
-## Root-level routes: delegated engine work
+## Publication URLs
 
-Support for `/about`, `/about.md`, `/en/about`, `/en/about.html`, and `/en/about.md` is delegated to [TeqCMS issue #31](https://github.com/flancer32/teq-cms/issues/31). The question is whether publication families must be registered or whether all public site pages can use a site-wide publication mode. The current installed engine requires a nonempty family prefix, so this site retains `/v2/` until the package supplies the agreed contract. No host-local runtime workaround is added.
+The installed CMS defaults to site publication without family registration. Leave `TEQ_CMS__PUBLICATION_FAMILIES` unset; a nonempty legacy list selects the previous family mode. All content in the public template tree is public; keep private instructions outside it.
+
+`/about` and `/about.md` return neutral Markdown. `/en/about` and `/en/about.html` return English HTML; `/en/about.md` returns exact English Markdown. HTML canonical links omit suffixes. Home canonicals are `/en/` and `/ru/`; neutral Markdown uses `/`. Discovery omits aliases.
 
 ## Repositories and dependencies
 

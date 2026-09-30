@@ -1,7 +1,7 @@
 <header class="site-header">
   <div class="container header-bar">
-    <a class="brand" href="/{{ locale }}/v2/index" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
-    <div class="quick-links"><a href="/{{ locale }}/v2/features">Features</a><a href="/{{ locale }}/v2/examples">Examples</a><a href="/{{ locale }}/v2/docs/overview">Documentation</a><a href="/{{ locale }}/v2/contacts">Get help</a></div>
+    <a class="brand" href="/{{ locale }}/" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
+    <div class="quick-links"><a href="/{{ locale }}/features">Features</a><a href="/{{ locale }}/examples">Examples</a><a href="/{{ locale }}/docs/overview">Documentation</a><a href="/{{ locale }}/contacts">Get help</a></div>
     <div class="locale-switcher" aria-label="Language">
       {% for loc, url in alternateUrls %}
       {% if loc == locale %}<span lang="{{ loc }}" aria-current="true">{{ loc | upper }}</span>{% else %}<a href="{{ url }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>{% endif %}
@@ -10,24 +10,24 @@
     <details class="site-menu">
       <summary aria-label="Menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Menu</span></summary>
       <nav class="menu-panel" aria-label="Main navigation"><ul>
-        <li><a href="/{{ locale }}/v2/index">Home</a></li>
-        <li><a href="/{{ locale }}/v2/about">About</a></li>
-        <li><a href="/{{ locale }}/v2/features">Features</a></li>
-        <li><a href="/{{ locale }}/v2/examples">Examples</a></li>
-        <li><details class="docs-menu"><summary>Documentation</summary><ul><li><a href="/{{ locale }}/v2/docs/overview">Overview</a></li>
-<li><a href="/{{ locale }}/v2/docs/adsm">ADSM workflow</a></li>
-<li><a href="/{{ locale }}/v2/docs/install">Installation</a></li>
-<li><a href="/{{ locale }}/v2/docs/config">Configuration</a></li>
-<li><a href="/{{ locale }}/v2/docs/locales">Locales</a></li>
-<li><a href="/{{ locale }}/v2/docs/translate">Localization</a></li>
-<li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
-<li><a href="/{{ locale }}/v2/docs/dev-llm">Working with agents</a></li>
-<li><a href="/{{ locale }}/v2/docs/faq">FAQ</a></li>
-<li><a href="/{{ locale }}/v2/docs/plugins">Integration</a></li>
-<li><a href="/{{ locale }}/v2/docs/troubleshooting">Troubleshooting</a></li></ul></details></li>
-        <li><a href="/{{ locale }}/v2/roadmap">Roadmap</a></li>
-        <li><a href="/{{ locale }}/v2/subscription">Support</a></li>
-        <li><a href="/{{ locale }}/v2/contacts">Contact</a></li>
+        <li><a href="/{{ locale }}/">Home</a></li>
+        <li><a href="/{{ locale }}/about">About</a></li>
+        <li><a href="/{{ locale }}/features">Features</a></li>
+        <li><a href="/{{ locale }}/examples">Examples</a></li>
+        <li><details class="docs-menu"><summary>Documentation</summary><ul><li><a href="/{{ locale }}/docs/overview">Overview</a></li>
+<li><a href="/{{ locale }}/docs/adsm">ADSM workflow</a></li>
+<li><a href="/{{ locale }}/docs/install">Installation</a></li>
+<li><a href="/{{ locale }}/docs/config">Configuration</a></li>
+<li><a href="/{{ locale }}/docs/locales">Locales</a></li>
+<li><a href="/{{ locale }}/docs/translate">Localization</a></li>
+<li><a href="/{{ locale }}/docs/cli">CLI</a></li>
+<li><a href="/{{ locale }}/docs/dev-llm">Working with agents</a></li>
+<li><a href="/{{ locale }}/docs/faq">FAQ</a></li>
+<li><a href="/{{ locale }}/docs/plugins">Integration</a></li>
+<li><a href="/{{ locale }}/docs/troubleshooting">Troubleshooting</a></li></ul></details></li>
+        <li><a href="/{{ locale }}/roadmap">Roadmap</a></li>
+        <li><a href="/{{ locale }}/subscription">Support</a></li>
+        <li><a href="/{{ locale }}/contacts">Contact</a></li>
       </ul></nav>
     </details>
   </div>
