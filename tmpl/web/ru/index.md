@@ -20,11 +20,11 @@ date: 2026-09-30
 # Контент остаётся в репозитории.
 # Шаблон задаёт оформление.</code></pre>
 <div class="output-list">
-<a class="output-link" href="/features"><span>/features</span><strong>Markdown ↗</strong></a>
-<a class="output-link" href="/ru/features"><span>/ru/features</span><strong>Русский HTML ↗</strong></a>
-<a class="output-link" href="/en/features"><span>/en/features</span><strong>English HTML ↗</strong></a>
+<a class="output-link" href="/ru/features.md"><span>/ru/features.md</span><strong>Markdown ↗</strong></a>
+<a class="output-link" href="/ru/features.html"><span>/ru/features.html</span><strong>Русский HTML ↗</strong></a>
+<a class="output-link" href="/en/features.html"><span>/en/features.html</span><strong>English HTML ↗</strong></a>
 </div>
-<p class="small-note">Это рабочие ссылки. Откройте исходник, затем посмотрите тот же материал как страницу сайта.</p>
+<p class="small-note">В этих примерах язык и формат указаны явно: .md открывает исходник, .html — оформленную страницу. Адрес без расширения, например /about, выбирает формат по HTTP-запросу клиента: HTML для браузера человека, Markdown для клиента, который его поддерживает. Без префикса локали HTML использует первый поддерживаемый язык по предпочтениям Accept-Language, затем язык по умолчанию. <a href="/ru/docs/locales">Как выбираются формат и язык</a>.</p>
 </div>
 </div>
 
@@ -42,7 +42,7 @@ date: 2026-09-30
 <div class="card"><span class="card-tag">RU / EN / …</span><h3>Каждому языку — свой текст</h3><p>У каждой локали свой исходник. Адаптируйте подачу под аудиторию и проверяйте формулировки до публикации.</p></div>
 <div class="card"><span class="card-tag">HTML С СЕРВЕРА</span><h3>Читатель сразу получает страницу</h3><p>Общие шаблоны превращают Markdown в HTML на сервере. Для чтения контента не нужно запускать приложение в браузере.</p></div>
 </div>
-<a href="/ru/features">Подробнее о возможностях →</a>
+<a href="/ru/features.html">Подробнее о возможностях →</a>
 </section>
 
 <section class="content-section workflow">
@@ -60,7 +60,7 @@ date: 2026-09-30
 <p class="eyebrow">Рабочий пример перед вами</p>
 <h2>Этот сайт и есть демонстрация.</h2>
 <p>Я публикую его на TeqCMS: Markdown-исходники, русские и английские страницы, общие шаблоны и внешний агент, который работает с файлами. Реализацию можно изучить, а утверждения о продукте — проверить.</p>
-<div class="actions"><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms-promo">Посмотреть репозиторий сайта</a><a class="btn btn-secondary" href="/">Прочитать страницу в Markdown</a></div>
+<div class="actions"><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms-promo">Посмотреть репозиторий сайта</a><a class="btn btn-secondary" href="/ru/index.md">Прочитать страницу в Markdown</a></div>
 </section>
 
 <section class="support-panel">

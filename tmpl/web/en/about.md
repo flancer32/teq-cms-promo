@@ -22,7 +22,7 @@ The agent works outside the CMS runtime. I can also edit the same files by hand.
 
 ## Try the model on this page
 
-1. Open the [public Markdown](/about) to see its authored source.
+1. Open the [public Markdown](/en/about.md) to see its authored source.
 2. Switch between English and Russian in the header to view the corresponding page.
 3. Look at `tmpl/web/{locale}/about.md` in the site repository and compare it with the page you are reading.
 

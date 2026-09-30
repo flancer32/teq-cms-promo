@@ -28,6 +28,6 @@ The TeqFW project website: an introduction to the framework and its documentatio
 
 ## Inspect this example
 
-Open the [Markdown for this page](/examples), switch languages in the header, and compare the locale files in this site’s repository. These are parts of the publishing model you can check directly.
+Open the [Markdown for this page](/en/examples.md), switch languages in the header, and compare the locale files in this site’s repository. These are parts of the publishing model you can check directly.
 
 [Build your own site](/en/docs/install) or [ask me for implementation help](/en/contacts).

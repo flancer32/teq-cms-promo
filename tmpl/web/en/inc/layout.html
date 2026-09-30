@@ -1,3 +1,6 @@
+{% if canonicalUrl and markdownAlternateUrl %}
+{% set explicitMarkdownUrl = canonicalUrl ~ ("index.md" if canonicalUrl.endsWith("/") else ".md") %}
+{% endif %}
 <!DOCTYPE html>
 <html lang="{{ locale }}">
 <head>
@@ -10,7 +13,7 @@
   {% block styles %}{% endblock %}
   {% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
   {% for lang, url in alternateUrls %}<link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">{% endfor %}
-  {% if markdownAlternateUrl %}<link rel="alternate" type="text/markdown" href="{{ markdownAlternateUrl }}">{% endif %}
+  {% if explicitMarkdownUrl %}<link rel="alternate" type="text/markdown" href="{{ explicitMarkdownUrl }}">{% endif %}
   {% block robots %}{% endblock %}
   {% block og %}{% endblock %}
   {% block twitter %}{% endblock %}
@@ -21,8 +24,8 @@
   <main class="container" id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
   <footer class="site-footer">
     <div class="container footer-inner">
-      <div><p><strong>TeqCMS · Markdown → HTML</strong></p><p>This site runs on TeqCMS. Its content and templates are open for inspection.</p><p>Built by Alex Gusev</p></div>
-      <div class="footer-links"><a href="https://github.com/flancer32/teq-cms">Engine source</a><a href="https://github.com/flancer32/teq-cms-promo">Site source</a>{% if markdownAlternateUrl %}<a href="{{ markdownAlternateUrl }}">Read Markdown</a>{% endif %}<a href="/{{ locale }}/contacts">Contact</a></div>
+      <div><p><strong>TeqCMS · Markdown → HTML</strong></p><p>This site runs on TeqCMS. Its content and templates are open for inspection.</p><p>A page URL without an extension, such as /about, selects HTML or Markdown from the client’s HTTP request. Without a locale prefix, HTML follows Accept-Language, then the default language. Use .html or .md to choose a format. <a href="/en/docs/locales">Format and language selection</a>.</p><p>Built by Alex Gusev</p></div>
+      <div class="footer-links"><a href="https://github.com/flancer32/teq-cms">Engine source</a><a href="https://github.com/flancer32/teq-cms-promo">Site source</a>{% if explicitMarkdownUrl %}<a href="{{ explicitMarkdownUrl }}">Read Markdown</a>{% endif %}<a href="/{{ locale }}/contacts">Contact</a></div>
     </div>
   </footer>
 </body>

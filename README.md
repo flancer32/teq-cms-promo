@@ -6,18 +6,18 @@ TeqCMS keeps content in Markdown and renders HTML on the server. Pages, translat
 
 ## Start with one page
 
-Open [the English home source](tmpl/web/en/index.md), then [the rendered home page](https://cms.teqfw.com/en/). The Markdown file contains the words and content sections; the templates give them a header, navigation, and footer.
+Open [the English home source](tmpl/web/en/index.md), then [the rendered home page](https://cms.teqfw.com/en/index.html). The Markdown file contains the words and content sections; the templates give them a header, navigation, and footer.
 
 For a smaller example, follow [about.md](tmpl/web/en/about.md) through the site:
 
 | Address | What you get |
 | --- | --- |
-| [`/en/about`](https://cms.teqfw.com/en/about) | The English page as HTML. |
-| [`/ru/about`](https://cms.teqfw.com/ru/about) | The Russian page from its own source file. |
-| [`/about`](https://cms.teqfw.com/about) | The neutral Markdown resource, which selects English on this site. |
+| [`/en/about.html`](https://cms.teqfw.com/en/about.html) | The English page as HTML. |
+| [`/ru/about.html`](https://cms.teqfw.com/ru/about.html) | The Russian page from its own source file. |
+| [`/about.md`](https://cms.teqfw.com/about.md) | The neutral Markdown resource, which selects English on this site. |
 | [`/ru/about.md`](https://cms.teqfw.com/ru/about.md) | The exact Russian Markdown source. |
 
-The `.html` addresses are aliases of localized HTML pages; neutral `.md` addresses are aliases of neutral Markdown resources. The home pages use `/en/` and `/ru/`; `/` serves home Markdown.
+Use `.html` or `.md` to select a format explicitly and a locale prefix to select a language. An extensionless publication URL such as `/about` selects HTML for a browser or Markdown for a client that supports it, according to the client’s HTTP request. Without a locale prefix, HTML uses the first supported language matching `Accept-Language`, then the default locale. Neutral `.md` source selection is separate: an unlocalized source, then English, then the default locale. The explicit home URLs are `/en/index.html`, `/ru/index.html`, `/en/index.md`, and `/ru/index.md`.
 
 ## Find your way around
 

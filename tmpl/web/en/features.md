@@ -18,15 +18,15 @@ Each language is a maintained source file at the same path in its locale directo
 
 ## HTML for people, Markdown for agents
 
-TeqCMS publishes two representations with different URLs:
+Use an explicit extension when you want a particular representation:
 
 | Open this example | What you receive |
 | --- | --- |
-| [English page](/en/features) | HTML rendered from the English source |
-| [Russian page](/ru/features) | HTML rendered from the Russian source |
-| [Public Markdown](/features) | The authored source, including metadata |
+| [English page](/en/features.html) | HTML rendered from the English source |
+| [Russian page](/ru/features.html) | HTML rendered from the Russian source |
+| [Public Markdown](/en/features.md) | The authored source, including metadata |
 
-The neutral Markdown URL prefers English, then the configured default locale. Its representation is determined by the URL, independently of the browser or agent making the request.
+These links pin both format and language. Extensionless URLs such as `/about`, `/features`, or `/en/features` select HTML for people or Markdown for clients that support it. Without a locale prefix, HTML uses the first supported language matching the request’s `Accept-Language` preferences, then the configured default. See [URL and language selection](/en/docs/locales) for details of format, language, and neutral Markdown selection.
 
 ## Shared presentation, server rendering
 

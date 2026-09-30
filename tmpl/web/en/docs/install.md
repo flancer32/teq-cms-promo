@@ -18,7 +18,7 @@ cp .env.sample .env
 npm start
 ```
 
-Open `http://localhost:3000/en/` or `http://localhost:3000/ru/`. The sample selects Nunjucks, English and Russian, and the publication configuration. Set `TEQ_CMS__BASE_URL=http://localhost:3000` in your `.env` for local canonical URLs.
+Open `http://localhost:3000/en/index.html` or `http://localhost:3000/ru/index.html` for HTML. The sample selects Nunjucks, English and Russian, and the publication configuration. Set `TEQ_CMS__BASE_URL=http://localhost:3000` in your `.env` for local canonical URLs.
 
 ## Make an edit you can see
 
@@ -37,7 +37,7 @@ date: 2026-09-30
 This page comes from a Markdown file.
 ```
 
-The existing presentation handles `/en/hello`; `/hello` returns the authored Markdown. Create the corresponding Russian file to make `/ru/hello` available.
+The existing presentation renders `/en/hello.html`; `/en/hello.md` returns the English Markdown source. Create the corresponding Russian file to make `/ru/hello.html` and `/ru/hello.md` available. Without an extension, `/hello` lets the CMS select the format and, for HTML, a language from the request; see [URL selection](/en/docs/locales).
 
 ## Move toward your own site
 

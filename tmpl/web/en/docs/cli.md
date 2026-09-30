@@ -26,8 +26,8 @@ npm run generate
 
 The command writes `web/robots.txt`, `web/llms.txt`, and `web/sitemap.xml`. It does not translate content.
 
-- `llms.txt` lists each available neutral Markdown resource once.
-- `sitemap.xml` lists available localized HTML publications.
+- `llms.txt` lists each available neutral publication once for Markdown clients. Its extensionless URLs do not promise Markdown to every visitor; use `.md` when opening a source explicitly.
+- `sitemap.xml` lists canonical localized publication URLs. An extensionless canonical URL identifies the publication; request-based selection can vary its format.
 - `robots.txt` contains crawl directives and the sitemap reference.
 
 The server and generator load the same `.env`; see [configuration](/en/docs/config). Review generated files together with the content before publishing.

@@ -20,11 +20,11 @@ No. Content and templates are files. The standard host runs in Node.js; this is 
 
 ## Can agents read the content?
 
-Yes. Site publications expose a neutral Markdown URL. On this page it is [the public source](/docs/faq), including authored metadata.
+Yes. Open [this page’s English Markdown source](/en/docs/faq.md), including authored metadata. The `.md` extension requests Markdown explicitly. Extensionless URLs select HTML for people or Markdown for clients that support it; [URL selection](/en/docs/locales) explains language choices too.
 
 ## What if a translation is missing?
 
-The exact-locale HTML URL returns 404. It doesn't silently show another language. Neutral Markdown separately prefers English, then the configured default locale.
+The exact-locale HTML URL returns 404. It doesn't silently show another language. Without a locale prefix, HTML selects the first supported language matching `Accept-Language`, then the default. Neutral `.md` separately selects an unlocalized source, then English, then the default locale.
 
 ## Can I use a visual admin panel?
 

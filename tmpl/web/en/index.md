@@ -20,11 +20,11 @@ date: 2026-09-30
 # Content stays in your repository.
 # The template shapes the page.</code></pre>
 <div class="output-list">
-<a class="output-link" href="/features"><span>/features</span><strong>Markdown ↗</strong></a>
-<a class="output-link" href="/en/features"><span>/en/features</span><strong>English HTML ↗</strong></a>
-<a class="output-link" href="/ru/features"><span>/ru/features</span><strong>Russian HTML ↗</strong></a>
+<a class="output-link" href="/en/features.md"><span>/en/features.md</span><strong>Markdown ↗</strong></a>
+<a class="output-link" href="/en/features.html"><span>/en/features.html</span><strong>English HTML ↗</strong></a>
+<a class="output-link" href="/ru/features.html"><span>/ru/features.html</span><strong>Russian HTML ↗</strong></a>
 </div>
-<p class="small-note">These links work. Open the source, then see the same publication as a web page.</p>
+<p class="small-note">These examples pin the language and format: .md opens the source; .html opens the rendered page. A URL without an extension, such as /about, selects its format from the client’s HTTP request: HTML for a browser, Markdown for a client that supports it. Without a locale prefix, HTML uses the first supported language matching Accept-Language, then the default language. <a href="/en/docs/locales">How format and language are selected</a>.</p>
 </div>
 </div>
 
@@ -42,7 +42,7 @@ date: 2026-09-30
 <div class="card"><span class="card-tag">EN / RU / …</span><h3>Give each language its own voice</h3><p>Each locale has an explicit source. Adapt the message to its audience and review the wording before publishing.</p></div>
 <div class="card"><span class="card-tag">SERVER-RENDERED HTML</span><h3>Deliver the page, already built</h3><p>Shared templates turn Markdown into HTML on the server. Readers can access the content without a client-side application.</p></div>
 </div>
-<a href="/en/features">Explore the capabilities →</a>
+<a href="/en/features.html">Explore the capabilities →</a>
 </section>
 
 <section class="content-section workflow">
@@ -60,7 +60,7 @@ date: 2026-09-30
 <p class="eyebrow">You're looking at a working example</p>
 <h2>This site is the demonstration.</h2>
 <p>I publish this website with TeqCMS: Markdown sources, English and Russian pages, shared templates, and an external agent working on files. You can inspect the implementation rather than take the product claims on trust.</p>
-<div class="actions"><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms-promo">Inspect this site's repository</a><a class="btn btn-secondary" href="/">Read this page as Markdown</a></div>
+<div class="actions"><a class="btn btn-secondary" href="https://github.com/flancer32/teq-cms-promo">Inspect this site's repository</a><a class="btn btn-secondary" href="/en/index.md">Read this page as Markdown</a></div>
 </section>
 
 <section class="support-panel">

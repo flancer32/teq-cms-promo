@@ -10,8 +10,8 @@ When a publication returns 404, trace the requested representation rather than a
 
 ## Localized HTML is missing
 
-1. Check the logical route and maintained locale. HTML supports extensionless URLs and `.html` aliases.
-2. Check the exact source: `/ru/features` requires `tmpl/web/ru/features.md`.
+1. Check the logical route and maintained locale. Use `.html` to request HTML explicitly; an extensionless URL can select Markdown for a client that supports it.
+2. Check the exact source: `/ru/features.html` requires `tmpl/web/ru/features.md`.
 3. Validate nonempty `title` and `description`, an ISO calendar `date`, and readable Markdown.
 4. Confirm the configured presentation exists, is readable, and is not empty. Inspect its template syntax if rendering fails.
 
@@ -19,7 +19,7 @@ The engine does not substitute another locale for missing HTML content. Check lo
 
 ## Neutral Markdown is missing
 
-Check for a valid English source first, then the configured default-locale source. A source in an unrelated language alone is not enough. Use `/features` for neutral Markdown or `/ru/features.md` for exact Russian Markdown.
+Check for a valid unlocalized source under `tmpl/web/` first, then English, then the configured default-locale source. A source in an unrelated language alone is not enough. Use `/features.md` for neutral Markdown or `/ru/features.md` for exact Russian Markdown.
 
 ## Discovery files are out of date
 
