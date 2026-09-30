@@ -1,0 +1,21 @@
+{% extends "inc/layout.html" %}
+{% set canonicalUrl = none %}
+{% set markdownAlternateUrl = none %}
+{% set alternateUrls = {} %}
+{% block title %}Страница не найдена — TeqCMS{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% include "inc/not-found-styles.html" %}{% endblock %}
+{% block content %}
+<section class="not-found">
+  <div>
+    <p class="eyebrow">Ошибка 404</p>
+    <h1>Страница не найдена</h1>
+    <p class="lead">По этому адресу нет страницы. Возможно, ссылка изменилась или в адресе есть опечатка.</p>
+    <div class="actions"><a class="btn" href="/ru/">На главную</a><a class="btn btn-secondary" href="/ru/docs/overview">Открыть документацию</a></div>
+    <p class="not-found-note">Ищете что-то конкретное? <a href="/ru/contacts">Напишите мне</a> — помогу найти нужную информацию.</p>
+  </div>
+  <div class="not-found-art" aria-hidden="true">
+    <div class="not-found-paper"><span class="not-found-number">404</span><div class="not-found-lines"><span></span><span></span><span></span></div></div>
+    <span class="not-found-cross">×</span>
+  </div>
+</section>
+{% endblock %}

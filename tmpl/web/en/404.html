@@ -1,0 +1,21 @@
+{% extends "inc/layout.html" %}
+{% set canonicalUrl = none %}
+{% set markdownAlternateUrl = none %}
+{% set alternateUrls = {} %}
+{% block title %}Page not found — TeqCMS{% endblock %}
+{% block robots %}<meta name="robots" content="noindex, follow">{% include "inc/not-found-styles.html" %}{% endblock %}
+{% block content %}
+<section class="not-found">
+  <div>
+    <p class="eyebrow">Error 404</p>
+    <h1>Page not found</h1>
+    <p class="lead">This address doesn’t lead to a page. The link may have changed, or there may be a typo in the URL.</p>
+    <div class="actions"><a class="btn" href="/en/">Back to home</a><a class="btn btn-secondary" href="/en/docs/overview">Browse documentation</a></div>
+    <p class="not-found-note">Looking for something specific? <a href="/en/contacts">Get in touch</a> and I’ll help you find it.</p>
+  </div>
+  <div class="not-found-art" aria-hidden="true">
+    <div class="not-found-paper"><span class="not-found-number">404</span><div class="not-found-lines"><span></span><span></span><span></span></div></div>
+    <span class="not-found-cross">×</span>
+  </div>
+</section>
+{% endblock %}

@@ -2,11 +2,13 @@
   <div class="container header-bar">
     <a class="brand" href="/{{ locale }}/" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
     <div class="quick-links"><a href="/{{ locale }}/features">Возможности</a><a href="/{{ locale }}/examples">Примеры</a><a href="/{{ locale }}/docs/overview">Документация</a><a href="/{{ locale }}/contacts">Помощь автора</a></div>
-    <div class="locale-switcher" aria-label="Язык">
+    {% if alternateUrls %}
+    <div class="locale-switcher" role="group" aria-label="Язык">
       {% for loc, url in alternateUrls %}
       {% if loc == locale %}<span lang="{{ loc }}" aria-current="true">{{ loc | upper }}</span>{% else %}<a href="{{ url }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>{% endif %}
       {% endfor %}
     </div>
+    {% endif %}
     <details class="site-menu">
       <summary aria-label="Меню"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Меню</span></summary>
       <nav class="menu-panel" aria-label="Основная навигация"><ul>
