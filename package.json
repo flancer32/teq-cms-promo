@@ -29,17 +29,12 @@
   },
   "scripts": {
     "start": "teq web:start",
-    "dev:main": "npm link --no-save ./node_modules/teq-cms-main ./node_modules/teq-tmpl-main",
     "start:main": "teq web:start"
   },
   "dependencies": {
-    "@flancer32/teq-cms": "^0.8.0",
-    "@flancer32/teq-tmpl": "^0.6.0",
+    "@flancer32/teq-cms": "github:flancer32/teq-cms#main",
+    "@flancer32/teq-tmpl": "github:flancer32/teq-tmpl#main",
     "nunjucks": "^3.2.4"
-  },
-  "devDependencies": {
-    "teq-cms-main": "github:flancer32/teq-cms#main",
-    "teq-tmpl-main": "github:flancer32/teq-tmpl#main"
   },
   "teqfw": {
     "fw": {
@@ -52,10 +47,6 @@
         }
       }
     }
-  },
-  "overrides": {
-    "@flancer32/teq-tmpl": "$@flancer32/teq-tmpl",
-    "whatwg-url": "13.0.0"
   },
   "engines": {
     "node": ">=20"

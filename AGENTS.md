@@ -1,142 +1,133 @@
-# Top-level Context for LLMs
+# Root Level
+
+- Path: `AGENTS.md`
+- Template Version: `20260720`
+- Changed: `20260930`
 
 ## Purpose
 
-This document is intended for an LLM agent performing tasks related to content generation, localization, and maintenance within this project.
-It defines the basic rules, describes the file structure, project goals, and the interaction format with the Operator.
-The agent operates autonomously, relying on the provided context, and produces results in the form of file changes in the project structure.
+This file defines the root-level working rules for the project repository.
 
----
+This file is the first instruction source for every agent operating within the repository.
 
-## Project Goals
+## Level Boundary
 
-- Demonstrate how TeqCMS can be used to build a real multilingual website without build steps or server logic.
-- Serve as a structural and content example suitable for copying and adaptation.
-- Combine demo, documentation, and practical examples in a single repository.
-- Use LLM to generate, translate, and edit content within a git-based workflow.
+Defines:
 
----
+- Root-level working boundaries between the repository, the cognitive context, and the software product.
+- Repository-topology rules needed to work safely when `ctx/` may be mounted separately.
+- Root-level protection and escalation rules for this project.
 
-## Architectural Principles
+Does NOT define:
 
-- The project contains only the content layer: page templates, texts, and translations.
-- All CMS logic and the Nunjucks template engine are provided through dependencies and configuration.
-- No custom code is allowed — all logic must be implemented through file operations and external packages.
+- Product-specific meaning, requirements, or domain knowledge.
+- Implementation-level structure such as source code, runtime details, or filesystem layout.
+- Task-specific instructions, workflows, or local operational procedures.
 
----
+## ADSM Project Model
 
-## Project File Layout and Agent Scope
+An ADSM project consists of two interconnected spaces:
 
-### `/agent/notes/`
+- the **Cognitive Context** located in `./ctx/`
+- the **Software Product** located outside `./ctx/`
 
- - Directory for final task reports.
- - Each report is a Markdown file: `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`.
+The cognitive context is the long-term textual memory of the project.
 
-### `/ctx/`
+The cognitive context is the primary communication medium between Humans and Agents working on the project.
 
-- Cognitive context in the separate Git checkout `@flancer32/teq-cms-promo-ctx`.
-- Start with `ctx/AGENTS.md` and `ctx/docs/filesystem.md`; canonical documentation is under `ctx/docs/` in product → architecture → environment → code order.
-- Shared page and layout rules are in `ctx/docs/code/browser/ssr/`; page-specific generation prompts are in its `prompts/` branch.
-- Instructions for each page are located at:
+The cognitive context is the authoritative knowledge source used by Agents when modifying the project.
 
-```
+The software product is the implementation that must be kept consistent with the cognitive context.
 
-ctx/docs/code/browser/ssr/prompts/{locale}/{path}/{name}.gen.md
+## Human and Agent Roles
 
-```
+The Human defines goals, authorizes work, evaluates outcomes, and evolves the project.
 
-### `/docs/`
+The Agent interprets the cognitive context, performs assigned tasks, modifies the project within task boundaries, and maintains consistency between the cognitive context and the software product.
 
-- Internal documentation editable by the agent when explicitly assigned.
+The Agent operates through text and must treat project documentation as operational memory, not as secondary commentary.
 
-### `/etc/`
+## Cognitive Context
 
-- Configuration files — must **not** be modified by the agent.
+The canonical execution location of the cognitive context is `./ctx/`.
 
-### `/tmpl/`
+Project-specific knowledge, requirements, architecture, environment descriptions, and implementation guidance are defined within the cognitive context.
 
-- Main working area: templates and their translation prompts.
+The Agent must consult `./ctx/AGENTS.md` for project-specific instructions when `./ctx/` exists.
 
-### `/var/teq-cms/db_translate.json`
+The Agent must consult `./ctx/docs/filesystem.md` for the project filesystem structure and documentation layout when that file exists.
 
-- Translation metadata file — must not be edited manually.
+Documentation distributed with the software product may exist outside `./ctx/`, but it does not replace, redefine, or supersede the cognitive context.
 
-### `/web/`
+## Bootstrap and Repository Topology
 
-- Public static assets. Changes allowed only by explicit instruction.
+An ADSM project may use one repository or two repositories.
 
----
+In a one-repository topology, the software product and the cognitive context are versioned together.
 
-## Agent Responsibilities
+In a two-repository topology, the software product and the cognitive context are independent version-controlled repositories, and the cognitive context repository is mounted under `./ctx/`.
 
-The agent performs tasks autonomously based on Operator instructions.
-Results are committed to the file structure and accompanied by a feedback report.
+The Agent must detect whether `./ctx/` is part of the current repository or an independent repository.
 
-Allowed actions:
+This project uses two independent repositories: `flancer32/teq-cms-promo` for the software product and `flancer32/teq-cms-promo-ctx` mounted under `./ctx/` for the cognitive context.
 
-- Generate or update pages and HTML templates;
-- Suggest changes in structure, layout, or content;
-- Maintain project documentation (`README.md`, `docs/`);
-- Initiate translation tasks (but not trigger execution).
+The Agent must preserve repository boundaries.
 
-Prohibited actions:
+The Agent must not mix changes between independent repositories.
 
-- Modify files in `/etc/`, `/web/`, or `db_translate.json`;
-- Alter CMS logic or external dependencies;
-- Act outside the content layer or without a clear task scope;
-- Manually run or trigger translation processes — this must be done by the Operator.
+The Agent must not remove, replace, relocate, or unmount `./ctx/`.
 
----
+If `./ctx/` does not exist, the Agent may perform bootstrap operations required to create the initial cognitive context structure.
 
-## Communication Protocol
+After bootstrap is complete, `./ctx/AGENTS.md` becomes the entry point for project-specific instructions.
 
-Agent feedback is provided in two forms:
+## Context and Product Consistency
 
-### 1. Inline Comments
+The cognitive context is the source of truth for the project.
 
-- Use `AGENT:` prefix in HTML templates for specific remarks.
+If the cognitive context and the software product diverge, the Agent must treat the cognitive context as authoritative.
 
-```html
-<!-- AGENT: consider revising this paragraph -->
-```
+The Agent must maintain consistency between the cognitive context and the software product.
 
-### 2. Final Report (Mandatory)
+The Agent may modify the cognitive context when required by the assigned task and when the modification remains consistent with higher-level context constraints.
 
-* One file per task, saved as: `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`.
-* The final report is **mandatory** for **every task**. Tasks submitted without a report are considered incomplete and will be rejected.
-* Contents include:
+The Agent may modify the software product when required by the assigned task and when the modification remains consistent with the cognitive context.
 
-    * Task summary;
-    * Key observations;
-    * Suggestions or concerns;
-    * Optional checklist.
+## AGENTS.md Hierarchy
 
-Example:
+Additional `AGENTS.md` files may exist in subdirectories.
 
-```md
-# Task: Add "Team" Page
+The effective working context of the agent is the aggregate of all `AGENTS.md` files located along the path from the repository root to the target directory.
 
-## Summary
+Rules:
 
-Generated `tmpl/web/ru/team.html` and localization skeletons.
+- deeper levels override higher levels within their scope
+- root-level invariants cannot be overridden
+- all levels must remain mutually consistent
 
-## Observations
+## Root File Protection
 
-- Content overlaps with `about.html`.
-- Consider merging some sections.
+This file defines root-level project control rules.
 
-## Suggestions
+The agent must not modify, replace, delete, relocate, or reinterpret this file unless explicitly instructed by the human.
 
-- Use reusable includes for the team block.
-```
+Violation of this rule constitutes an execution error.
 
----
+## Secret Handling
 
-## Execution and Handoff
+The Agent must never read, load, print, search for, or expose secret-bearing project files, including `.env` and `.env.*` files, credentials, private keys, tokens, or secret stores. This rule applies even when a file is Git-ignored and includes broad search or command output that could reveal its contents.
 
-Upon completing a task, the agent must:
+The Agent may use a non-secret example template such as `.env.example` only to learn the configuration shape. It must not infer or request the value of any secret.
 
-* Write all file changes to the repository;
-* Add inline comments where relevant;
-* Create a final report in `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`;
-* Wait for Operator feedback or the next task.
+If secret data is exposed accidentally, the Agent must stop handling that value, must not repeat it, and must tell the Human that the secret should be rotated or revoked.
+
+## Project Working Boundaries
+
+- This repository owns the content layer. CMS logic and the template engine are provided by external packages; do not add custom runtime code.
+- Do not modify `etc/` under ordinary content tasks. Changes to `web/` require explicit human instruction.
+- Translation execution belongs to the human; do not run or trigger translation processes.
+- Dependency maintenance requires an explicit task; do not alter external package source as part of content work.
+- Communicate with the human in Russian. Write source code, comments, documentation, identifiers, and commit messages in English.
+- Do not commit or push unless explicitly requested.
+- Summarize changes, validation results, and remaining concerns in the conversation. No per-task report files or report directory are required.
+- Follow the project-local `project-conventions` skill for repository workflows and validation.

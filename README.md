@@ -43,9 +43,8 @@ It illustrates how to:
 - `tmpl/` — page templates by locale (`tmpl/web/en/`, `tmpl/web/ru/`, etc.)
 - `web/` — static assets (CSS, JS, images)
 - `ctx/` — cognitive context for agents working on this site
-- `agent/notes/` — task reports
 
-The package manifest keeps stable CMS and template dependencies for production. Development dependencies `teq-cms-main` and `teq-tmpl-main` track the GitHub `main` branches under separate install names, so `npm ci --omit=dev` retains the stable runtime packages. To work against the main branches, run `npm ci`, `npm run dev:main`, then `npm run start:main`. This temporarily links the main packages to their runtime names. Run `npm ci` again to restore the locked production-compatible installation.
+The CMS and template runtime dependencies track their GitHub `main` branches under their regular package names. Run `npm update` to refresh the locked GitHub revisions, then `npm start` to run the site. `npm ci` reproduces the revisions recorded in `package-lock.json`. These runtime dependencies are also installed with `--omit=dev`; no separate development setup or package linking is required.
 
 ---
 

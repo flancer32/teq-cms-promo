@@ -23,8 +23,8 @@ description: Project conventions for every task in the teq-cms-promo repository 
 ## Content boundary
 
 - This repository owns the content layer. Keep pages and shared templates in `tmpl/`; CMS logic and Nunjucks come from dependencies. Do not add custom runtime code or change external packages for content tasks.
-- Do not edit `etc/`, `web/`, or `var/teq-cms/db_translate.json` under ordinary content tasks. `web/` requires an explicit instruction. Translation execution belongs to the operator; do not run `npm run translate`.
-- Write the final task report in `agent/notes/YYYY/MM/DD-HHMM-{task-name}.md`. Use `AGENT:` HTML comments when a template needs a specific inline remark.
+- Do not edit `etc/` or `web/` under ordinary content tasks. `web/` requires an explicit instruction. Translation execution belongs to the operator; do not run `npm run translate`.
+- Summarize task outcomes in the conversation; no per-task report files are required. Use `AGENT:` HTML comments when a template needs a specific inline remark.
 
 ## Validation
 
