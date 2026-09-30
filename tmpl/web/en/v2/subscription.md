@@ -1,23 +1,26 @@
 ---
-title: "Subscription — TeqCMS v2"
-description: "TeqCMS is an open source project available for free. The subscription is for those who need additional support to adopt it faster. The service provides:"
+title: "Support options — TeqCMS"
+description: "Optional monthly support from the TeqCMS author. Discuss the scope before subscribing, or arrange a separate implementation engagement."
 date: 2026-09-30
 ---
 
-# Subscription to the service
+# Ongoing help, directly from the author
 
-TeqCMS is an open source project available for free. The subscription is for those who need additional support to adopt it faster. The service provides:
+TeqCMS is open source and free to use. I offer optional support for people who want help adopting it and keeping their publishing workflow running.
 
-- assistance with setup and launch;
-- priority answers to your questions;
-- access to private guides and examples.
+## Support options
 
-## Pricing
+| Plan | Published monthly price |
+| --- | --- |
+| Individual | **€20/month** |
+| Team | **€50/month** |
 
-The basic subscription costs **20 €/month**. A team plan is available for **50 €/month**.
+Support covers setup and launch questions, priority answers, and private guidance and examples. Before subscribing, contact me to confirm the scope, availability, and how we will work together.
 
-## Why subscribe
+## Have a larger implementation task?
 
-The subscription saves you time learning the system, helps avoid mistakes at the start and lets you focus on content. You get ready-made solutions and advice directly from the project author.
+A content migration, custom presentation, or full site launch needs its own scope. I can discuss a separate one-off engagement rather than leave you guessing what a subscription covers.
 
-[Contact us to subscribe →](mailto:alex@wiredgeese.com)
+[See consulting and implementation options](/en/v2/contacts).
+
+<div class="actions"><a class="btn" href="mailto:alex@wiredgeese.com?subject=TeqCMS%20support">Discuss support with me</a><a class="btn btn-secondary" href="/en/v2/docs/install">Start independently</a></div>

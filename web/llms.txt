@@ -27,6 +27,8 @@ Human locales: en, ru
 - https://cms.teqfw.com/v2/docs/plugins
 - https://cms.teqfw.com/v2/docs/translate
 - https://cms.teqfw.com/v2/docs/troubleshooting
+- https://cms.teqfw.com/v2/examples
+- https://cms.teqfw.com/v2/features
 - https://cms.teqfw.com/v2/index
 - https://cms.teqfw.com/v2/roadmap
 - https://cms.teqfw.com/v2/subscription

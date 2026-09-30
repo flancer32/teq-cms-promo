@@ -1,21 +1,39 @@
 ---
-title: "Конфигурация — TeqCMS"
-description: "CLI-хост загружает настройки из окружения. TeqCMS использует пространство TEQCMS."
+title: "Конфигурация приложения — TeqCMS"
+description: "Конфигурация приложения: практическое руководство по исходникам Markdown, локализованному HTML и публикации на TeqCMS."
 date: 2026-09-30
 ---
 
-# Конфигурация CMS
+# Публикация включается явно
 
-CLI-хост загружает настройки из окружения. TeqCMS использует пространство `TEQ_CMS__*`.
+CLI-хост загружает конфигурацию один раз. TeqCMS отвечает за пространство `TEQ_CMS`; настройки языков и сервера принадлежат соответствующим пакетам.
 
-    TEQFW_WEB__TYPE=http
-    TEQFW_WEB__PORT=3000
-    TEQFW_TMPL__ENGINE=nunjucks
-    TEQFW_TMPL__ALLOWED_LOCALES=en,ru
-    TEQFW_TMPL__DEFAULT_LOCALE=en
-    TEQ_CMS__BASE_URL=https://example.com
-    TEQ_CMS__PUBLICATION_FAMILIES=[{"prefix":"journal","presentation":"publication.html"}]
+## Настройки публикации
 
-Markdown-публикации выключены до настройки семейства. Исходный Markdown доступен по URL без локали: выбирается английский источник, затем источник локали по умолчанию. HTML доступен по URL с локалью и требует соответствующего источника.
+| Настройка | Назначение |
+| --- | --- |
+| `TEQ_CMS__BASE_URL` | Абсолютный публичный базовый URL без пути |
+| `TEQ_CMS__PUBLICATION_FAMILIES` | JSON-список включённых префиксов и шаблонов представления |
+| `TEQFW_TMPL__ALLOWED_LOCALES` | Поддерживаемые коды языков |
+| `TEQFW_TMPL__DEFAULT_LOCALE` | Язык по умолчанию и второй вариант для нейтрального исходника |
+| `TEQFW_TMPL__ENGINE` | Выбор шаблонизатора в стандартном хосте CMS |
 
-Для приёма сообщений от агентов включите `TEQ_CMS__AGENT_MESSAGE_ENABLED=true`. Сообщения сохраняются в закрытом каталоге `var/teq-cms/agent-messages/`.
+Пример конфигурации приложения с семейством `docs`:
+
+```dotenv
+TEQ_CMS__BASE_URL=https://example.com
+TEQ_CMS__PUBLICATION_FAMILIES=[{"prefix":"docs","presentation":"publication.html"}]
+TEQFW_TMPL__ALLOWED_LOCALES=en,ru
+TEQFW_TMPL__DEFAULT_LOCALE=en
+TEQFW_TMPL__ENGINE=nunjucks
+```
+
+По умолчанию список семейств пуст. Префиксы не должны пересекаться или начинаться с кода поддерживаемой локали. Для локализованного HTML нужны исходники в `tmpl/web/{locale}/docs/` и шаблон приложения `publication.html`.
+
+Скрипт промосайта `npm start` уже задаёт семейства и локали. При адаптации проверяйте сам скрипт: другой список семейств в окружении не переопределит его присваивание.
+
+## Необязательный входящий канал для агентов
+
+`TEQ_CMS__AGENT_MESSAGE_ENABLED` включает закрытый файловый ящик; по умолчанию он выключен. Это не почтовый сервис. Владелец сайта сам организует чтение и ответы. Перед включением изучите [руководство движка](https://github.com/flancer32/teq-cms/blob/main/docs/publications.md).
+
+[Поведение локалей](/ru/v2/docs/locales) и [поиск причины отсутствующей страницы](/ru/v2/docs/troubleshooting).

@@ -25,7 +25,7 @@ Manual editing takes time. Developers, landing page authors and documentation wr
 
 ## How It Works
 
-You write a text instruction: what the project is, which pages you need and what to place on them. The agent reads this text and creates or changes the site's files. You describe the goal — the agent does the work.
+You write a text instruction: what the project is, which pages you need and what to place on them. The agent reads this text and creates or changes the site's files. You describe the goal, the agent prepares changes, and you review the result before publishing.
 
 ## Example
 
@@ -35,8 +35,8 @@ Suppose you need an “About Us” page. You write: “Add an 'About Us' page wi
 
 | Advantage           | Description                                                        |
 |---------------------|--------------------------------------------------------------------|
-| Relevance           | The site always matches the current project description            |
+| Relevance           | Reviewed updates help keep the site aligned with the project description            |
 | Simplicity          | You can update the site with plain text                            |
-| Fast updates        | Changes in the description instantly appear on the pages           |
+| Fast updates        | An agent prepares changes; the owner reviews them before publication           |
 | Language adaptation | The agent can translate and adapt content for different audiences  |
 | Flexibility         | Can be used in any environment: with files, templates or databases |

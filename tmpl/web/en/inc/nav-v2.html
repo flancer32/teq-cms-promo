@@ -1,73 +1,34 @@
 <header class="site-header">
-<nav class="nav">
-    <button class="menu-toggle nav__toggle" aria-controls="mainMenu" aria-expanded="false" onclick="toggleMenu(this)">☰</button>
-    <ul class="main-menu nav__menu" id="mainMenu">
-        <li class="home-link">
-            <a href="/{{ locale }}/v2/index">
-                <img src="/favicon.ico" alt="Home" class="home-icon">
-                <span class="home-text">Home</span>
-            </a>
-        </li>
-        <li><a href="/{{ locale }}/v2/about">About</a></li>
-        <li>
-            <span>Documentation</span>
-            <ul>
-                <li><a href="/{{ locale }}/v2/docs/overview">Overview</a></li>
-                <li><a href="/{{ locale }}/v2/docs/adsm">ADSM</a></li>
-                <li><a href="/{{ locale }}/v2/docs/install">Installation</a></li>
-                <li><a href="/{{ locale }}/v2/docs/config">Configuration</a></li>
-                <li><a href="/{{ locale }}/v2/docs/locales">Locales</a></li>
-                <li><a href="/{{ locale }}/v2/docs/translate">Localization</a></li>
-                <li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
-                <li><a href="/{{ locale }}/v2/docs/dev-llm">LLM Development</a></li>
-                <li><a href="/{{ locale }}/v2/docs/faq">FAQ</a></li>
-                <li><a href="/{{ locale }}/v2/docs/plugins">Plugins</a></li>
-                <li><a href="/{{ locale }}/v2/docs/troubleshooting">Troubleshooting</a></li>
-            </ul>
-        </li>
-        <li><a href="/{{ locale }}/v2/roadmap">Roadmap</a></li>
-        <li><a href="/{{ locale }}/v2/subscription">Subscription</a></li>
-        <li><a href="/{{ locale }}/v2/contacts">Contacts</a></li>
-    </ul>
-    <div class="nav-right">
-        <div class="locale-switcher-inline">
-            {% for loc, url in alternateUrls %}
-            {% if not loop.first %}|{% endif %}
-            {% if loc == locale %}
-            <span>{{ loc | upper }}</span>
-            {% else %}
-            <a href="{{ url }}">{{ loc | upper }}</a>
-            {% endif %}
-            {% endfor %}
-        </div>
+  <div class="container header-bar">
+    <a class="brand" href="/{{ locale }}/v2/index" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
+    <div class="quick-links"><a href="/{{ locale }}/v2/features">Features</a><a href="/{{ locale }}/v2/examples">Examples</a><a href="/{{ locale }}/v2/docs/overview">Documentation</a><a href="/{{ locale }}/v2/contacts">Get help</a></div>
+    <div class="locale-switcher" aria-label="Language">
+      {% for loc, url in alternateUrls %}
+      {% if loc == locale %}<span lang="{{ loc }}" aria-current="true">{{ loc | upper }}</span>{% else %}<a href="{{ url }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>{% endif %}
+      {% endfor %}
     </div>
-</nav>
+    <details class="site-menu">
+      <summary>Menu</summary>
+      <nav class="menu-panel" aria-label="Main navigation"><ul>
+        <li><a href="/{{ locale }}/v2/index">Home</a></li>
+        <li><a href="/{{ locale }}/v2/about">About</a></li>
+        <li><a href="/{{ locale }}/v2/features">Features</a></li>
+        <li><a href="/{{ locale }}/v2/examples">Examples</a></li>
+        <li><details class="docs-menu"><summary>Documentation</summary><ul><li><a href="/{{ locale }}/v2/docs/overview">Overview</a></li>
+<li><a href="/{{ locale }}/v2/docs/adsm">ADSM workflow</a></li>
+<li><a href="/{{ locale }}/v2/docs/install">Installation</a></li>
+<li><a href="/{{ locale }}/v2/docs/config">Configuration</a></li>
+<li><a href="/{{ locale }}/v2/docs/locales">Locales</a></li>
+<li><a href="/{{ locale }}/v2/docs/translate">Localization</a></li>
+<li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
+<li><a href="/{{ locale }}/v2/docs/dev-llm">Working with agents</a></li>
+<li><a href="/{{ locale }}/v2/docs/faq">FAQ</a></li>
+<li><a href="/{{ locale }}/v2/docs/plugins">Integration</a></li>
+<li><a href="/{{ locale }}/v2/docs/troubleshooting">Troubleshooting</a></li></ul></details></li>
+        <li><a href="/{{ locale }}/v2/roadmap">Roadmap</a></li>
+        <li><a href="/{{ locale }}/v2/subscription">Support</a></li>
+        <li><a href="/{{ locale }}/v2/contacts">Contact</a></li>
+      </ul></nav>
+    </details>
+  </div>
 </header>
-
-<script>
-function toggleMenu(btn) {
-    const menu = document.getElementById('mainMenu');
-    if (!menu || !btn) return;
-    const expanded = btn.getAttribute('aria-expanded') === 'true';
-    btn.setAttribute('aria-expanded', String(!expanded));
-    menu.classList.toggle('is-open');
-}
-
-
-document.addEventListener('DOMContentLoaded', () => {
-    if (window.innerWidth <= 768) {
-        const toggles = document.querySelectorAll('.main-menu > li > span');
-        toggles.forEach(span => {
-            span.addEventListener('click', () => {
-                const parent = span.parentElement;
-                parent.classList.toggle('open');
-                const submenu = span.nextElementSibling;
-                if (submenu) {
-                    const expanded = submenu.style.maxHeight;
-                    submenu.style.maxHeight = expanded ? null : submenu.scrollHeight + 'px';
-                }
-            });
-        });
-    }
-});
-</script>

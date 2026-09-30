@@ -1,37 +1,27 @@
 <!DOCTYPE html>
 <html lang="{{ locale }}">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{% block title %}My Site{% endblock %}</title>
-    <link rel="stylesheet" href="/css/style2.css" />
-    {# --- SEO Canonical & Alternate URLs --- #} {% if canonicalUrl %}
-    <link rel="canonical" href="{{ canonicalUrl }}" />
-    {% endif %} {% if alternateUrls %} {% for lang, url in alternateUrls %}
-    <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}" />
-    {% endfor %} {% endif %} {% if markdownAlternateUrl %}<link rel="alternate" type="text/markdown" href="{{ markdownAlternateUrl }}">{% endif %} {# --- Social Preview --- #} {% block og %}
-    <meta property="og:type" content="website" />
-    <meta property="og:title" content="TeqCMS — CMS that treats content as code" />
-    <meta
-      property="og:description"
-      content="TeqCMS is a file-based CMS without database or admin panel, for agents building multilingual websites."
-    />
-    <meta property="og:image" content="/img/site_preview.png" />
-    <meta property="og:url" content="{{ canonicalUrl }}" />
-    <meta property="og:locale" content="{{ locale.current }}" />
-    {% endblock %} {% block twitter %}
-    <meta name="twitter:title" content="TeqCMS — CMS that treats content as code" />
-    <meta
-      name="twitter:description"
-      content="TeqCMS is a file-based CMS without database or admin panel, for agents building multilingual websites."
-    />
-    <meta name="twitter:image" content="/img/site_preview.png" />
-    {% endblock %}
-  </head>
-  <body>
-    {% include "inc/nav-v2.html" %}
-    <main class="container">
-      <section class="section">{% block content %}{% endblock %}</section>
-    </main>
-  </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2449cf">
+  <title>{% block title %}TeqCMS{% endblock %}</title>
+  <link rel="icon" href="/favicon.ico">
+  {% include "inc/promo-styles.html" %}
+  {% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
+  {% for lang, url in alternateUrls %}<link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">{% endfor %}
+  {% if markdownAlternateUrl %}<link rel="alternate" type="text/markdown" href="{{ markdownAlternateUrl }}">{% endif %}
+  {% block og %}{% endblock %}
+  {% block twitter %}{% endblock %}
+</head>
+<body>
+  <a href="#main-content" class="skip-link">Skip to content</a>
+  {% include "inc/nav-v2.html" %}
+  <main class="container" id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><p><strong>TeqCMS · Markdown → HTML</strong></p><p>This site runs on TeqCMS. Its content and templates are open for inspection.</p><p>Built by Alex Gusev</p></div>
+      <div class="footer-links"><a href="https://github.com/flancer32/teq-cms">Engine source</a><a href="https://github.com/flancer32/teq-cms-promo">Site source</a>{% if markdownAlternateUrl %}<a href="{{ markdownAlternateUrl }}">Read Markdown</a>{% endif %}<a href="/{{ locale }}/v2/contacts">Contact</a></div>
+    </div>
+  </footer>
+</body>
 </html>

@@ -1,25 +1,45 @@
 ---
-title: "Установка — TeqCMS"
-description: "TeqCMS подключается как зависимость npm. Агент поддерживает локализованные Markdown-файлы и шаблоны представления в Git."
+title: "Запуск первого сайта на TeqCMS — TeqCMS"
+description: "Запуск первого сайта на TeqCMS: практическое руководство по исходникам Markdown, локализованному HTML и публикации на TeqCMS."
 date: 2026-09-30
 ---
 
-# Установка и запуск TeqCMS
+# Начните с работающего примера
 
-TeqCMS подключается как зависимость npm. Агент поддерживает локализованные Markdown-файлы и шаблоны представления в Git.
+Проще всего разобраться с TeqCMS, запустив исходники этого сайта локально. Потребуются Node.js 20 или новее, npm и Git.
 
-    mkdir my-site
-    cd my-site
-    npm init -y
-    npm install @flancer32/teq-cms
+## Запустите промосайт
 
-Размещайте публикации в `tmpl/web/{locale}/`, а статические файлы — в `web/`.
+```sh
+git clone https://github.com/flancer32/teq-cms-promo.git
+cd teq-cms-promo
+npm ci
+npm start
+```
 
-    TEQFW_WEB__TYPE=http
-    TEQFW_WEB__PORT=3000
-    TEQFW_TMPL__ALLOWED_LOCALES=en,ru
-    TEQFW_TMPL__DEFAULT_LOCALE=en
-    TEQFW_TMPL__ENGINE=nunjucks
-    TEQ_CMS__BASE_URL=https://example.com
+Откройте `http://localhost:3000/ru/v2/index` или `http://localhost:3000/en/v2/index`. Скрипт сайта выбирает Nunjucks, обе локали и четыре семейства публикаций. Для локального канонического URL в POSIX-оболочке используйте `TEQ_CMS__BASE_URL=http://localhost:3000 npm start`.
 
-Запуск сервера: `npx teq web:start`. После изменения публикаций обновите файлы обнаружения: `npx teq cms:generate`.
+## Внесите видимую правку
+
+Измените `tmpl/web/ru/v2/index.md` и снова запросите русскую страницу. Английский файл редактируется отдельно. Тело страницы — Markdown, оно не обрабатывается как шаблон Nunjucks.
+
+Чтобы добавить страницу `v2/hello`, создайте `tmpl/web/ru/v2/hello.md`:
+
+```markdown
+---
+title: Привет — мой сайт
+description: Первая публикация на TeqCMS.
+date: 2026-09-30
+---
+# Привет
+
+Эта страница создаётся из Markdown-файла.
+```
+
+Существующий шаблон оформит `/ru/v2/hello`. Добавьте английский файл для `/en/v2/hello`. Нейтральный `/v2/hello` отдаст Markdown из английского исходника; в этом примере английский также является локалью по умолчанию.
+
+## Переход к своему сайту
+
+Адаптируйте контент и шаблоны, укажите публичный базовый URL и проверьте разницу версий в Git. Настройки описаны в [конфигурации](/ru/v2/docs/config). После изменения публикаций обновляйте файлы обнаружения — см. [CLI](/ru/v2/docs/cli).
+
+Если создаёте новое приложение, используйте [руководство движка по публикациям](https://github.com/flancer32/teq-cms/blob/main/docs/publications.md) и настройке хоста. [Помогу с установкой или переносом](/ru/v2/contacts).
