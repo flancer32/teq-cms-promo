@@ -1,85 +1,34 @@
-<nav>
-    <ul class="main-menu" id="mainMenu">
-        <li class="home-link">
-            <a href="/{{ locale }}/v2/index">
-                <img src="/favicon.ico" alt="Home" class="home-icon">
-                <span class="home-text">Главная</span>
-            </a>
-        </li>
-        <li>
-            <span>Возможности</span>
-            <ul>
-                <li><a href="/{{ locale }}/features/content-as-code">Контент как код</a></li>
-                <li><a href="/{{ locale }}/features/ai-localization">Локализация агентами</a></li>
-                <li><a href="/{{ locale }}/features/file-based">Файловая CMS</a></li>
-                <li><a href="/{{ locale }}/features/ssr">SSR</a></li>
-            </ul>
-        </li>
-        <li>
-            <span>Документация</span>
-            <ul>
-                <li><a href="/{{ locale }}/docs/about">О проекте</a></li>
-                <li><a href="/{{ locale }}/docs/install">Установка</a></li>
-                <li><a href="/{{ locale }}/docs/config">Конфигурация</a></li>
-                <li><a href="/{{ locale }}/docs/locales">Локали</a></li>
-                <li><a href="/{{ locale }}/docs/translate">Локализация</a></li>
-            </ul>
-        </li>
-        <li><a href="/{{ locale }}/pages/contact">Контакты</a></li>
-    </ul>
-
-    <div class="nav-right">
-        <div class="locale-switcher-inline">
-            {% for loc in allowedLocales %}
-            {% if not loop.first %}|{% endif %}
-            {% if loc == locale %}
-            <span>{{ loc | upper }}</span>
-            {% else %}
-            <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
-            {% endif %}
-            {% endfor %}
-        </div>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="brand" href="/{{ locale }}/v2/index" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
+    <div class="quick-links"><a href="/{{ locale }}/v2/features">Возможности</a><a href="/{{ locale }}/v2/examples">Примеры</a><a href="/{{ locale }}/v2/docs/overview">Документация</a><a href="/{{ locale }}/v2/contacts">Помощь автора</a></div>
+    <div class="locale-switcher" aria-label="Язык">
+      {% for loc, url in alternateUrls %}
+      {% if loc == locale %}<span lang="{{ loc }}" aria-current="true">{{ loc | upper }}</span>{% else %}<a href="{{ url }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>{% endif %}
+      {% endfor %}
     </div>
-</nav>
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById('mainMenu');
-        const navRight = document.querySelector('.nav-right');
-        if (menu) menu.classList.toggle('open');
-        if (navRight) navRight.classList.toggle('hidden-on-open');
-    }
-
-    // @formatter:off
-    function switchLocale(targetLocale) {
-        const allowed = {{ allowedLocales | dump | safe }};
-        const path = window.location.pathname;
-        const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
-        let basePath = path;
-
-        if (current) {
-            basePath = path.replace(new RegExp(`^/${current}`), '');
-        }
-        window.location.href = `/${targetLocale}${basePath || '/'}`;
-        return false;
-    }
-    // @formatter:on
-
-    document.addEventListener('DOMContentLoaded', () => {
-        if (window.innerWidth <= 768) {
-            const toggles = document.querySelectorAll('.main-menu > li > span');
-            toggles.forEach(span => {
-                span.addEventListener('click', () => {
-                    const parent = span.parentElement;
-                    parent.classList.toggle('open');
-                    const submenu = span.nextElementSibling;
-                    if (submenu) {
-                        const expanded = submenu.style.maxHeight;
-                        submenu.style.maxHeight = expanded ? null : submenu.scrollHeight + 'px';
-                    }
-                });
-            });
-        }
-    });
-</script>
+    <details class="site-menu">
+      <summary aria-label="Меню"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Меню</span></summary>
+      <nav class="menu-panel" aria-label="Основная навигация"><ul>
+        <li><a href="/{{ locale }}/v2/index">Главная</a></li>
+        <li><a href="/{{ locale }}/v2/about">О проекте</a></li>
+        <li><a href="/{{ locale }}/v2/features">Возможности</a></li>
+        <li><a href="/{{ locale }}/v2/examples">Примеры</a></li>
+        <li><details class="docs-menu"><summary>Документация</summary><ul><li><a href="/{{ locale }}/v2/docs/overview">Обзор</a></li>
+<li><a href="/{{ locale }}/v2/docs/adsm">Подход ADSM</a></li>
+<li><a href="/{{ locale }}/v2/docs/install">Установка</a></li>
+<li><a href="/{{ locale }}/v2/docs/config">Конфигурация</a></li>
+<li><a href="/{{ locale }}/v2/docs/locales">Локали</a></li>
+<li><a href="/{{ locale }}/v2/docs/translate">Локализация</a></li>
+<li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
+<li><a href="/{{ locale }}/v2/docs/dev-llm">Работа с агентами</a></li>
+<li><a href="/{{ locale }}/v2/docs/faq">Частые вопросы</a></li>
+<li><a href="/{{ locale }}/v2/docs/plugins">Интеграция</a></li>
+<li><a href="/{{ locale }}/v2/docs/troubleshooting">Решение проблем</a></li></ul></details></li>
+        <li><a href="/{{ locale }}/v2/roadmap">Планы</a></li>
+        <li><a href="/{{ locale }}/v2/subscription">Поддержка</a></li>
+        <li><a href="/{{ locale }}/v2/contacts">Контакты</a></li>
+      </ul></nav>
+    </details>
+  </div>
+</header>

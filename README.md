@@ -1,71 +1,59 @@
-# @flancer32/teq-cms-promo
+# TeqCMS promotional site
 
-**Official promo site for [TeqCMS](https://github.com/flancer32/teq-cms)** — a file-based CMS for agents building multilingual websites. Agents maintain localized Markdown and templates in Git; TeqCMS renders HTML for people and can expose selected Markdown to agents.
+This bilingual site demonstrates TeqCMS with Markdown sources, server-rendered HTML, shared Nunjucks templates, Git review, and optional external-agent authoring.
 
----
+## Run the site
 
-## Purpose
+Requires Node.js 20 or newer, npm, and Git.
 
-This repository serves as the live, reproducible implementation of TeqCMS in action.  
-It illustrates how to:
+```sh
+npm ci
+cp .env.sample .env
+npm start
+```
 
-- Build and manage a multilingual SSR site using files only
-- Use modular components with dependency injection and late binding
-- Let agents author and review each locale's source files
-- Generate discovery files for both human and agent readers
+Adjust the public configuration examples before deployment. For local canonical links, set `TEQ_CMS__BASE_URL=http://localhost:3000` in `.env`. The CLI loads the project dotenv file once; process environment values override matching keys. No configuration values are embedded in npm scripts. `npm start` runs `teq web:start`.
 
----
+Open `/en/v2/index` or `/ru/v2/index`. The root and locale entry pages lead to this primary promotional content. The old `docs`, `features`, and `pages` content directories and their presentation templates have been removed.
 
-## Highlights
+## Configuration ownership
 
-- ✅ **Agent-first authoring**: agents maintain content and locale variants in Git
-- ✅ **Server-side rendering** with [Nunjucks](https://mozilla.github.io/nunjucks/)
-- ✅ **Modular monolith**: clean FQN-based module resolution (`@teqfw/di`)
-- ✅ **No build step**: install dependencies and run `npm start`
-- ✅ **Git-based structure**: all pages, templates, and translations are versioned
-- ✅ **Markdown publications**: opt-in HTML rendering and machine-readable sources
+`.env.sample` documents every dotenv setting consumed by the installed Teq dependencies:
 
----
+- `@flancer32/teq-cms`: public base URL, publication families, optional private agent inbox, and optional inbox token.
+- `@flancer32/teq-tmpl`: maintained locales and default locale. The standalone CMS host owns the `TEQFW_TMPL__ENGINE` selection.
+- `@teqfw/web`: bind host, port, transport type, and optional TLS certificate/key/CA paths. Its `TLS` object setting is for typed Sources, not a dotenv string.
+- `@teqfw/log`: optional policy-file path through the opt-in cfg bridge. The installed standalone CMS host does not apply this bridge; the sample leaves it commented out.
+- `@teqfw/cfg`, `@teqfw/cli`, and `@teqfw/di`: no package-owned dotenv settings. Configuration Sources, computed CLI facts, and DI metadata are separate contracts.
 
-## Requirements
+The sample contains only public examples. Keep operational dotenv values outside Git. Agents must not read or load the operational `.env`; validation uses the non-secret sample explicitly.
 
-- Node.js ≥ 20
-- A working knowledge of:
-    - TeqCMS plugin structure
-    - File-based SSR site organization
-    - Git-based workflows for content and code
-- Optional: an agent-enabled development environment (e.g. Codex)
+## Content and presentation
 
----
+All 36 localized publications live under `tmpl/web/{en,ru}/v2/`. Each Markdown source has YAML `title`, `description`, and ISO calendar `date`. The corresponding locale's `publication.html` renders it through `inc/layout.html`, `inc/nav.html`, and `inc/promo-styles.html`.
 
-## Repository Structure
+The locale-neutral URL `/v2/about` returns authored English Markdown, including front matter. `/en/v2/about` and `/ru/v2/about` render their exact-locale HTML. Metadata supplies canonical HTML, available language alternates, and the neutral Markdown alternate. The mobile navigation uses a native disclosure with a `☰` icon and an accessible localized name.
 
-- `tmpl/` — Markdown sources and shared HTML templates by locale (`tmpl/web/en/`, `tmpl/web/ru/`, etc.)
-- `web/` — static assets (CSS, JS, images)
-- `ctx/` — cognitive context for agents working on this site
+## Discovery
 
-The CMS and template runtime dependencies track their GitHub `main` branches under their regular package names. Run `npm update` to refresh the locked GitHub revisions, then `npm start` to run the site. `npm ci` reproduces the revisions recorded in `package-lock.json`. These runtime dependencies are also installed with `--omit=dev`; no separate development setup or package linking is required.
+After editing publications, run:
 
----
+```sh
+npm run generate
+```
 
-## Live Site
+The generator loads the same `.env` as the server and refreshes `web/robots.txt`, `web/llms.txt`, and `web/sitemap.xml`. Review the generated files with the content they describe.
 
-📍 [https://cms.teqfw.com/](https://cms.teqfw.com/)
+## Root-level routes: delegated engine work
 
----
+Support for `/about`, `/about.md`, `/en/about`, `/en/about.html`, and `/en/about.md` is delegated to [TeqCMS issue #31](https://github.com/flancer32/teq-cms/issues/31). The question is whether publication families must be registered or whether all public site pages can use a site-wide publication mode. The current installed engine requires a nonempty family prefix, so this site retains `/v2/` until the package supplies the agreed contract. No host-local runtime workaround is added.
+
+## Repositories and dependencies
+
+`ctx/` is a separate cognitive-context repository. Preserve its Git boundary. The runtime CMS and template dependencies track GitHub `main`; `npm ci` reproduces the revisions in `package-lock.json`. Dependency updates require their own scoped task.
+
+Live site: https://cms.teqfw.com/
 
 ## License
 
-Apache-2.0 © Alex Gusev (`@flancer32`)
-
-## Markdown-first publishing
-
-Run `npm start` and visit `/en/v2/index` or `/ru/v2/index` for HTML. `/v2/index` returns the complete English Markdown source with `Content-Type: text/markdown`. URL paths determine representation; no special User-Agent or Accept header is needed.
-
-All 56 localized pages are authored in `tmpl/web/{locale}/{family}/{route}.md`. Families are `v2`, `docs`, `features`, and `pages`; the root-level legacy pages now live in `pages/`. Each source requires YAML `title`, `description`, and `date` (ISO calendar date). The date records this migration unless a publication supplies its own authored date. Optional metadata remains available to the presentation.
-
-`publication.html` renders the derived Markdown body inside the shared layout with navigation, responsive styles, SEO metadata, canonical URLs, language alternates, and a Markdown alternate. The responsive author portrait uses a small trusted HTML block inside its Markdown source. Locale variants remain explicit files in Git.
-
-Publication URLs are extensionless. Old family URLs ending in `.html` return 404; update bookmarks and deployment links. Root entry templates lead to the localized `/v2/index` page. No per-page HTML content remains.
-
-`npm start` enables these families, English/Russian locales, and Nunjucks. It uses `TEQ_CMS__BASE_URL` from the process environment when supplied, defaulting to `https://cms.teqfw.com`. For direct `npx teq web:start` or `npx teq cms:generate`, configure the same settings shown in `.env.example`. After content changes regenerate `web/robots.txt`, `web/llms.txt`, and `web/sitemap.xml` using the CMS discovery command.
+Apache-2.0 © Alex Gusev.

@@ -14,10 +14,11 @@ The shortest path to understanding TeqCMS is to run this site's source locally. 
 git clone https://github.com/flancer32/teq-cms-promo.git
 cd teq-cms-promo
 npm ci
+cp .env.sample .env
 npm start
 ```
 
-Open `http://localhost:3000/en/v2/index` or `http://localhost:3000/ru/v2/index`. The site script selects Nunjucks, both locales, and the four publication families. For a local-only canonical URL, start it with `TEQ_CMS__BASE_URL=http://localhost:3000 npm start` in a POSIX shell.
+Open `http://localhost:3000/en/v2/index` or `http://localhost:3000/ru/v2/index`. The sample selects Nunjucks, English and Russian, and the publication configuration. Set `TEQ_CMS__BASE_URL=http://localhost:3000` in your `.env` for local canonical URLs.
 
 ## Make an edit you can see
 

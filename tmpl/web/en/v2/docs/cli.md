@@ -14,14 +14,14 @@ The standard TeqFW CLI serves the website and generates discovery files. Run com
 npm start
 ```
 
-For this repository, the script configures publication families, locales, and Nunjucks, then invokes `teq web:start`. In another host, `npx teq web:start` requires that host's configuration.
+For this repository, the script invokes `teq web:start`; the CLI loads the project’s `.env`. In another host, `npx teq web:start` requires that host's configuration.
 
 ## Regenerate discovery files
 
 After content changes, use the same publication and locale configuration as the server, then run:
 
 ```sh
-npx teq cms:generate
+npm run generate
 ```
 
 The command writes `web/robots.txt`, `web/llms.txt`, and `web/sitemap.xml`. It does not translate content.
@@ -30,4 +30,4 @@ The command writes `web/robots.txt`, `web/llms.txt`, and `web/sitemap.xml`. It d
 - `sitemap.xml` lists available localized HTML publications.
 - `robots.txt` contains crawl directives and the sitemap reference.
 
-This site's start-script settings are not automatically inherited by a separate CLI invocation. Supply the matching host configuration first; see [configuration](/en/v2/docs/config). Review generated files together with the content before publishing.
+The server and generator load the same `.env`; see [configuration](/en/v2/docs/config). Review generated files together with the content before publishing.

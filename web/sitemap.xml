@@ -1,17 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>https://cms.teqfw.com/en/docs/about</loc></url>
-  <url><loc>https://cms.teqfw.com/en/docs/config</loc></url>
-  <url><loc>https://cms.teqfw.com/en/docs/install</loc></url>
-  <url><loc>https://cms.teqfw.com/en/docs/locales</loc></url>
-  <url><loc>https://cms.teqfw.com/en/docs/translate</loc></url>
-  <url><loc>https://cms.teqfw.com/en/features/ai-localization</loc></url>
-  <url><loc>https://cms.teqfw.com/en/features/content-as-code</loc></url>
-  <url><loc>https://cms.teqfw.com/en/features/file-based</loc></url>
-  <url><loc>https://cms.teqfw.com/en/features/ssr</loc></url>
-  <url><loc>https://cms.teqfw.com/en/pages/contact</loc></url>
-  <url><loc>https://cms.teqfw.com/en/pages/faq</loc></url>
-  <url><loc>https://cms.teqfw.com/en/pages/index</loc></url>
   <url><loc>https://cms.teqfw.com/en/v2/about</loc></url>
   <url><loc>https://cms.teqfw.com/en/v2/contacts</loc></url>
   <url><loc>https://cms.teqfw.com/en/v2/docs/adsm</loc></url>
@@ -30,18 +18,6 @@
   <url><loc>https://cms.teqfw.com/en/v2/index</loc></url>
   <url><loc>https://cms.teqfw.com/en/v2/roadmap</loc></url>
   <url><loc>https://cms.teqfw.com/en/v2/subscription</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/docs/about</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/docs/config</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/docs/install</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/docs/locales</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/docs/translate</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/features/ai-localization</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/features/content-as-code</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/features/file-based</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/features/ssr</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/pages/contact</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/pages/faq</loc></url>
-  <url><loc>https://cms.teqfw.com/ru/pages/index</loc></url>
   <url><loc>https://cms.teqfw.com/ru/v2/about</loc></url>
   <url><loc>https://cms.teqfw.com/ru/v2/contacts</loc></url>
   <url><loc>https://cms.teqfw.com/ru/v2/docs/adsm</loc></url>

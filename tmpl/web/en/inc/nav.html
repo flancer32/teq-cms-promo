@@ -1,85 +1,34 @@
-<nav>
-    <ul class="main-menu" id="mainMenu">
-        <li class="home-link">
-            <a href="/{{ locale }}/v2/index">
-                <img src="/favicon.ico" alt="Home" class="home-icon">
-                <span class="home-text">Home</span>
-            </a>
-        </li>
-        <li>
-            <span>Features</span>
-            <ul>
-                <li><a href="/{{ locale }}/features/content-as-code">Content as Code</a></li>
-                <li><a href="/{{ locale }}/features/ai-localization">Agent Localization</a></li>
-                <li><a href="/{{ locale }}/features/file-based">File-based CMS</a></li>
-                <li><a href="/{{ locale }}/features/ssr">SSR</a></li>
-            </ul>
-        </li>
-        <li>
-            <span>Documentation</span>
-            <ul>
-                <li><a href="/{{ locale }}/docs/about">About</a></li>
-                <li><a href="/{{ locale }}/docs/install">Installation</a></li>
-                <li><a href="/{{ locale }}/docs/config">Configuration</a></li>
-                <li><a href="/{{ locale }}/docs/locales">Locales</a></li>
-                <li><a href="/{{ locale }}/docs/translate">Localization</a></li>
-            </ul>
-        </li>
-        <li><a href="/{{ locale }}/pages/contact">Contact</a></li>
-    </ul>
-
-    <div class="nav-right">
-        <div class="locale-switcher-inline">
-            {% for loc in allowedLocales %}
-            {% if not loop.first %}|{% endif %}
-            {% if loc == locale %}
-            <span>{{ loc | upper }}</span>
-            {% else %}
-            <a href="/{{ loc }}" onclick="return switchLocale('{{ loc }}')">{{ loc | upper }}</a>
-            {% endif %}
-            {% endfor %}
-        </div>
-        <button class="menu-toggle" onclick="toggleMenu()">☰</button>
+<header class="site-header">
+  <div class="container header-bar">
+    <a class="brand" href="/{{ locale }}/v2/index" aria-label="TeqCMS"><span class="brand-mark" aria-hidden="true">T/</span>TeqCMS</a>
+    <div class="quick-links"><a href="/{{ locale }}/v2/features">Features</a><a href="/{{ locale }}/v2/examples">Examples</a><a href="/{{ locale }}/v2/docs/overview">Documentation</a><a href="/{{ locale }}/v2/contacts">Get help</a></div>
+    <div class="locale-switcher" aria-label="Language">
+      {% for loc, url in alternateUrls %}
+      {% if loc == locale %}<span lang="{{ loc }}" aria-current="true">{{ loc | upper }}</span>{% else %}<a href="{{ url }}" lang="{{ loc }}" hreflang="{{ loc }}">{{ loc | upper }}</a>{% endif %}
+      {% endfor %}
     </div>
-</nav>
-
-<script>
-    function toggleMenu() {
-        const menu = document.getElementById('mainMenu');
-        const navRight = document.querySelector('.nav-right');
-        if (menu) menu.classList.toggle('open');
-        if (navRight) navRight.classList.toggle('hidden-on-open');
-    }
-
-    // @formatter:off
-    function switchLocale(targetLocale) {
-        const allowed = {{ allowedLocales | dump | safe }};
-        const path = window.location.pathname;
-        const current = allowed.find(loc => path === `/${loc}` || path.startsWith(`/${loc}/`));
-        let basePath = path;
-
-        if (current) {
-            basePath = path.replace(new RegExp(`^/${current}`), '');
-        }
-        window.location.href = `/${targetLocale}${basePath || '/'}`;
-        return false;
-    }
-    // @formatter:on
-
-    document.addEventListener('DOMContentLoaded', () => {
-        if (window.innerWidth <= 768) {
-            const toggles = document.querySelectorAll('.main-menu > li > span');
-            toggles.forEach(span => {
-                span.addEventListener('click', () => {
-                    const parent = span.parentElement;
-                    parent.classList.toggle('open');
-                    const submenu = span.nextElementSibling;
-                    if (submenu) {
-                        const expanded = submenu.style.maxHeight;
-                        submenu.style.maxHeight = expanded ? null : submenu.scrollHeight + 'px';
-                    }
-                });
-            });
-        }
-    });
-</script>
+    <details class="site-menu">
+      <summary aria-label="Menu"><span class="menu-icon" aria-hidden="true">☰</span><span class="menu-label">Menu</span></summary>
+      <nav class="menu-panel" aria-label="Main navigation"><ul>
+        <li><a href="/{{ locale }}/v2/index">Home</a></li>
+        <li><a href="/{{ locale }}/v2/about">About</a></li>
+        <li><a href="/{{ locale }}/v2/features">Features</a></li>
+        <li><a href="/{{ locale }}/v2/examples">Examples</a></li>
+        <li><details class="docs-menu"><summary>Documentation</summary><ul><li><a href="/{{ locale }}/v2/docs/overview">Overview</a></li>
+<li><a href="/{{ locale }}/v2/docs/adsm">ADSM workflow</a></li>
+<li><a href="/{{ locale }}/v2/docs/install">Installation</a></li>
+<li><a href="/{{ locale }}/v2/docs/config">Configuration</a></li>
+<li><a href="/{{ locale }}/v2/docs/locales">Locales</a></li>
+<li><a href="/{{ locale }}/v2/docs/translate">Localization</a></li>
+<li><a href="/{{ locale }}/v2/docs/cli">CLI</a></li>
+<li><a href="/{{ locale }}/v2/docs/dev-llm">Working with agents</a></li>
+<li><a href="/{{ locale }}/v2/docs/faq">FAQ</a></li>
+<li><a href="/{{ locale }}/v2/docs/plugins">Integration</a></li>
+<li><a href="/{{ locale }}/v2/docs/troubleshooting">Troubleshooting</a></li></ul></details></li>
+        <li><a href="/{{ locale }}/v2/roadmap">Roadmap</a></li>
+        <li><a href="/{{ locale }}/v2/subscription">Support</a></li>
+        <li><a href="/{{ locale }}/v2/contacts">Contact</a></li>
+      </ul></nav>
+    </details>
+  </div>
+</header>

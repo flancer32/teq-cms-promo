@@ -1,24 +1,27 @@
 <!DOCTYPE html>
-<html lang="ru">
+<html lang="{{ locale }}">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Мой сайт{% endblock %}</title>
-    <link rel="stylesheet" href="/css/style.css">
-    {# --- SEO Canonical & Alternate URLs --- #}
-    {% if canonicalUrl %}
-        <link rel="canonical" href="{{ canonicalUrl }}">
-    {% endif %}
-    {% if alternateUrls %}
-        {% for lang, url in alternateUrls %}
-            <link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">
-        {% endfor %}
-    {% endif %}
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#2449cf">
+  <title>{% block title %}TeqCMS{% endblock %}</title>
+  <link rel="icon" href="/favicon.ico">
+  {% include "inc/promo-styles.html" %}
+  {% if canonicalUrl %}<link rel="canonical" href="{{ canonicalUrl }}">{% endif %}
+  {% for lang, url in alternateUrls %}<link rel="alternate" hreflang="{{ lang }}" href="{{ url }}">{% endfor %}
+  {% if markdownAlternateUrl %}<link rel="alternate" type="text/markdown" href="{{ markdownAlternateUrl }}">{% endif %}
+  {% block og %}{% endblock %}
+  {% block twitter %}{% endblock %}
 </head>
 <body>
-{% include "inc/nav.html" %}
-<main>
-    {% block content %}{% endblock %}
-</main>
+  <a href="#main-content" class="skip-link">К содержимому</a>
+  {% include "inc/nav.html" %}
+  <main class="container" id="main-content" tabindex="-1">{% block content %}{% endblock %}</main>
+  <footer class="site-footer">
+    <div class="container footer-inner">
+      <div><p><strong>TeqCMS · Markdown → HTML</strong></p><p>Этот сайт работает на TeqCMS. Контент и шаблоны доступны в открытом репозитории.</p><p>Автор — Алекс Гусев</p></div>
+      <div class="footer-links"><a href="https://github.com/flancer32/teq-cms">Исходники CMS</a><a href="https://github.com/flancer32/teq-cms-promo">Исходники сайта</a>{% if markdownAlternateUrl %}<a href="{{ markdownAlternateUrl }}">Читать Markdown</a>{% endif %}<a href="/{{ locale }}/v2/contacts">Контакты</a></div>
+    </div>
+  </footer>
 </body>
 </html>

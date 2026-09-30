@@ -30,7 +30,7 @@ TEQFW_TMPL__ENGINE=nunjucks
 
 Publication families default to an empty list. Prefixes must not overlap or begin with a maintained locale code. Create `tmpl/web/{locale}/docs/` sources and a host-owned `publication.html` presentation before expecting localized HTML.
 
-The promotional site's `npm start` script already supplies its publication and locale settings. Review the script when adapting it; supplying a different family list through the environment alone does not override its assignment.
+Copy `.env.sample` to `.env` and adjust the settings there. Both `npm start` and `npm run generate` use the same CLI-loaded configuration. Process environment values override matching dotenv keys.
 
 ## Optional agent inbox
 

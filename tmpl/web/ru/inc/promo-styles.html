@@ -20,8 +20,9 @@ button,summary { font:inherit; }
 .locale-switcher span { color:var(--ink); background:var(--wash); }
 .site-menu > summary { cursor:pointer; list-style:none; min-block-size:2.75rem; padding:.65rem .8rem; border:1px solid var(--line); border-radius:.6rem; font-size:.85rem; font-weight:650; }
 .site-menu > summary::-webkit-details-marker { display:none; }
-.site-menu > summary::after { content:" +"; }
-.site-menu[open] > summary::after { content:" −"; }
+.menu-icon { font-size:1.4rem; line-height:1; }
+.menu-label { display:none; }
+
 .site-menu[open] > summary { background:var(--wash); }
 .menu-panel { position:absolute; z-index:5; inset-block-start:calc(100% - .2rem); inset-inline:0; padding:1rem; background:#fff; border:1px solid var(--line); border-radius:var(--radius); box-shadow:0 16px 40px #172d431a; max-block-size:75dvh; overflow:auto; }
 .menu-panel ul { list-style:none; margin:0; padding:0; }
@@ -102,7 +103,7 @@ th { background:var(--wash); }
 .footer-links a { display:inline-flex; align-items:center; min-block-size:2.75rem; }
 @media (max-width:24rem) { .brand { font-size:1.15rem; gap:.35rem; } .header-bar { gap:.35rem; } .site-menu > summary { padding:.65rem .5rem; } .author-block { flex-direction:column; } .author-text { margin-inline-start:0; margin-block-start:1rem; } }
 @media (min-width:40rem) { .container { inline-size:min(100% - 4rem,74rem); } .benefit-strip { grid-template-columns:repeat(3,minmax(0,1fr)); } .menu-panel { inset-inline-start:auto; inline-size:24rem; } .support-panel,.workflow { padding:2.5rem; } }
-@media (min-width:64rem) { main { padding-block-start:4rem; } .hero { grid-template-columns:1.15fr 1fr; gap:3.5rem; padding-block:1rem 3rem; } .quick-links { display:flex; gap:1.25rem; } .quick-links a { min-block-size:2.75rem; display:flex; align-items:center; font-size:.9rem; text-decoration:none; } .source-window { padding:1.5rem; } .content-section { padding-block:2rem 3rem; } }
+@media (min-width:64rem) { .menu-icon { display:none; } .menu-label { display:inline; } main { padding-block-start:4rem; } .hero { grid-template-columns:1.15fr 1fr; gap:3.5rem; padding-block:1rem 3rem; } .quick-links { display:flex; gap:1.25rem; } .quick-links a { min-block-size:2.75rem; display:flex; align-items:center; font-size:.9rem; text-decoration:none; } .source-window { padding:1.5rem; } .content-section { padding-block:2rem 3rem; } }
 @media (prefers-reduced-motion:no-preference) { .btn { transition:background .15s ease; } }
 @media (forced-colors:active) { .btn,.source-window,.card,.support-panel { border:1px solid CanvasText; } }
 </style>

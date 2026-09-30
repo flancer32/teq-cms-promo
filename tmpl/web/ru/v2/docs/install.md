@@ -14,10 +14,11 @@ date: 2026-09-30
 git clone https://github.com/flancer32/teq-cms-promo.git
 cd teq-cms-promo
 npm ci
+cp .env.sample .env
 npm start
 ```
 
-Откройте `http://localhost:3000/ru/v2/index` или `http://localhost:3000/en/v2/index`. Скрипт сайта выбирает Nunjucks, обе локали и четыре семейства публикаций. Для локального канонического URL в POSIX-оболочке используйте `TEQ_CMS__BASE_URL=http://localhost:3000 npm start`.
+Откройте `http://localhost:3000/ru/v2/index` или `http://localhost:3000/en/v2/index`. Пример настроек выбирает Nunjucks, русский и английский и конфигурацию публикаций. Для локальных канонических URL задайте `TEQ_CMS__BASE_URL=http://localhost:3000` в `.env`.
 
 ## Внесите видимую правку
 
