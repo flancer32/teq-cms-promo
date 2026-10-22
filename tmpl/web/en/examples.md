@@ -1,12 +1,13 @@
 ---
 title: "Websites built with TeqCMS — TeqCMS"
-description: "Explore teqfw.com, wiredgeese.com, and this promotional site, with direct links to their application code."
+description: "Explore teqfw.com, wiredgeese.com, pde.network, and this promotional site: working examples built with TeqCMS."
 date: 2026-09-30
+updated: 2026-10-22
 ---
 
 # Websites built with TeqCMS
 
-I use TeqCMS for these websites. Open a site to see the result, then its application repository to inspect the files.
+I use TeqCMS for these websites. Open a site to see the result, and inspect the files in its application repository when the code is public.
 
 ## teqfw.com — a framework website
 
@@ -19,6 +20,12 @@ An introduction to TeqFW and its documentation.
 My projects, writing, and ways to work with me.
 
 [Visit wiredgeese.com](https://wiredgeese.com/) · [Inspect the site code](https://github.com/flancer32/site_wg)
+
+## pde.network — Personal Digital Embassy Network
+
+A project website about personal control over how AI and external systems access your digital resources.
+
+[Visit pde.network](https://pde.network/)
 
 ## This site — a product introduction
 
