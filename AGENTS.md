@@ -2,7 +2,7 @@
 
 - Path: `AGENTS.md`
 - Template Version: `20260720`
-- Changed: `20260930`
+- Changed: `YYYYMMDD`
 
 ## Purpose
 
@@ -69,8 +69,6 @@ In a two-repository topology, the software product and the cognitive context are
 
 The Agent must detect whether `./ctx/` is part of the current repository or an independent repository.
 
-This project uses two independent repositories: `flancer32/teq-cms-promo` for the software product and `flancer32/teq-cms-promo-ctx` mounted under `./ctx/` for the cognitive context.
-
 The Agent must preserve repository boundaries.
 
 The Agent must not mix changes between independent repositories.
@@ -120,14 +118,3 @@ The Agent must never read, load, print, search for, or expose secret-bearing pro
 The Agent may use a non-secret example template such as `.env.example` only to learn the configuration shape. It must not infer or request the value of any secret.
 
 If secret data is exposed accidentally, the Agent must stop handling that value, must not repeat it, and must tell the Human that the secret should be rotated or revoked.
-
-## Project Working Boundaries
-
-- This repository owns the content layer. CMS logic and the template engine are provided by external packages; do not add custom runtime code.
-- Do not modify `etc/` under ordinary content tasks. Changes to `web/` require explicit human instruction.
-- Translation execution belongs to the human; do not run or trigger translation processes.
-- Dependency maintenance requires an explicit task; do not alter external package source as part of content work.
-- Communicate with the human in Russian. Write source code, comments, documentation, identifiers, and commit messages in English.
-- Do not commit or push unless explicitly requested.
-- Summarize changes, validation results, and remaining concerns in the conversation. No per-task report files or report directory are required.
-- Follow the project-local `project-conventions` skill for repository workflows and validation.
